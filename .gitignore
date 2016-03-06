@@ -1,0 +1,6 @@
+.idea
+.deploy_git
+node_modules
+.npmignore
+public
+db.json
