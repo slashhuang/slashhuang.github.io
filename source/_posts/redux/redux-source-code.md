@@ -51,7 +51,7 @@ tags: redux  react-connect
 
 ```
 
->5、redux提供的middleware中间件applyMiddleWare繁荣社区为redux编写更多的中间件,以redux-thunk(x形式替换程序)为例
+>5、redux提供applyMiddleWare为中间件的接口，社区也有诸多redux配合其他框架的中间件,以redux-thunk(形式替换程序)为例
 
 ``` javascript
    redux-thunk将action的执行条件，增加到不仅仅是plainObject的范围，并兼容promise。  
