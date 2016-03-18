@@ -1,7 +1,9 @@
 ---
 title: redux源码拆解
 date: 2016-03-14 15:23:30
-tags: redux  react-connect
+tags:
+- redux 
+- react
 ---
 
 ## redux源码拆解分析
