@@ -4,5 +4,7 @@ date: 2016-04-20 17:18:52
 ---
 
 - [运营南京大学IT校友会微信群的体会](/2012/04/20/article-list/as-a-pm/)
-- [面试血泪史](http://localhost:4000/2012/04/20/article-list/as-a-fe/)
+- [面试血泪史](/2012/04/20/article-list/as-a-fe/)
+- [南京大学IT校友会第一次活动安排](/2012/04/21/article-list/nju-event/)
+
 
