@@ -73,4 +73,5 @@ stylus:
 deploy:
   type: git
   repo: https://github.com/slashhuang/slashhuang.github.io.git
-  branch: gh-pages
+  branch: master
+
