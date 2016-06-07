@@ -86,5 +86,6 @@ onJsAlert,onJsConfirm,onJsPrompt方法将会在js调用window对象的对应的�
 ##### 2、js调用native代码:   在UIWebView内发起的所有网络请求，通过delegate函数在Native层得到通知。
 
 ## 结尾
+
 > JSbridge是个hybrid应用开发中非常常见的话题，其实也没有什么神秘的。
 > 一个好的JSbridge是需要很好的设计模式的，yeap！
