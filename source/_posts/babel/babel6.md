@@ -38,3 +38,6 @@ tags:
 - 接受query参数，用于传递给相关loader
 - Plugins可以带给相关loader更多特性
 
+### ES6在IE下的兼容性问题
+[对照列表](http://www.tuicool.com/articles/nEJRri)
+
