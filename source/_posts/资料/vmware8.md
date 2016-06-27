@@ -1,0 +1,13 @@
+---
+title: vmware注册码
+date: 2013-05-31 00:00:14
+tags:
+- vmware
+---
+
+```bash
+FY75A-06W1M-H85PZ-0XP7T-MZ8E8
+ZY7TK-A3D4N-08EUZ-TQN5E-XG2TF
+FG1MA-25Y1J-H857P-6MZZE-YZAZ6
+```
+
