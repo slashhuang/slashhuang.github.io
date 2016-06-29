@@ -1,0 +1,1078 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>slashhuang的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="slashhuang">
+    
+
+    
+    <meta name="description" content="slashhuang的技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="slashhuang的技术博客">
+<meta property="og:url" content="http://slashhuang.github.io/page/4/index.html">
+<meta property="og:site_name" content="slashhuang的技术博客">
+<meta property="og:description" content="slashhuang的技术博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="slashhuang的技术博客">
+<meta name="twitter:description" content="slashhuang的技术博客">
+
+    
+    <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/sunflower.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/sunflower.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?01891ef906288b6beb422abdad210ee6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74045988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.jpg" alt="slashhuang的技术博客" title="slashhuang的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">目录</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+						<li><a href="/essay">随笔</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:slashhuang.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/04/wordpress/react-e8-ae-be-e8-ae-a1-e6-80-9d-e6-83-b3-e7-a0-94-e7-a9-b61-e6-95-b4-e4-bd-93-e6-9e-b6-e6-9e-84/" title="React设计思想研究(1)--整体架构" itemprop="url">React设计思想研究(1)--整体架构</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-04T01:20:11.000Z" itemprop="datePublished"> Published 2016-02-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>因为在项目中用React用的比较多，准备开个专栏来研究react的设计结构及源码。</p>
+<p>我们从下面这个简单的例子入手来看虚拟DOM和react的构造机制。</p>
+<pre>React.render(React.createElement('div', {name: "John"}), document.getElementById("container"));</pre>
+由此我们可以开始定义及猜测React的基本结构
+<pre>React{
+   render:function(todoElement,targetNode){},
+   createElement:function(type,config,children){}
+};</pre>
+
+<ul>
+<li>render方法是将第一个参数todoElement改造成html,放入第二个对应的容器中。</li>
+<li>createElement将参数改造成虚拟dom，供render函数调用。为保证信息的完整性，可以推知虚拟Dom的创建必须满足如下要求：<blockquote>
+<p><em>虚拟dom包含信息&gt;=真实DOM包含信息</em><br><pre>初步定义虚拟dom结构：<br>{<br>type:type,//可以是html标签如’div’或者是’function’构造函数形式<br>props:props，//包含html的所有attribute和子元素children<br>key：key//html的映射键值<br>};</pre><br>这时候，在render函数体内，接收到的参数就是虚拟dom和目标容器。</p>
+</blockquote>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/reactJS/">reactJS</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/28/wordpress/e6-90-9c-e7-b4-a2-e6-8a-80-e6-9c-afbigpipe/" title="搜索技术bigPipe" itemprop="url">搜索技术bigPipe</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-28T00:34:17.000Z" itemprop="datePublished"> Published 2016-01-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html" target="_blank" rel="external">http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/25/wordpress/2016-1-25-js-e5-86-85-e5-ad-98-e7-ae-a1-e7-90-86-e5-8f-8areactjs-e9-83-a8-e5-88-86-e6-ba-90-e7-a0-81/" title="2016.1.25 JS内存管理及ReactJS部分源码" itemprop="url">2016.1.25 JS内存管理及ReactJS部分源码</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-25T08:19:29.000Z" itemprop="datePublished"> Published 2016-01-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>离春节的日子越来越近，还有10天就可以回家了。今天没有做什么业务上的事情，自己温习了下JavaScript的一些高级教程。</p>
+<ol>
+<li><p>内存管理</p>
+<ol>
+<li>堆： 存储对象，更确切的说是数据大小可变的数据类型，它们的值存储的是指向内存中对象地址。属于二级缓存区域（由垃圾回收算法回收内存）</li>
+<li>栈：  动态内存区域，存储基本数据类型。JS不像C类语言，它对字符串做了处理，并将其归入基本数据类型。它们的值直接存储在变量的访问位置。属于一级缓存区域</li>
+<li>消息队列：负责JS主线程与其他进程（主要是各种I/O操作）的通信的线程是消息线程，这意味着在I/O操作中，谁先有结果返回，可以在JS函数调用栈为空时，优先得到JS调用栈的处理。队列这种结构就是先进先出的典型。当栈再次为空的时候，就意味着消息队列的结束。</li>
+<li>添加消息： 常用的setTimeout(fn,0)在消息队列的尾部添加事件回调函数</li>
+</ol>
+</li>
+<li><p>看了下reactJS虚拟Dom的部分源码。</p>
+<ol>
+<li><p>不得不说自己真还没有这个水平完全写一个类似React的MVVM框架出来,还有很长的路要走哩。主要的技术难点分析下来，在于这几点</p>
+<pre><code>1.  Model + view:建立合适的数据模型描述Dom结构。这一点reactJS的主要做法就是添加路标系统---data-reactid,通过使用reactid标示每一个dom节点，可以让View和Model建立很好地映射关系。
+</code></pre><ol>
+<li>VM + 处理事件：在前端的世界里，几乎天天离不开处理各种事件。在view层产生各种事件，如click等的时候，我们如何检测事件发生的dom节点。比较常规的做法是，将所有的事件都挂载在document上，通过冒泡的形式，获取e.target.getAttribute(‘data-reactid’)来遍历Model寻找需要更改的数据范围。这种常规的思想缺点在于，遍历是个比较费性能的事，而且处理回调函数需要考虑到各种情况，对Model设计是个大考验。而React的思路比较好，它把所有的data-reactid和Model综合起来，构建了和DOM 完全映射的VM (virtual dom),在处理事情的时候也采用事件代理+hash表的形式。这个我只是大概有个思路，具体实现，还不是特别清楚，需要继续研习。</li>
+<li><p>DOM diff算法：这个是个大头，也是React的核心所在，这个算法需要考虑的几个大头问题是：</p>
+<pre><code>1.  映射关系以data-reactid为准的情况下，以什么样的尺度比较两次Model的不同，是浅对比还是深对比。
+</code></pre><ol>
+<li>选定比对尺度后，对页面的真实DOM是reorder,reorganize 还是destroy，create等等</li>
+<li>对于用户没有通过react进行的操作，如何在Model更新的时候依旧保留<br>夜深了，发现写个日记确实能够帮助巩固很多知识呢！ anyway，night</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>&nbsp;</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/categories/Javascript/reactJS/">reactJS</a>►<a class="article-category-link" href="/categories/Javascript/reactJS/技术及生活日记/">技术及生活日记</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/24/wordpress/javascript-e7-bc-96-e8-af-91-e6-89-a7-e8-a1-8c/" title="javascript变量提升及闭包" itemprop="url">javascript变量提升及闭包</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-24T08:00:33.000Z" itemprop="datePublished"> Published 2016-01-24</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>前端工程师在写页面JS的时候很少会关注到编译的情况,更多的是看执行的结果，然后根据相应的报错信息修正代码。在javascript的世界里，scope的作用域概念存在于函数中，当函数运行到某行代码需要查找某个变量时，编译器会在当前函数作用域下查找该变量，如果没有找到则继续往上一层函数作用域查找，这个过程会一直持续到全局作用域，如果没有找到相应变量，则抛出报错信息。</p>
+<p>在JS中存在这样的代码，</p>
+<p><pre>console.log(e());//打印e<br>function e(){<br>  console.log(‘e’)<br>}</pre><br>这个是很令人费解的，在执行第一行代码的时候，编译解析器并没有执行到funtion哪一行，为何还是能打印出字符呢？ 这个问题的答案在于，JS执行每个函数作用域时，会把所有的变量按照local,global,closure分类声明，同时将以var声明的变量赋值undefined，将所有以funtion func(){}形式定义的函数放在FUNCTIONS里面，function在JS中是一级对象，它们可以拥有属性和方法，无论何时都会返回值，当用new形式加载function时，返回this值，除了显式定义return,其它的情况都是返回undefined。</p>
+<p>回到正题，当JS在碰到每个函数作用域时，会先声明完函数作用域的本地变量同时对所有在函数体内引用到的外界变量创建closure。在closure里面存储的变量有个神奇的地方，它会对它以内所有代码检查一遍是否存在引用上下文变量的情况，如果存在则将变量添加进clousure，由此也可以窥见为何递归在JS中容易出现栈溢出的情况。具体的测试，见下方代码</p>
+<p><pre>var ddd=’ddd’;// t的上下文变量<br>function e(){//t的上下文变量<br>  console.log(‘e’)<br>}<br>var t= (function foo() {<br>    debugger//查看执行时候，变量存储形式<br>    var x = 1;<br>    var test=’test’;<br>    return function () {<br>        return function(){<br>            console.log(e)<br>            console.log(ddd)}<br>        };<br>}());</pre><br>在debugger区域你可以看到，debugger区域里面的closure已经存储了e和ddd变量(图片支持的不是很好，不贴了，直接把数据结构给出)。</p>
+<ul>
+<li>local:this</li>
+<li>closure:ddd=’ddd’<br>Functions:e(){}</li>
+<li>global<br>好了，做到这一步，基本可以看清楚javascript函数作用域的一些scope变量存储及作用域提升的细节：闭包就是一个函数创建时候的上下文(context)绑定，而变量提升则是JS在执行前做的一些分类变量类型(global,closure,local,Functions)的声明工作,其实也是比较能够理解和简单的。</li>
+</ul>
+<p>在我看来，对于前端工程师来说，充分利用JS函数作用域的特性，采用闭包缓存全局变量加快代码执行速度，利用JS语法的灵活性来更好的规划代码，这是比较好的。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/22/wordpress/react-e5-af-b9-e5-be-aa-e7-8e-afwarning-e6-8f-90-e7-a4-ba-e5-a2-9e-e5-8a-a0key-e7-9a-84-e7-a0-94-e7-a9-b6/" title="react 对循环warning提示增加key的研究" itemprop="url">react 对循环warning提示增加key的研究</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-22T04:23:19.000Z" itemprop="datePublished"> Published 2016-01-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>今天写了个关于react中处理key的测试，代码见我的github:   <a href="https://github.com/slashhuang/react-dom-re-render.git" target="_blank" rel="external">https://github.com/slashhuang/react-dom-re-render.git</a> 主要的观点有以下几点： react的key关乎到react的dom-diff算法 react中对于dom的操作是根据生成的data-reactid进行绑定的，添加key可以保证dom结构的完整性，而不会根据react自己对dom进行的标记重新分配 。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/14/wordpress/webpack-e6-89-93-e5-8c-85react-e6-9c-ba-e5-88-b6-e7-a0-94-e7-a9-b6/" title="webpack打包react机制研究" itemprop="url">webpack打包react机制研究</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-14T04:50:15.000Z" itemprop="datePublished"> Published 2016-01-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>用webpack打包react，涉及到原型链的时候，需要注意的几个问题。webpack执行顺序是先声明每个原型挂载在prototype上的方法。</p>
+<p><code>var Test2 = (function (_Test1) {
+_inherits(Test2, _Test1);//匿名函数立即执行，挂载所有的prototype方法
+function Test2(props, context) {//构造函数方法，在实例化的时候执行
+_classCallCheck(this, _Test2);
+**__Test1.call(this, props, context);_**//不断挂载在this对象上，继承
+this.renderDisplay = this.renderDisplay.bind(this);
+this.state = {
+thumbNailIndex: 0
+};}
+var _Test2 = Test2;
+Test2 = _utilsClassNameMixin2[&#39;default&#39;](Test2) || Test2;
+return Test2;})(_test1Js2[&#39;default&#39;]);
+}</code><br><code>针对_classCallCheck进行说明,这是ES6语法的检测，保证super函数调用在this之前，不对原型做任何操作！
+&quot;function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(&#39;Cannot call a class as a function&#39;); } }&quot;</code><br><code>下面引一段react关于生成实例的源码
+备注：这里只是引部分代码，inst为经历了各种继承关系(call)最后生成的this值.
+// These should be set up in the constructor, but as a convenience for
+// simpler class abstractions, we set them up after the fact.
+inst.props = publicProps;
+inst.context = publicContext;
+inst.refs = emptyObject;
+inst.updater = ReactUpdateQueue;
+可以看到react在最后处理阶段，无论你在继承关系中做了什么，还是会把props,refs,context修正回来。至于其他的例如state等属性，则没有做最后修改，所以在extends的关系中，可以做的事情是state而不是props</code></p>
+<ul>
+<li>重要的原型！！</li>
+<li>在实例化构造函数的时候，所有的继承关系是通过apply，call的形式传递this值的，而不是通过new function的形式。</li>
+<li><p>整个过程分为3步骤：</p>
+<ul>
+<li>生成所有的prototype构造函数</li>
+<li>生成所有的实例(this)继承关系</li>
+<li>由react接手最后的this，修改props,updater等保护属性，返回页面应用实例</li>
+</ul>
+</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/categories/Javascript/reactJS/">reactJS</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/13/wordpress/e7-82-b9-e8-af-84-e5-89-8d-e7-ab-af-e4-ba-a4-e6-b5-81/" title="svg好的动画效果网站" itemprop="url">svg好的动画效果网站</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-12T23:38:25.000Z" itemprop="datePublished"> Published 2016-01-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="http://techbrood.com/" target="_blank" rel="external">http://techbrood.com/</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/10/wordpress/mongodb-e5-85-b3-e4-ba-8enodejs-e7-9a-84api/" title="mongodb关于nodejs的api" itemprop="url">mongodb关于nodejs的api</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-10T08:40:55.000Z" itemprop="datePublished"> Published 2016-01-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://mongodb.github.io/node-mongodb-native/api-generated/collection.html" target="_blank" rel="external">https://mongodb.github.io/node-mongodb-native/api-generated/collection.html</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/10/wordpress/node-e8-b0-83-e8-af-95-e5-b7-a5-e5-85-b7/" title="node调试工具" itemprop="url">node调试工具</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-10T01:24:15.000Z" itemprop="datePublished"> Published 2016-01-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="http://i5ting.github.io/node-debug-tutorial/" target="_blank" rel="external">http://i5ting.github.io/node-debug-tutorial/</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/21/wordpress/e5-8d-95-e9-a1-b5-e9-9d-a2-e5-ba-94-e7-94-a8seo-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" title="单页面应用seo解决方案" itemprop="url">单页面应用seo解决方案</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-21T05:17:11.000Z" itemprop="datePublished"> Published 2015-12-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>比较好的资料收藏了</p>
+<p><a href="https://leohxj.gitbooks.io/front-end-database/content/sap/sap-seo.html" target="_blank" rel="external">https://leohxj.gitbooks.io/front-end-database/content/sap/sap-seo.html</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/IOS开发/" title="IOS开发">IOS开发<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaScript算法/" title="JavaScript算法">JavaScript算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>54</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/reactJS/" title="reactJS">reactJS<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/reactJS/" title="reactJS">reactJS<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/reactJS/技术及生活日记/" title="技术及生活日记">技术及生活日记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/技术及生活日记/" title="技术及生活日记">技术及生活日记<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react-native/" title="react-native">react-native<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/性能/" title="性能">性能<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/浏览器/" title="浏览器">浏览器<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react/" title="react">react<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ellipsis/" title="ellipsis">ellipsis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jsbridge/" title="jsbridge">jsbridge<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/babel/" title="babel">babel<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/南京大学/" title="南京大学">南京大学<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/redux/" title="redux">redux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活习惯/" title="生活习惯">生活习惯<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/angularjs/" title="angularjs">angularjs<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://pandakeeper.net" target="_blank" title="作者阿里云地址">作者阿里云地址</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/future-team" target="_blank" title="Future-team前端">Future-team前端</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://daib13.github.io/" target="_blank" title="戴博士日志">戴博士日志</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> FE developer and github contributor <br/>
+			因上努力，果上随缘</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/slashhuang" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/huang-da-xian-14-14" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:627284482@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="slashhuang">slashhuang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

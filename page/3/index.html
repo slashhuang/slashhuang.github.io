@@ -1,0 +1,1092 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>slashhuang的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="slashhuang">
+    
+
+    
+    <meta name="description" content="slashhuang的技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="slashhuang的技术博客">
+<meta property="og:url" content="http://slashhuang.github.io/page/3/index.html">
+<meta property="og:site_name" content="slashhuang的技术博客">
+<meta property="og:description" content="slashhuang的技术博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="slashhuang的技术博客">
+<meta name="twitter:description" content="slashhuang的技术博客">
+
+    
+    <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/sunflower.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/sunflower.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?01891ef906288b6beb422abdad210ee6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74045988-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.jpg" alt="slashhuang的技术博客" title="slashhuang的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">目录</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+						<li><a href="/essay">随笔</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:slashhuang.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/23/react-native/UIview/" title="react-native之UI界面" itemprop="url">react-native之UI界面</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-23T12:27:39.000Z" itemprop="datePublished"> Published 2016-03-23</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>今天整理下react-native在UI布局方面的代码心得</p>
+</blockquote>
+<h2 id="布局采用flex-box布局以及部分盒模型的异同点"><a href="#布局采用flex-box布局以及部分盒模型的异同点" class="headerlink" title="布局采用flex-box布局以及部分盒模型的异同点"></a>布局采用flex-box布局以及部分盒模型的异同点</h2><ul>
+<li>横纵轴的布局属性基本保持一致<blockquote>
+<p>justifyContent,alignItems,alignSelf等等</p>
+</blockquote>
+</li>
+<li>flexDirection默认为column</li>
+<li>增加paddingHorizontal和paddingVertical</li>
+<li>增加marginVertical和marginHorizontal</li>
+<li>所有的样式属性名都用camelCase的形式</li>
+<li>颜色的名字采用<a href="https://www.w3.org/TR/css3-color/#svg-color" target="_blank" rel="external"> CSS3 specification规范</a></li>
+<li>踩坑点:父类元素不需要设置relative<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><blockquote>
+<p>由于react-native实际上是对原生UI组件的一个polyFill，所以在选型上选择了操作<br>性更好的flex-box布局形式，同时配合盒模型 </p>
+</blockquote>
+</li>
+</ul>
+<h2 id="页面路由导航"><a href="#页面路由导航" class="headerlink" title="页面路由导航"></a>页面路由导航</h2><blockquote>
+<p>Navigator基本就是栈队列的结构,组件提供了丰富的API供外界调用.<br>基本不用自己做特殊的封装</p>
+</blockquote>
+<h2 id="事件及触摸处理"><a href="#事件及触摸处理" class="headerlink" title="事件及触摸处理"></a>事件及触摸处理</h2><ul>
+<li>封装了基本所有的触摸情况，不需要二次开发</li>
+<li>对需要处理的事件的UI都需要包裹事件标签，例如TouchableHighlight等等</li>
+</ul>
+<blockquote>
+<p>今天的成果=》模拟网上的项目，做了个首页<br><img src="/img/work/react-native-day1.jpg" width="50%"></p>
+</blockquote>
+<p>==================3月24日更新=============</p>
+<h3 id="2016-3-24日今天完成了webView和照片浏览插件"><a href="#2016-3-24日今天完成了webView和照片浏览插件" class="headerlink" title="2016.3.24日今天完成了webView和照片浏览插件"></a>2016.3.24日今天完成了webView和照片浏览插件</h3><blockquote>
+<p>webView中使用了progressBar组件，而slider使用的是react-native-swiper插件</p>
+</blockquote>
+<h5 id="具体实现细节后期更新，界面实现见下图"><a href="#具体实现细节后期更新，界面实现见下图" class="headerlink" title="具体实现细节后期更新，界面实现见下图"></a>具体实现细节后期更新，界面实现见下图</h5><div style="{width:100%;}}"><br><img src="/img/work/imgSlider.jpg" width="50%"><br><img src="/img/work/webview.jpg" width="50%"><br></div>
+
+
+
+
+
+
+
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/react-native/">react-native</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/21/react-native/react-native/" title="react-native学习心得" itemprop="url">react-native学习心得</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-21T06:27:39.000Z" itemprop="datePublished"> Published 2016-03-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="开始学习react-native"><a href="#开始学习react-native" class="headerlink" title="开始学习react-native"></a>开始学习react-native</h2><p>做个大致的学习路线安排(各1天)</p>
+<ol>
+<li>路由系统及调试方式</li>
+<li>Ajax系统</li>
+<li>表单系统</li>
+<li>列表界面</li>
+</ol>
+<h5 id="端口占用"><a href="#端口占用" class="headerlink" title="端口占用"></a>端口占用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -n -i4TCP:8081 | grep LISTEN &amp;&amp;  sudo kill pid</span><br></pre></td></tr></table></figure>
+<h3 id="组件映射表"><a href="#组件映射表" class="headerlink" title="组件映射表"></a>组件映射表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ActivityIndicatorIOS=&gt;animation</span><br><span class="line">DatePickerIOS=&gt;日期组件</span><br><span class="line">Modal=&gt;遮罩层</span><br><span class="line">Picker=&gt;select</span><br><span class="line">RefreshControl=&gt;刷新组件</span><br><span class="line">SliderIOS=&gt;类似input volume</span><br><span class="line">StatusBar=&gt;顶部状态栏</span><br><span class="line">Switch=&gt;开关控件</span><br><span class="line">TabBarIOS=&gt;底部导航栏</span><br></pre></td></tr></table></figure>
+<h4 id="中文文档"><a href="#中文文档" class="headerlink" title="中文文档"></a><a href="http://reactnative.cn/docs/0.21/getting-started.html" target="_blank" rel="external">中文文档</a></h4>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/react-native/">react-native</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/18/angular/angular-review/" title="angular-review" itemprop="url">angular-review</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-18T07:06:27.000Z" itemprop="datePublished"> Published 2016-03-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><blockquote>
+<p>angular是很强大的全面前端框架，在集成模板技术的同时,<br>在函数式接口和作用域方面提供了很好的灵活性</p>
+</blockquote>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><blockquote>
+<p>由于框架大而全，难免源码过重，对于移动端的用户加载速度是个硬伤<br>angular内部实现的digest脏检查机制，会不断的轮询执行，在实现上面有些瑕疵</p>
+</blockquote>
+<h5 id="离上次使用angular已经快1年了，好多东西都忘了-。稍微review下，仅此而已"><a href="#离上次使用angular已经快1年了，好多东西都忘了-。稍微review下，仅此而已" class="headerlink" title="离上次使用angular已经快1年了，好多东西都忘了+_+。稍微review下，仅此而已"></a>离上次使用angular已经快1年了，好多东西都忘了+_+。稍微review下，仅此而已</h5>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/angular/">angular</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/14/redux/redux-source-code/" title="redux源码拆解" itemprop="url">redux源码拆解</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-14T07:23:30.000Z" itemprop="datePublished"> Published 2016-03-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="redux源码拆解分析"><a href="#redux源码拆解分析" class="headerlink" title="redux源码拆解分析"></a>redux源码拆解分析</h2><h2 id="对于初学者比较纠结的有2点"><a href="#对于初学者比较纠结的有2点" class="headerlink" title="对于初学者比较纠结的有2点"></a>对于初学者比较纠结的有2点</h2><blockquote>
+<ol>
+<li>函数式API</li>
+<li>flux数据流的多个概念</li>
+</ol>
+<hr>
+</blockquote>
+<h3 id="redux的数据流思想"><a href="#redux的数据流思想" class="headerlink" title="redux的数据流思想"></a>redux的数据流思想</h3><ul>
+<li>action  ==&gt; 改变store的行为</li>
+<li>dispatch  ===&gt; 分发数据到reducers </li>
+<li>reducer  ===&gt; 指明应用如何更新数据至Store</li>
+</ul>
+<h3 id="redux主要暴露给外界的函数式API"><a href="#redux主要暴露给外界的函数式API" class="headerlink" title="redux主要暴露给外界的函数式API"></a>redux主要暴露给外界的函数式API</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    dispatch,<span class="comment">//更新操作函数</span></span><br><span class="line">    subscribe,<span class="comment">//推送监听到观察者列表</span></span><br><span class="line">    getState,<span class="comment">//获取数据模型</span></span><br><span class="line">    replaceReducer<span class="comment">//重置store</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="函数式API的处理"><a href="#函数式API的处理" class="headerlink" title="函数式API的处理"></a>函数式API的处理</h2><blockquote>
+<p>redux中使用了很多函数式的API，这类API的一个特点就是使用闭包将逻辑封闭在黑盒子里面。<br>redux暴露的四个API是setter和getter的变体</p>
+</blockquote>
+<h4 id="下面针对redux的源码配置进行函数式API的说明"><a href="#下面针对redux的源码配置进行函数式API的说明" class="headerlink" title="下面针对redux的源码配置进行函数式API的说明"></a>下面针对redux的源码配置进行函数式API的说明</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//引入redux库</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore, combineReducers, applyMiddleware &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="comment">//添加中间件logger和crashReporter</span></span><br><span class="line"><span class="keyword">let</span> createStoreWithMiddleware = applyMiddleware(logger, crashReporter)(createStore)</span><br><span class="line"><span class="comment">//封装reducers</span></span><br><span class="line"><span class="keyword">let</span> todoApp = combineReducers(reducers)</span><br><span class="line"><span class="comment">//创建redux的store</span></span><br><span class="line"><span class="keyword">let</span> store = createStoreWithMiddleware(todoApp)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1、上述代码不像类似react或者angular/vue之类的前端UI框架更多的关注UI逻辑，API也比较易懂<br>2、redux的函数式API体现着数据的流向，利用层层闭包将所有的信息最后集成在return的结果里面<br>3、每个函数都是一个工厂，提供着数据整合的功能<br>4、redux提供的subscribe API，便利了redux和各类框架结合起来使用。这类库例如react-redux,ng-redux等等<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如:react-redux的connect提供了trySubscribe函数注册redux，从而能代理起react的state。可以阅读react-redux源码查看实现</span><br></pre></td></tr></table></figure></p>
+<p>5、redux提供applyMiddleWare为中间件的接口，社区也有诸多redux配合其他框架的中间件,以redux-thunk(形式替换程序)为例</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redux-thunk将action的执行条件，增加到不仅仅是plainObject的范围，并兼容promise。  </span><br><span class="line">所有的中间件都会在store.dispatch的时机进行执行</span><br></pre></td></tr></table></figure>
+<h4 id="关于redux的源码逻辑，请点击如下链接"><a href="#关于redux的源码逻辑，请点击如下链接" class="headerlink" title="关于redux的源码逻辑，请点击如下链接"></a>关于redux的源码逻辑，请点击如下链接</h4><p><a href="https://github.com/slashhuang/redux-annotation" target="_blank" rel="external">redux主要逻辑源码注释，欢迎fork</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/react/">react</a><a href="/tags/redux/">redux</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/06/wordpress/e6-95-b0-e7-bb-84-e6-8e-92-e5-ba-8f-e4-b9-8b-e5-86-92-e6-b3-a1-e3-80-81-e6-8f-92-e5-85-a5/" title="数组排序之冒泡、插入" itemprop="url">数组排序之冒泡、插入</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-05T19:46:01.000Z" itemprop="datePublished"> Published 2016-03-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>冒泡排序</p>
+<p><pre><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">bubble_sort</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br>    <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">temp</span><span class="p">;</span><br>    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span><br>        <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span><br>            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span><br>                <span class="nx">temp</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span><br>                <span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span><br>                <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span><br>            <span class="p">}</span><br>    <span class="k">return</span> <span class="k">this</span><span class="p">;</span><br><span class="p">};</span><br><span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">70</span><span class="p">];</span><br><span class="nx">num</span><span class="p">.</span><span class="nx">bubble_sort</span><span class="p">();</span></pre><br>冒泡排序顾名思义就是一个个气泡不断往上浮动的意思。在JS的这段代码中就是不断将最大的数字排在数组尾部，然后类似数学归纳法一般，用同样的方式处理接下来的n-1个数字。这种算法需要计算(n-1)+(n-2)+…+1=(n-1)<em>n/2次，达到O(n</em>n)的级别。</p>
+<p>插入排序</p>
+<p><div class="mw-highlight mw-content-ltr" dir="ltr"></div></p>
+<p><pre><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">insertion_sort</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br>    <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">;</span><br>    <span class="kd">var</span> <span class="nx">temp</span><span class="p">;</span><br>    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span><br>        <span class="nx">temp</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span><br>        <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">temp</span><span class="p">;</span> <span class="nx">j</span><span class="o">–</span><span class="p">)</span><br>            <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span><br>        <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span><br>    <span class="p">}</span><br>    <span class="k">return</span> <span class="k">this</span><span class="p">;</span><br><span class="p">};</span><br></pre><br><br>插入排序对同样的数组进行排序就会表现的好一点，它的原理是在已经排序完成的数组基础上添加新数，从后往前进行比较并插入正确的位置。这种排序方式在最优的情况只需要计算n-1次(即原来的数列已经排序完成),在最差的情况需要计算1+2+…+(n-1)=n<em>(n-1)/2次，即平均复杂度为O(n</em>n)</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/JavaScript算法/">JavaScript算法</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/25/wordpress/node-e5-91-bd-e4-bb-a4-e8-a1-8c-e7-bc-96-e5-86-99/" title="node命令行编写" itemprop="url">node命令行编写</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-25T07:20:17.000Z" itemprop="datePublished"> Published 2016-02-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>nodejs在前端构建工具的使用中是非常普遍的，今天学习了下node的命令行编写形式，逻辑上来说还是很直观的，这个对创建自己的构建工具很有好处。</p>
+<p><pre>#!/usr/bin/env node //表明是node可执行文件,/usr/bin/env为二进制文件<br>声明了这个头之后，就可以直接使用nodejs支持的语法，进行所有你想要的操作了。相当简单。<br>如果要写构建工具的话，还需要了解node的I/O及file system操作机制。</pre></p>
+<p>如果不是unix系统的话，可以创建cmd后缀名的文件，node file%1的形式，%1代表cmd窗口命令行，其实也就是变个法子调用node进行代码执行而已<br>命令行编写颜色的原理 <a href="http://blog.soulserv.net/terminal-friendly-application-with-node-js/" target="_blank" rel="external">http://blog.soulserv.net/terminal-friendly-application-with-node-js/</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/categories/Javascript/技术及生活日记/">技术及生活日记</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/18/wordpress/objective-c-e5-92-8cjs-e8-af-ad-e8-a8-80-e5-af-b9-e6-af-94/" title="objective-c和JS语言对比" itemprop="url">objective-c和JS语言对比</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-18T02:22:14.000Z" itemprop="datePublished"> Published 2016-02-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>1、语言类型:<br>OC:和其他强类型语言一样，会在执行前对所有代码进行编译。(compileTime + runTime)<br>JS 是脚本语言。浏览器会在读取代码时，逐行地执行脚本代码。(runTime)<br>2、数据类型:<br>OC:基本数据类型声明方式更细(stack)+引用数据类型(heap)<br>JS:基本数据类型(stack):Undefined、Null、Boolean、Number 和 String。<br>引用数据类型(heap)<br><strong>注意点:</strong></p>
+<blockquote>
+<p>和OC类语言不同的是，string在ES中实现成了原始类型(primitive type)-typeof  null会返回 “Object”。这是 JavaScript最初实现中的一个错误，然后被 ECMAScript沿用了，解读成对象占位符。number类型(存储的时候总是64位的float)既可以表示 32 位的整数，还可以表示 64 位的浮点数。<strong>对于浮点字面量的有趣之处在于，用它进行计算前，真正存储的是字符串。String 类型的独特之处在于，它是唯一没有固定大小的原始类型。同时，每个基本数据类型都对应一个引用类型，实际上在声明的时候是调用了对应的构造函数。例如：1.toFixed(2)是会报错的。而new Number(1).toFixed(2)是完全正确的</strong><br>3、数据类型声明方式:<br>OC:按照类型声明，并分配存储空间;<br>JS:var声明所有类型(同一个 var 语句定义的变量不必具有相同的类型)<br>还有个有趣的点，就是JS中的变量声明不是必须的。解释程序会查找变量是否声明，如果没有声明，就在全局作用域下声明变量。这个仅仅可以发生在预执行的阶段，在runtime如果这么做，会抛出异常的。<br>4、关键字:<br>OC会涉及到内存管理和多线程的一些关键字<br>JS中的关键词列举如下:(保留字就不列出了)<br>break case catch continue default delete do else finally for function if<br>in instanceof new return switch this throw try typeof var void while with。</p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/16/wordpress/swift-e4-b8-ad-e6-96-87-e7-89-88api-e5-8f-8a-e6-95-99-e7-a8-8b-e8-af-b4-e6-98-8e/" title="swift中文版API及教程说明" itemprop="url">swift中文版API及教程说明</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-15T18:11:14.000Z" itemprop="datePublished"> Published 2016-02-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://numbbbbb.gitbooks.io/-the-swift-programming-language-/content/" target="_blank" rel="external">https://numbbbbb.gitbooks.io/-the-swift-programming-language-/content/</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/14/wordpress/objective-c-e5-ad-a6-e4-b9-a0-e5-bf-83-e5-be-97-e4-b9-8bns/" title="objective-c学习心得之NS" itemprop="url">objective-c学习心得之NS</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-14T06:57:46.000Z" itemprop="datePublished"> Published 2016-02-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>前端工程师嘛，还是不能只关注HTML,CSS和JS。由于公司现在把web前端组要和native合并，同时市面上确实native这块也比较火热。在这个契机下，准备开个学习目录，记录下自己的学习心得。</p>
+<p>cocoa框架NS*之类的语法特征:</p>
+<ol>
+<li>前缀NS一方面避免和C语言变量申明冲突，同时也扩展了COCOA框架的很多函数。</li>
+<li>OC的代码编译器兼容C,OC。在特定的情况下还可以兼容C++代码。</li>
+<li><p>OC语言设计的初衷有几点</p>
+<ol>
+<li>代码精简，函数调用用[]来显示</li>
+<li>变量类型突出，函数调用时候都会标示变量的类型。</li>
+<li>OOP面向对象，interface接口和implement都会放在不同的文件里面</li>
+<li>语法兼具前端画界面和后端的数据逻辑内存管理。(这个方面比JS要考虑的东西更多一点)</li>
+</ol>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/IOS开发/">IOS开发</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/04/wordpress/react-e8-ae-be-e8-ae-a1-e6-80-9d-e6-83-b3-e7-a0-94-e7-a9-b62-data-reactid/" title="React设计思想研究(2)--data-reactid及key" itemprop="url">React设计思想研究(2)--data-reactid及key</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-04T01:29:39.000Z" itemprop="datePublished"> Published 2016-02-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>上一篇我们大概分析了react的虚拟dom和render及createElement该做的事情。现在把格局放大一点，考虑到之后数据模型修改，页面必须能够动态渲染，我们建立路标系统data-reactid与Dom进行mapping, 同时我们对react每个元素的props.children增加自定义key的权限。</p>
+<p>上述做法的好处有以下几点:</p>
+<ol>
+<li>更新DOM节点: 在选择父元素等的时候直接拿data-reactid进行标示查找</li>
+<li>更新Dom的children元素:利用key可以保存相关dom节点的信息，避免在更新操作时，丢失原有数据。<br>React的view层面大概讲解到这边，具体的实现细节在上一篇文章中：虚拟DOM&gt;真实DOM信息这一点已经体现出来了。React真正的难点是它的DOM diff算法，之后我会针对dom diff进行更新</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/reactJS/">reactJS</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/IOS开发/" title="IOS开发">IOS开发<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaScript算法/" title="JavaScript算法">JavaScript算法<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>54</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/reactJS/" title="reactJS">reactJS<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/reactJS/" title="reactJS">reactJS<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/reactJS/技术及生活日记/" title="技术及生活日记">技术及生活日记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Javascript/技术及生活日记/" title="技术及生活日记">技术及生活日记<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react-native/" title="react-native">react-native<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/性能/" title="性能">性能<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/浏览器/" title="浏览器">浏览器<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react/" title="react">react<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ellipsis/" title="ellipsis">ellipsis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jsbridge/" title="jsbridge">jsbridge<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/babel/" title="babel">babel<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/南京大学/" title="南京大学">南京大学<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/redux/" title="redux">redux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活习惯/" title="生活习惯">生活习惯<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/angularjs/" title="angularjs">angularjs<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://pandakeeper.net" target="_blank" title="作者阿里云地址">作者阿里云地址</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/future-team" target="_blank" title="Future-team前端">Future-team前端</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://daib13.github.io/" target="_blank" title="戴博士日志">戴博士日志</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> FE developer and github contributor <br/>
+			因上努力，果上随缘</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/slashhuang" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/huang-da-xian-14-14" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:627284482@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="slashhuang">slashhuang</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
