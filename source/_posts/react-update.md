@@ -20,6 +20,6 @@ tags:
         dirtyComponents.push(component);
         }
 ```
-### 个人猜测
+###  源码的结论
 - react在执行top-level事件的时候，在整个冒泡及生命周期中会有个更新策略，等到所有的脏元素准备就绪的时候(在settimeout之前，在冒泡结束节点)，统一执行setState。 
 - react在执行非top-level事件的时候，会执行batchUpdate，进行局部的state的更新。完成dom树的patch
