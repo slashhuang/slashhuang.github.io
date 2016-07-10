@@ -4,57 +4,59 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>react-native之UI界面 | slashhuang的技术博客</title>
+    <title>16-07-10【爱屋吉屋第二周】 | slashhuang的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="slashhuang">
     
 
     
-    <meta name="description" content="前言
-今天整理下react-native在UI布局方面的代码心得
+    <meta name="description" content="工作上的收获1. 爱屋吉屋流程管理
+QA: 走checklist，确认项目需要把关的点
+版本管理: 项目大版本【新功能】和小版本【功能修复】的协同开发
+文档安排: UED、PRD部门的文档发放
 
-布局采用flex-box布局以及部分盒模型的异同点
-横纵轴的布局属性基本保持一致
-justifyContent,alignItems,alignSelf等等
+2. 爱屋吉屋FE项目技术框架
+PC: webpack + jquery + 后端静态资源 + react
+移动端:  VUe + webpack
 
+3. 技术细节完善
+3.1.javaWeb: 
 
-flexDirection默认为column
-增加paddingHorizontal和paddingVertical
-增加marginVertical和marginHor">
+1.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-native之UI界面">
-<meta property="og:url" content="http://slashhuang.github.io/2016/03/23/react-native/UIview/index.html">
+<meta property="og:title" content="16-07-10【爱屋吉屋第二周】">
+<meta property="og:url" content="http://slashhuang.github.io/2010/07/10/week-notes/16-07-10/index.html">
 <meta property="og:site_name" content="slashhuang的技术博客">
-<meta property="og:description" content="前言
-今天整理下react-native在UI布局方面的代码心得
+<meta property="og:description" content="工作上的收获1. 爱屋吉屋流程管理
+QA: 走checklist，确认项目需要把关的点
+版本管理: 项目大版本【新功能】和小版本【功能修复】的协同开发
+文档安排: UED、PRD部门的文档发放
 
-布局采用flex-box布局以及部分盒模型的异同点
-横纵轴的布局属性基本保持一致
-justifyContent,alignItems,alignSelf等等
+2. 爱屋吉屋FE项目技术框架
+PC: webpack + jquery + 后端静态资源 + react
+移动端:  VUe + webpack
 
+3. 技术细节完善
+3.1.javaWeb: 
 
-flexDirection默认为column
-增加paddingHorizontal和paddingVertical
-增加marginVertical和marginHor">
-<meta property="og:image" content="http://slashhuang.github.io/img/work/react-native-day1.jpg">
-<meta property="og:image" content="http://slashhuang.github.io/img/work/imgSlider.jpg">
-<meta property="og:image" content="http://slashhuang.github.io/img/work/webview.jpg">
-<meta property="og:updated_time" content="2016-03-24T14:01:57.000Z">
+1.">
+<meta property="og:updated_time" content="2016-07-10T16:33:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-native之UI界面">
-<meta name="twitter:description" content="前言
-今天整理下react-native在UI布局方面的代码心得
+<meta name="twitter:title" content="16-07-10【爱屋吉屋第二周】">
+<meta name="twitter:description" content="工作上的收获1. 爱屋吉屋流程管理
+QA: 走checklist，确认项目需要把关的点
+版本管理: 项目大版本【新功能】和小版本【功能修复】的协同开发
+文档安排: UED、PRD部门的文档发放
 
-布局采用flex-box布局以及部分盒模型的异同点
-横纵轴的布局属性基本保持一致
-justifyContent,alignItems,alignSelf等等
+2. 爱屋吉屋FE项目技术框架
+PC: webpack + jquery + 后端静态资源 + react
+移动端:  VUe + webpack
 
+3. 技术细节完善
+3.1.javaWeb: 
 
-flexDirection默认为column
-增加paddingHorizontal和paddingVertical
-增加marginVertical和marginHor">
-<meta name="twitter:image" content="http://slashhuang.github.io/img/work/react-native-day1.jpg">
+1.">
 
     
     <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
@@ -115,6 +117,8 @@ flexDirection默认为column
 					
 						<li><a href="/essay">随笔</a></li>
 					
+						<li><a href="/weeknote">周记</a></li>
+					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
@@ -135,14 +139,14 @@ flexDirection默认为column
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/23/react-native/UIview/" title="react-native之UI界面" itemprop="url">react-native之UI界面</a>
+      <a href="/2010/07/10/week-notes/16-07-10/" title="16-07-10【爱屋吉屋第二周】" itemprop="url">16-07-10【爱屋吉屋第二周】</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-23T12:27:39.000Z" itemprop="datePublished"> Published 2016-03-23</time>
+    <time datetime="2010-07-10T12:18:52.000Z" itemprop="datePublished"> Published 2010-07-10</time>
     
   </p>
 </header>
@@ -151,50 +155,47 @@ flexDirection默认为column
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布局采用flex-box布局以及部分盒模型的异同点"><span class="toc-number">2.</span> <span class="toc-text">布局采用flex-box布局以及部分盒模型的异同点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小结"><span class="toc-number">2.0.1.</span> <span class="toc-text">小结:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面路由导航"><span class="toc-number">3.</span> <span class="toc-text">页面路由导航</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件及触摸处理"><span class="toc-number">4.</span> <span class="toc-text">事件及触摸处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2016-3-24日今天完成了webView和照片浏览插件"><span class="toc-number">4.1.</span> <span class="toc-text">2016.3.24日今天完成了webView和照片浏览插件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#具体实现细节后期更新，界面实现见下图"><span class="toc-number">4.1.0.1.</span> <span class="toc-text">具体实现细节后期更新，界面实现见下图</span></a></li></ol></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作上的收获"><span class="toc-number">1.</span> <span class="toc-text">工作上的收获</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-爱屋吉屋流程管理"><span class="toc-number">1.1.</span> <span class="toc-text">1. 爱屋吉屋流程管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-爱屋吉屋FE项目技术框架"><span class="toc-number">1.2.</span> <span class="toc-text">2. 爱屋吉屋FE项目技术框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-技术细节完善"><span class="toc-number">1.3.</span> <span class="toc-text">3. 技术细节完善</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-业余技术"><span class="toc-number">1.4.</span> <span class="toc-text">4.业余技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生活上的收获"><span class="toc-number">2.</span> <span class="toc-text">生活上的收获</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>今天整理下react-native在UI布局方面的代码心得</p>
-</blockquote>
-<h2 id="布局采用flex-box布局以及部分盒模型的异同点"><a href="#布局采用flex-box布局以及部分盒模型的异同点" class="headerlink" title="布局采用flex-box布局以及部分盒模型的异同点"></a>布局采用flex-box布局以及部分盒模型的异同点</h2><ul>
-<li>横纵轴的布局属性基本保持一致<blockquote>
-<p>justifyContent,alignItems,alignSelf等等</p>
-</blockquote>
-</li>
-<li>flexDirection默认为column</li>
-<li>增加paddingHorizontal和paddingVertical</li>
-<li>增加marginVertical和marginHorizontal</li>
-<li>所有的样式属性名都用camelCase的形式</li>
-<li>颜色的名字采用<a href="https://www.w3.org/TR/css3-color/#svg-color" target="_blank" rel="external"> CSS3 specification规范</a></li>
-<li>踩坑点:父类元素不需要设置relative<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><blockquote>
-<p>由于react-native实际上是对原生UI组件的一个polyFill，所以在选型上选择了操作<br>性更好的flex-box布局形式，同时配合盒模型 </p>
-</blockquote>
-</li>
+		<h2 id="工作上的收获"><a href="#工作上的收获" class="headerlink" title="工作上的收获"></a>工作上的收获</h2><h3 id="1-爱屋吉屋流程管理"><a href="#1-爱屋吉屋流程管理" class="headerlink" title="1. 爱屋吉屋流程管理"></a>1. 爱屋吉屋流程管理</h3><ul>
+<li>QA: 走checklist，确认项目需要把关的点</li>
+<li>版本管理: 项目大版本【新功能】和小版本【功能修复】的协同开发</li>
+<li>文档安排: UED、PRD部门的文档发放</li>
 </ul>
-<h2 id="页面路由导航"><a href="#页面路由导航" class="headerlink" title="页面路由导航"></a>页面路由导航</h2><blockquote>
-<p>Navigator基本就是栈队列的结构,组件提供了丰富的API供外界调用.<br>基本不用自己做特殊的封装</p>
-</blockquote>
-<h2 id="事件及触摸处理"><a href="#事件及触摸处理" class="headerlink" title="事件及触摸处理"></a>事件及触摸处理</h2><ul>
-<li>封装了基本所有的触摸情况，不需要二次开发</li>
-<li>对需要处理的事件的UI都需要包裹事件标签，例如TouchableHighlight等等</li>
+<h3 id="2-爱屋吉屋FE项目技术框架"><a href="#2-爱屋吉屋FE项目技术框架" class="headerlink" title="2. 爱屋吉屋FE项目技术框架"></a>2. 爱屋吉屋FE项目技术框架</h3><ul>
+<li>PC: webpack + jquery + 后端静态资源 + react</li>
+<li>移动端:  VUe + webpack</li>
 </ul>
+<h3 id="3-技术细节完善"><a href="#3-技术细节完善" class="headerlink" title="3. 技术细节完善"></a>3. 技术细节完善</h3><ul>
+<li><p>3.1.javaWeb: </p>
 <blockquote>
-<p>今天的成果=》模拟网上的项目，做了个首页<br><img src="/img/work/react-native-day1.jpg" width="50%"></p>
+<p>1.了解了pom.xml的基本配置<br>2.了解了url-rewrite==自定义url===&gt; action ===&gt; res.send(file,data)的流程<br>3.了解了maven的基本jar包管理</p>
 </blockquote>
-<p>==================3月24日更新=============</p>
-<h3 id="2016-3-24日今天完成了webView和照片浏览插件"><a href="#2016-3-24日今天完成了webView和照片浏览插件" class="headerlink" title="2016.3.24日今天完成了webView和照片浏览插件"></a>2016.3.24日今天完成了webView和照片浏览插件</h3><blockquote>
-<p>webView中使用了progressBar组件，而slider使用的是react-native-swiper插件</p>
+</li>
+<li><p>3.2.前端:</p>
+<blockquote>
+<p>1.规范: 帮助规范了整个团队的react代码规范及技术架构<br>2.设计: 了解设计工具sketch的基本使用</p>
 </blockquote>
-<h5 id="具体实现细节后期更新，界面实现见下图"><a href="#具体实现细节后期更新，界面实现见下图" class="headerlink" title="具体实现细节后期更新，界面实现见下图"></a>具体实现细节后期更新，界面实现见下图</h5><div style="{width:100%;}}"><br><img src="/img/work/imgSlider.jpg" width="50%"><br><img src="/img/work/webview.jpg" width="50%"><br></div>
-
-
-
-
-
-
-
+</li>
+</ul>
+<h3 id="4-业余技术"><a href="#4-业余技术" class="headerlink" title="4.业余技术"></a>4.业余技术</h3><ul>
+<li><p>4.1.源码</p>
+<blockquote>
+<p>nodeJS: 阅读了异步并发优化模块bagpipe的源码，并完成实现<br>jQuery: 完成事件代理实现的源码实现阅读</p>
+</blockquote>
+</li>
+<li><p>4.2.nodeJS:</p>
+<blockquote>
+<p>1.理解了eventEmitter在node中成为多数文件模块和核心模块的父类的原因<br>2.阅读了node文档中，eventLoop对timer、I/O回调、idle观察者、tick处理等的底层机制<br>3.了解了V8关于内存管理的限制</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="生活上的收获"><a href="#生活上的收获" class="headerlink" title="生活上的收获"></a>生活上的收获</h2><ul>
+<li>打上了球，进球数全场第二，身心得到了预约</li>
+<li>吃了一个礼拜的自己烧的早饭，更加健康了</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -203,7 +204,7 @@ flexDirection默认为column
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/react-native/">react-native</a>
+  <span></span> <a href="/tags/week-note/">week-note</a>
   </div>
 
 </div>
@@ -212,7 +213,7 @@ flexDirection默认为column
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://slashhuang.github.io/2016/03/23/react-native/UIview/" data-title="react-native之UI界面 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://slashhuang.github.io/2010/07/10/week-notes/16-07-10/" data-title="16-07-10【爱屋吉屋第二周】 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -226,21 +227,13 @@ flexDirection默认为column
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/28/react-native/layout/" title="react-native布局及tab导航">
+ <a href="/2012/04/20/essay/as-a-pm/" title="运营微信群的体会">
   <strong>上一篇：</strong><br/>
   <span>
-  react-native布局及tab导航</span>
+  运营微信群的体会</span>
 </a>
 </div>
 
-
-<div class="next">
-<a href="/2016/03/21/react-native/react-native/"  title="react-native学习心得">
- <strong>下一篇：</strong><br/> 
- <span>react-native学习心得
-</span>
-</a>
-</div>
 
 </nav>
 
@@ -252,7 +245,7 @@ flexDirection默认为column
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#布局采用flex-box布局以及部分盒模型的异同点"><span class="toc-number">2.</span> <span class="toc-text">布局采用flex-box布局以及部分盒模型的异同点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小结"><span class="toc-number">2.0.1.</span> <span class="toc-text">小结:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面路由导航"><span class="toc-number">3.</span> <span class="toc-text">页面路由导航</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件及触摸处理"><span class="toc-number">4.</span> <span class="toc-text">事件及触摸处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2016-3-24日今天完成了webView和照片浏览插件"><span class="toc-number">4.1.</span> <span class="toc-text">2016.3.24日今天完成了webView和照片浏览插件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#具体实现细节后期更新，界面实现见下图"><span class="toc-number">4.1.0.1.</span> <span class="toc-text">具体实现细节后期更新，界面实现见下图</span></a></li></ol></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作上的收获"><span class="toc-number">1.</span> <span class="toc-text">工作上的收获</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-爱屋吉屋流程管理"><span class="toc-number">1.1.</span> <span class="toc-text">1. 爱屋吉屋流程管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-爱屋吉屋FE项目技术框架"><span class="toc-number">1.2.</span> <span class="toc-text">2. 爱屋吉屋FE项目技术框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-技术细节完善"><span class="toc-number">1.3.</span> <span class="toc-text">3. 技术细节完善</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-业余技术"><span class="toc-number">1.4.</span> <span class="toc-text">4.业余技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生活上的收获"><span class="toc-number">2.</span> <span class="toc-text">生活上的收获</span></a></li></ol>
  
   </div>
 
@@ -345,7 +338,7 @@ flexDirection默认为column
 			
 		
 			
-				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
@@ -377,11 +370,11 @@ flexDirection默认为column
 			
 		
 			
-				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
 			
 		
 			

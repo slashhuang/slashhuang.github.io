@@ -4,41 +4,44 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>react-native动画 | slashhuang的技术博客</title>
+    <title>to be a 好厨师 | slashhuang的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="slashhuang">
     
 
     
-    <meta name="description" content="主要观点
-RN提供了Animated组件来提供易于构建和维护的动画效果学习曲线完全可以参照css3的transform和@keyframes方式
+    <meta name="description" content="好好学厨艺
+现在每个周末，几乎都会自己下厨做点菜，早上就自己烧白粥吃。这样的生活，不仅省钱还很健康，于是，我决定要好好练习厨艺。
 
-代码流程
-只有声明可动画化的组件Animated.Image,Animated.Image,Animated.View等关联动画
-初始化实例变量,最常见的就是 var s= Animated.Value(0);
-将实例变量绑定组件的style属性,例如">
+失败案例1.小鸡炖蘑菇(16.7.10)
+失败结果： 做成了清汤鸡块炖蘑菇
+原因分析： 
+鸡块只是粗略的沸水去渣，时长不够。 合理的时长在90秒左右。
+水加的过多。  合理的水应该刚好没过鸡块和蘑菇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-native动画">
-<meta property="og:url" content="http://slashhuang.github.io/2016/03/29/react-native/animation/index.html">
+<meta property="og:title" content="to be a 好厨师">
+<meta property="og:url" content="http://slashhuang.github.io/2013/07/10/essay/cooking/cooking/index.html">
 <meta property="og:site_name" content="slashhuang的技术博客">
-<meta property="og:description" content="主要观点
-RN提供了Animated组件来提供易于构建和维护的动画效果学习曲线完全可以参照css3的transform和@keyframes方式
+<meta property="og:description" content="好好学厨艺
+现在每个周末，几乎都会自己下厨做点菜，早上就自己烧白粥吃。这样的生活，不仅省钱还很健康，于是，我决定要好好练习厨艺。
 
-代码流程
-只有声明可动画化的组件Animated.Image,Animated.Image,Animated.View等关联动画
-初始化实例变量,最常见的就是 var s= Animated.Value(0);
-将实例变量绑定组件的style属性,例如">
-<meta property="og:updated_time" content="2016-03-29T09:17:24.000Z">
+失败案例1.小鸡炖蘑菇(16.7.10)
+失败结果： 做成了清汤鸡块炖蘑菇
+原因分析： 
+鸡块只是粗略的沸水去渣，时长不够。 合理的时长在90秒左右。
+水加的过多。  合理的水应该刚好没过鸡块和蘑菇">
+<meta property="og:updated_time" content="2016-07-10T15:50:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-native动画">
-<meta name="twitter:description" content="主要观点
-RN提供了Animated组件来提供易于构建和维护的动画效果学习曲线完全可以参照css3的transform和@keyframes方式
+<meta name="twitter:title" content="to be a 好厨师">
+<meta name="twitter:description" content="好好学厨艺
+现在每个周末，几乎都会自己下厨做点菜，早上就自己烧白粥吃。这样的生活，不仅省钱还很健康，于是，我决定要好好练习厨艺。
 
-代码流程
-只有声明可动画化的组件Animated.Image,Animated.Image,Animated.View等关联动画
-初始化实例变量,最常见的就是 var s= Animated.Value(0);
-将实例变量绑定组件的style属性,例如">
+失败案例1.小鸡炖蘑菇(16.7.10)
+失败结果： 做成了清汤鸡块炖蘑菇
+原因分析： 
+鸡块只是粗略的沸水去渣，时长不够。 合理的时长在90秒左右。
+水加的过多。  合理的水应该刚好没过鸡块和蘑菇">
 
     
     <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
@@ -99,6 +102,8 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 					
 						<li><a href="/essay">随笔</a></li>
 					
+						<li><a href="/weeknote">周记</a></li>
+					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
@@ -119,14 +124,14 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/29/react-native/animation/" title="react-native动画" itemprop="url">react-native动画</a>
+      <a href="/2013/07/10/essay/cooking/cooking/" title="to be a 好厨师" itemprop="url">to be a 好厨师</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-29T09:27:39.000Z" itemprop="datePublished"> Published 2016-03-29</time>
+    <time datetime="2013-07-10T10:42:56.000Z" itemprop="datePublished"> Published 2013-07-10</time>
     
   </p>
 </header>
@@ -135,21 +140,22 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主要观点"><span class="toc-number">1.</span> <span class="toc-text">主要观点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码流程"><span class="toc-number">2.</span> <span class="toc-text">代码流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#talk-is-cheap-show-me-the-code-具体实现请看demo"><span class="toc-number">3.</span> <span class="toc-text">talk is cheap ,show me the code,具体实现请看demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RN动画中文文档"><span class="toc-number">4.</span> <span class="toc-text">RN动画中文文档</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#好好学厨艺"><span class="toc-number">1.</span> <span class="toc-text">好好学厨艺</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#失败案例"><span class="toc-number">2.</span> <span class="toc-text">失败案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-小鸡炖蘑菇-16-7-10"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.小鸡炖蘑菇(16.7.10)</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="主要观点"><a href="#主要观点" class="headerlink" title="主要观点"></a>主要观点</h3><blockquote>
-<p>RN提供了Animated组件来提供易于构建和维护的动画效果<br>学习曲线完全可以参照css3的transform和@keyframes方式</p>
+		<h1 id="好好学厨艺"><a href="#好好学厨艺" class="headerlink" title="好好学厨艺"></a>好好学厨艺</h1><blockquote>
+<p>现在每个周末，几乎都会自己下厨做点菜，早上就自己烧白粥吃。这样的生活，不仅省钱还很健康，于是，我决定要好好练习厨艺。</p>
 </blockquote>
-<h3 id="代码流程"><a href="#代码流程" class="headerlink" title="代码流程"></a>代码流程</h3><ul>
-<li>只有声明可动画化的组件Animated.Image,Animated.Image,Animated.View等关联动画</li>
-<li>初始化实例变量,最常见的就是 var s= Animated.Value(0);</li>
-<li>将实例变量绑定组件的style属性,例如:{opacity:s}</li>
-<li>在Animated.sequence里面定义动画队列数组,每个动画序列可以采用Animated.timing或者Animated.decay等定义时长或者延迟效果</li>
-<li>在style属性中定义transform数组，每个数组都是个key(属性),value(利用interpolate更新的值)</li>
+<h1 id="失败案例"><a href="#失败案例" class="headerlink" title="失败案例"></a>失败案例</h1><h3 id="1-小鸡炖蘑菇-16-7-10"><a href="#1-小鸡炖蘑菇-16-7-10" class="headerlink" title="1.小鸡炖蘑菇(16.7.10)"></a>1.小鸡炖蘑菇(16.7.10)</h3><ul>
+<li>失败结果： 做成了清汤鸡块炖蘑菇</li>
+<li>原因分析： <ol>
+<li>鸡块只是粗略的沸水去渣，时长不够。 合理的时长在90秒左右。</li>
+<li>水加的过多。  合理的水应该刚好没过鸡块和蘑菇</li>
+</ol>
+</li>
 </ul>
-<h3 id="talk-is-cheap-show-me-the-code-具体实现请看demo"><a href="#talk-is-cheap-show-me-the-code-具体实现请看demo" class="headerlink" title="talk is cheap ,show me the code,具体实现请看demo"></a>talk is cheap ,show me the code,具体实现请看<a href="https://github.com/slashhuang/react-native-demo" target="_blank" rel="external">demo</a></h3><h3 id="RN动画中文文档"><a href="#RN动画中文文档" class="headerlink" title="RN动画中文文档"></a><a href="http://reactnative.cn/docs/0.21/animations.html" target="_blank" rel="external">RN动画中文文档</a></h3>  
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -157,7 +163,7 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/react-native/">react-native</a>
+  <span></span> <a href="/tags/cooking/">cooking</a>
   </div>
 
 </div>
@@ -166,7 +172,7 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://slashhuang.github.io/2016/03/29/react-native/animation/" data-title="react-native动画 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://slashhuang.github.io/2013/07/10/essay/cooking/cooking/" data-title="to be a 好厨师 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -180,18 +186,18 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/04/04/javascript/js-engine/" title="v8 engine与javascript">
+ <a href="/2015/07/14/wordpress/e4-b8-8b-e6-ac-a1-e9-9c-80-e8-a6-81-e6-97-a9-e7-9d-a1-e4-ba-86/" title="下次需要早睡了">
   <strong>上一篇：</strong><br/>
   <span>
-  v8 engine与javascript</span>
+  下次需要早睡了</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/03/28/react-native/layout/"  title="react-native布局及tab导航">
+<a href="/2013/05/31/资料/vmware8/"  title="vmware注册码">
  <strong>下一篇：</strong><br/> 
- <span>react-native布局及tab导航
+ <span>vmware注册码
 </span>
 </a>
 </div>
@@ -206,7 +212,7 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主要观点"><span class="toc-number">1.</span> <span class="toc-text">主要观点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码流程"><span class="toc-number">2.</span> <span class="toc-text">代码流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#talk-is-cheap-show-me-the-code-具体实现请看demo"><span class="toc-number">3.</span> <span class="toc-text">talk is cheap ,show me the code,具体实现请看demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RN动画中文文档"><span class="toc-number">4.</span> <span class="toc-text">RN动画中文文档</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#好好学厨艺"><span class="toc-number">1.</span> <span class="toc-text">好好学厨艺</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#失败案例"><span class="toc-number">2.</span> <span class="toc-text">失败案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-小鸡炖蘑菇-16-7-10"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.小鸡炖蘑菇(16.7.10)</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -299,7 +305,7 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 			
 		
 			
-				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
@@ -331,11 +337,11 @@ RN提供了Animated组件来提供易于构建和维护的动画效果学习曲�
 			
 		
 			
-				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
 			
 		
 			
