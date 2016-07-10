@@ -102,6 +102,67 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/07/25/wordpress/e4-b8-80-e4-ba-9b-e7-90-86-e8-a7-a3-e4-b8-8a-e7-9a-84-e4-b8-8d-e5-88-b0-e4-bd-8d/" title="一些理解上的不到位" itemprop="url">一些理解上的不到位</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-25T08:31:47.000Z" itemprop="datePublished"> Published 2015-07-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>关于Js的闭包问题，主要原理======内部函数可以访问定义它们的外部函数的变量和参数。</p>
+<p>关于这一点首先要澄清：</p>
+<ol>
+<li>内部函数是类似（function(){})()这种形式的，直接返回值，即回收内存。这种情形没啥影响。</li>
+<li>内部函数是类似 var func= function(){return value};若内部函数调用了外部函数的变量，这里会出现大问题。主要是因为JS在执行的时候，只是将它挂载起来并不解析具体操作。因而，在后续操作的时候，外部变量如果用了类似For循环之类的话，可能结果就不是我们想要的结果了。解决方案有两种：1/ var func= function(){return value};在此函数外部再开辟一个变量指向for 循环的变量，然后在此内部函数使用。2/直接采用var func=( function(外部变量){return function(){value}})(外部变量);</li>
+<li>上述第二点的两种方法殊途同归，就是复制挂载的函数中引用的外部变量，避免真正 执行时出现我们不希望的效果</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/25/wordpress/requirejs-e4-bb-a3-e7-a0-81-e8-a7-a3-e6-9e-90-e8-b7-af-e5-be-84/" title="requirejs代码解析路径" itemprop="url">requirejs代码解析路径</a>
   </h1>
   <p class="article-author">By
@@ -674,72 +735,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/16/wordpress/java-e7-b1-bb-e5-ad-a6-e4-b9-a0/" title="java 类学习" itemprop="url">java 类学习</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-15T22:55:18.000Z" itemprop="datePublished"> Published 2015-07-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li>类的static定义了数据在内存中的存储方式</li>
-<li>类的public和private定义了数据的作用域</li>
-</ol>
-<p>方法：<strong>public static</strong><span style="text-decoration: underline; color: #800080;"><span> int</span> </span><span style="color: #808000;">max</span> <span style="color: #ff6600;">(param)==&gt;&gt;修饰符 返回值类型 方法名 （参数）</span></p>
-<p>变量声明： varType  varName</p>
-<p>class构造函数：没有return type</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Java/">Java</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/7/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next<span></span></a>
@@ -813,11 +808,11 @@
 			
 		
 			
-				<li><a href="/tags/javascript/" title="javascript">javascript<sup>3</sup></a></li>
+				<li><a href="/tags/性能/" title="性能">性能<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/性能/" title="性能">性能<sup>3</sup></a></li>
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>3</sup></a></li>
 			
 		
 			
@@ -825,11 +820,11 @@
 			
 		
 			
-				<li><a href="/tags/react/" title="react">react<sup>2</sup></a></li>
+				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
+				<li><a href="/tags/react/" title="react">react<sup>2</sup></a></li>
 			
 		
 			
@@ -837,19 +832,7 @@
 			
 		
 			
-				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ellipsis/" title="ellipsis">ellipsis<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
@@ -857,11 +840,19 @@
 			
 		
 			
-				<li><a href="/tags/babel/" title="babel">babel<sup>1</sup></a></li>
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/南京大学/" title="南京大学">南京大学<sup>1</sup></a></li>
+				<li><a href="/tags/angular/" title="angular">angular<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
 			
 		
 			
@@ -869,15 +860,19 @@
 			
 		
 			
-				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/生活习惯/" title="生活习惯">生活习惯<sup>1</sup></a></li>
+				<li><a href="/tags/前端开发环境/" title="前端开发环境">前端开发环境<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/template/" title="template">template<sup>1</sup></a></li>
 			
 		
 			
