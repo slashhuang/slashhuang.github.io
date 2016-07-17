@@ -103,7 +103,7 @@ redux主要暴露给外界的函数式API123456&amp;#123;    dispatch,/">
 				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -123,7 +123,7 @@ redux主要暴露给外界的函数式API123456&amp;#123;    dispatch,/">
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:slashhuang.github.io">
 					</form>
 					
@@ -146,14 +146,14 @@ redux主要暴露给外界的函数式API123456&amp;#123;    dispatch,/">
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-14T07:23:30.000Z" itemprop="datePublished"> 發表於 2016-03-14</time>
+    <time datetime="2016-03-14T07:23:30.000Z" itemprop="datePublished"> Published 2016-03-14</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#redux源码拆解分析"><span class="toc-number">1.</span> <span class="toc-text">redux源码拆解分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对于初学者比较纠结的有2点"><span class="toc-number">2.</span> <span class="toc-text">对于初学者比较纠结的有2点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redux的数据流思想"><span class="toc-number">2.1.</span> <span class="toc-text">redux的数据流思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux主要暴露给外界的函数式API"><span class="toc-number">2.2.</span> <span class="toc-text">redux主要暴露给外界的函数式API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数式API的处理"><span class="toc-number">3.</span> <span class="toc-text">函数式API的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下面针对redux的源码配置进行函数式API的说明"><span class="toc-number">3.0.1.</span> <span class="toc-text">下面针对redux的源码配置进行函数式API的说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于redux的源码逻辑，请点击如下链接"><span class="toc-number">3.0.2.</span> <span class="toc-text">关于redux的源码逻辑，请点击如下链接</span></a></li></ol></li></ol></li></ol>
 		
@@ -234,22 +234,22 @@ redux主要暴露给外界的函数式API123456&amp;#123;    dispatch,/">
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#redux源码拆解分析"><span class="toc-number">1.</span> <span class="toc-text">redux源码拆解分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对于初学者比较纠结的有2点"><span class="toc-number">2.</span> <span class="toc-text">对于初学者比较纠结的有2点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redux的数据流思想"><span class="toc-number">2.1.</span> <span class="toc-text">redux的数据流思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux主要暴露给外界的函数式API"><span class="toc-number">2.2.</span> <span class="toc-text">redux主要暴露给外界的函数式API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数式API的处理"><span class="toc-number">3.</span> <span class="toc-text">函数式API的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下面针对redux的源码配置进行函数式API的说明"><span class="toc-number">3.0.1.</span> <span class="toc-text">下面针对redux的源码配置进行函数式API的说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于redux的源码逻辑，请点击如下链接"><span class="toc-number">3.0.2.</span> <span class="toc-text">关于redux的源码逻辑，请点击如下链接</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -259,7 +259,7 @@ redux主要暴露给外界的函数式API123456&amp;#123;    dispatch,/">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -296,7 +296,7 @@ redux主要暴露给外界的函数式API123456&amp;#123;    dispatch,/">
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -384,7 +384,7 @@ redux主要暴露给外界的函数式API123456&amp;#123;    dispatch,/">
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -637,7 +637,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
