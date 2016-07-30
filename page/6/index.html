@@ -66,7 +66,7 @@
 				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -86,7 +86,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:slashhuang.github.io">
 					</form>
 					
@@ -104,6 +104,65 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/11/26/wordpress/react-redux-connect-e5-87-bd-e6-95-b0-shouldcomponentupdate-e6-9c-ba-e5-88-b6/" title="react-redux connect函数 shouldComponentUpdate机制" itemprop="url">react-redux connect函数 shouldComponentUpdate机制</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-25T23:55:42.000Z" itemprop="datePublished"> 发表于 2015-11-26</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>react有了redux简直是如鱼得水，redux可以说是官方Facebook推荐的flux的稍高级版本。</p>
+<ol>
+<li>它的插件react-redux的connect修饰器，对store和dispatch函数进行了重新包装，对react的UI层面重新渲染，进行了shallowEqual(参见connect源码)，它的两个参数分别是previousState和nextState,只有两者的value不一致才会触发shouldComponentUpdate函数return true,进而触发react的UI 层面的rerender。</li>
+<li>由于javascript对于Object的比较只有reference比对，facebook官方也推崇使用immutableJS对state对象进行保护，增加UI层面的渲染安全性，同时immutableJS也实现了更多的数据结构，用起来也很方便。</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/11/25/wordpress/react-e9-ab-98-e6-80-a7-e8-83-bd-e7-a0-94-e7-a9-b6/" title="react高性能研究" itemprop="url">react高性能研究</a>
   </h1>
   <p class="article-author">By
@@ -111,7 +170,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-25T08:40:44.000Z" itemprop="datePublished"> Published 2015-11-25</time>
+    <time datetime="2015-11-25T08:40:44.000Z" itemprop="datePublished"> 发表于 2015-11-25</time>
     
   </p>
 </header>
@@ -170,7 +229,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-24T18:56:12.000Z" itemprop="datePublished"> Published 2015-11-25</time>
+    <time datetime="2015-11-24T18:56:12.000Z" itemprop="datePublished"> 发表于 2015-11-25</time>
     
   </p>
 </header>
@@ -228,7 +287,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-19T20:56:52.000Z" itemprop="datePublished"> Published 2015-11-20</time>
+    <time datetime="2015-11-19T20:56:52.000Z" itemprop="datePublished"> 发表于 2015-11-20</time>
     
   </p>
 </header>
@@ -402,7 +461,7 @@ module.exports={test:'test'};
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-14T05:37:43.000Z" itemprop="datePublished"> Published 2015-10-14</time>
+    <time datetime="2015-10-14T05:37:43.000Z" itemprop="datePublished"> 发表于 2015-10-14</time>
     
   </p>
 </header>
@@ -457,7 +516,7 @@ module.exports={test:'test'};
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-09T00:51:13.000Z" itemprop="datePublished"> Published 2015-10-09</time>
+    <time datetime="2015-10-09T00:51:13.000Z" itemprop="datePublished"> 发表于 2015-10-09</time>
     
   </p>
 </header>
@@ -524,7 +583,7 @@ module.exports={test:'test'};
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-04T01:00:50.000Z" itemprop="datePublished"> Published 2015-10-04</time>
+    <time datetime="2015-10-04T01:00:50.000Z" itemprop="datePublished"> 发表于 2015-10-04</time>
     
   </p>
 </header>
@@ -610,7 +669,7 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-03T05:26:57.000Z" itemprop="datePublished"> Published 2015-10-03</time>
+    <time datetime="2015-10-03T05:26:57.000Z" itemprop="datePublished"> 发表于 2015-10-03</time>
     
   </p>
 </header>
@@ -666,7 +725,7 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-28T18:39:25.000Z" itemprop="datePublished"> Published 2015-09-29</time>
+    <time datetime="2015-09-28T18:39:25.000Z" itemprop="datePublished"> 发表于 2015-09-29</time>
     
   </p>
 </header>
@@ -732,7 +791,7 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-09-28T07:04:29.000Z" itemprop="datePublished"> Published 2015-09-28</time>
+    <time datetime="2015-09-28T07:04:29.000Z" itemprop="datePublished"> 发表于 2015-09-28</time>
     
   </p>
 </header>
@@ -775,109 +834,21 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/09/26/wordpress/reactjs-e5-ad-a6-e4-b9-a0-e5-bf-83-e5-be-97/" title="ReactJS 学习心得" itemprop="url">ReactJS 学习心得</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-09-26T09:04:10.000Z" itemprop="datePublished"> Published 2015-09-26</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>react的模板语法为JSX。</p>
-<ol>
-<li>它可以使用HTML的&lt;&gt;tags</li>
-<li>它可以利用{}调用javascript语法</li>
-<li>v0.14的版本前, React 使用 <code>JSTransform.js</code> 解析type=text/jsx的react模板现在则需要使用&lt;script type=”text/babel”&gt;的形式定义模板，并引入browser.js来解析。</li>
-<li>react 中的render方法，将jsx解析成HTML并挂在至相关dom，render按照字符串的形式操作对{}作为分界符的string，添加span标签.render内容必须以&lt;开头，&gt;结尾。</li>
-<li><p>数组。模板在解析时会调用数组的concat方法转换成字符串,并按照key/value为单位优先调用span标签包裹<br>定义组件</p>
-</li>
-<li><p>react调用React.createClass创建组件类，并采用HTML的tag&lt;&gt;形式实例化类，组件可以拥有属性[attributes],用法和HTMLtag类似,并在createClass中调用this.props[‘attribute’]使用它们<em><u>（这点实在像javascript的构造函数this.prototype）。</u></em></p>
-</li>
-<li>react使用this.props.children,可以获得当前this的各个子节点</li>
-<li>在react.createClass中的React.propTypes可以定义当前模板的<u>必须</u>字段及类型。这个用法和prototype【继承】非常类似。因此如果在实例中定义相应字段将会产生override的现象</li>
-<li><p>一般情况下this.state 描述组件的状态,因交互而改变【这点实在太像angular】而 this.props一般是静态的属性名称，=—=类似dom【props】和var【state】的绑定<br>查找组件中的dom节点</p>
-</li>
-<li><p>调用React.findDOMNode(this.refs[‘refName’]),即可找到对应的dom节点,可以采用原生JS的方法操作它。注意！！只有dom中已经挂载了对应dom才可操作，不然得到null的结果,因此该方法一般放在eventHandler里面。</p>
-</li>
-<li>每次调用函数后，react会重新render数据，这点实在像是angular里面的scope，两种语言的设计方面还真是很相似。</li>
-<li>经过测试这个refs[‘refName’],对应的value只是单个dom引用，没有数组的方法。【可能有坑，待证实】</li>
-</ol>
-<hr>
-<p>元素生命周期【关于这一点姑且贴段代码吧】</p>
-<ul>
-<li>componentWillMount()</li>
-<li>componentDidMount()</li>
-<li>componentWillUpdate(object nextProps, object nextState)</li>
-<li>componentDidUpdate(object prevProps, object prevState)</li>
-<li>componentWillUnmount()</li>
-<li>componentWillReceiveProps(object nextProps): invoked when a mounted component receives new props.</li>
-<li>shouldComponentUpdate(object nextProps, object nextState): invoked when a component decides whether any changes warrant an update to the DOM.<br>AJAX渲染</li>
-</ul>
-<ol>
-<li><code>this.setState()</code> 触发 UI的重新渲染<br>只是写了部分react的内容~</li>
-</ol>
-<hr>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -887,7 +858,7 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -924,7 +895,7 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -948,6 +919,10 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 			
 		
 			
+				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
@@ -956,15 +931,11 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 			
 		
 			
-				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+				<li><a href="/tags/webstorm-11/" title="webstorm 11">webstorm 11<sup>1</sup></a></li>
 			
 		
 			
@@ -996,11 +967,11 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 			
 		
 			
-				<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ellipsis/" title="ellipsis">ellipsis<sup>1</sup></a></li>
+				<li><a href="/tags/nodejs/" title="nodejs">nodejs<sup>1</sup></a></li>
 			
 		
 			
@@ -1012,7 +983,7 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -1188,7 +1159,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

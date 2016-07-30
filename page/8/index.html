@@ -66,7 +66,7 @@
 				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -86,7 +86,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:slashhuang.github.io">
 					</form>
 					
@@ -104,6 +104,67 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/07/25/wordpress/e4-b8-80-e4-ba-9b-e7-90-86-e8-a7-a3-e4-b8-8a-e7-9a-84-e4-b8-8d-e5-88-b0-e4-bd-8d/" title="一些理解上的不到位" itemprop="url">一些理解上的不到位</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-25T08:31:47.000Z" itemprop="datePublished"> 发表于 2015-07-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>关于Js的闭包问题，主要原理======内部函数可以访问定义它们的外部函数的变量和参数。</p>
+<p>关于这一点首先要澄清：</p>
+<ol>
+<li>内部函数是类似（function(){})()这种形式的，直接返回值，即回收内存。这种情形没啥影响。</li>
+<li>内部函数是类似 var func= function(){return value};若内部函数调用了外部函数的变量，这里会出现大问题。主要是因为JS在执行的时候，只是将它挂载起来并不解析具体操作。因而，在后续操作的时候，外部变量如果用了类似For循环之类的话，可能结果就不是我们想要的结果了。解决方案有两种：1/ var func= function(){return value};在此函数外部再开辟一个变量指向for 循环的变量，然后在此内部函数使用。2/直接采用var func=( function(外部变量){return function(){value}})(外部变量);</li>
+<li>上述第二点的两种方法殊途同归，就是复制挂载的函数中引用的外部变量，避免真正 执行时出现我们不希望的效果</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/25/wordpress/requirejs-e4-bb-a3-e7-a0-81-e8-a7-a3-e6-9e-90-e8-b7-af-e5-be-84/" title="requirejs代码解析路径" itemprop="url">requirejs代码解析路径</a>
   </h1>
   <p class="article-author">By
@@ -111,7 +172,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-24T22:24:19.000Z" itemprop="datePublished"> Published 2015-07-25</time>
+    <time datetime="2015-07-24T22:24:19.000Z" itemprop="datePublished"> 发表于 2015-07-25</time>
     
   </p>
 </header>
@@ -178,7 +239,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-24T01:36:12.000Z" itemprop="datePublished"> Published 2015-07-24</time>
+    <time datetime="2015-07-24T01:36:12.000Z" itemprop="datePublished"> 发表于 2015-07-24</time>
     
   </p>
 </header>
@@ -243,7 +304,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-23T20:18:32.000Z" itemprop="datePublished"> Published 2015-07-24</time>
+    <time datetime="2015-07-23T20:18:32.000Z" itemprop="datePublished"> 发表于 2015-07-24</time>
     
   </p>
 </header>
@@ -314,7 +375,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-22T23:31:05.000Z" itemprop="datePublished"> Published 2015-07-23</time>
+    <time datetime="2015-07-22T23:31:05.000Z" itemprop="datePublished"> 发表于 2015-07-23</time>
     
   </p>
 </header>
@@ -383,7 +444,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-21T19:23:52.000Z" itemprop="datePublished"> Published 2015-07-22</time>
+    <time datetime="2015-07-21T19:23:52.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
     
   </p>
 </header>
@@ -438,7 +499,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-21T17:27:12.000Z" itemprop="datePublished"> Published 2015-07-22</time>
+    <time datetime="2015-07-21T17:27:12.000Z" itemprop="datePublished"> 发表于 2015-07-22</time>
     
   </p>
 </header>
@@ -497,7 +558,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-20T21:26:35.000Z" itemprop="datePublished"> Published 2015-07-21</time>
+    <time datetime="2015-07-20T21:26:35.000Z" itemprop="datePublished"> 发表于 2015-07-21</time>
     
   </p>
 </header>
@@ -560,7 +621,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-19T19:29:58.000Z" itemprop="datePublished"> Published 2015-07-20</time>
+    <time datetime="2015-07-19T19:29:58.000Z" itemprop="datePublished"> 发表于 2015-07-20</time>
     
   </p>
 </header>
@@ -633,7 +694,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-16T06:04:45.000Z" itemprop="datePublished"> Published 2015-07-16</time>
+    <time datetime="2015-07-16T06:04:45.000Z" itemprop="datePublished"> 发表于 2015-07-16</time>
     
   </p>
 </header>
@@ -676,87 +737,21 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/07/16/wordpress/java-e7-b1-bb-e5-ad-a6-e4-b9-a0/" title="java 类学习" itemprop="url">java 类学习</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-07-15T22:55:18.000Z" itemprop="datePublished"> Published 2015-07-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li>类的static定义了数据在内存中的存储方式</li>
-<li>类的public和private定义了数据的作用域</li>
-</ol>
-<p>方法：<strong>public static</strong><span style="text-decoration: underline; color: #800080;"><span> int</span> </span><span style="color: #808000;">max</span> <span style="color: #ff6600;">(param)==&gt;&gt;修饰符 返回值类型 方法名 （参数）</span></p>
-<p>变量声明： varType  varName</p>
-<p>class构造函数：没有return type</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Java/">Java</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/7/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -766,7 +761,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -803,7 +798,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -827,6 +822,10 @@
 			
 		
 			
+				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
@@ -835,15 +834,11 @@
 			
 		
 			
-				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+				<li><a href="/tags/webstorm-11/" title="webstorm 11">webstorm 11<sup>1</sup></a></li>
 			
 		
 			
@@ -875,11 +870,11 @@
 			
 		
 			
-				<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ellipsis/" title="ellipsis">ellipsis<sup>1</sup></a></li>
+				<li><a href="/tags/nodejs/" title="nodejs">nodejs<sup>1</sup></a></li>
 			
 		
 			
@@ -891,7 +886,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -1067,7 +1062,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

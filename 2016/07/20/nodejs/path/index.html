@@ -4,23 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>vmware注册码 | slashhuang的技术博客</title>
+    <title>node核心模块之path | slashhuang的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="slashhuang">
     
 
     
-    <meta name="description" content="123FY75A-06W1M-H85PZ-0XP7T-MZ8E8ZY7TK-A3D4N-08EUZ-TQN5E-XG2TFFG1MA-25Y1J-H857P-6MZZE-YZAZ6">
+    <meta name="description" content="引言
+path模块在nodejs中属于核心模块，目前状态是stable。path模块提供了文件、目录等的使用机制。
+
+Windows vs POSIX
+在Windows和posix[例如*nix等的可移植操作系统接口实现平台]中可以轻松使用同一套API来操作文件和目录。由于windows和POSIX使用不同的系统文件分隔符[一个是\,一个是/]。因此nodejs提供了path.win32[方法名称">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vmware注册码">
-<meta property="og:url" content="http://slashhuang.github.io/2013/05/31/资料/vmware8/index.html">
+<meta property="og:title" content="node核心模块之path">
+<meta property="og:url" content="http://slashhuang.github.io/2016/07/20/nodejs/path/index.html">
 <meta property="og:site_name" content="slashhuang的技术博客">
-<meta property="og:description" content="123FY75A-06W1M-H85PZ-0XP7T-MZ8E8ZY7TK-A3D4N-08EUZ-TQN5E-XG2TFFG1MA-25Y1J-H857P-6MZZE-YZAZ6">
-<meta property="og:updated_time" content="2016-06-29T16:41:03.000Z">
+<meta property="og:description" content="引言
+path模块在nodejs中属于核心模块，目前状态是stable。path模块提供了文件、目录等的使用机制。
+
+Windows vs POSIX
+在Windows和posix[例如*nix等的可移植操作系统接口实现平台]中可以轻松使用同一套API来操作文件和目录。由于windows和POSIX使用不同的系统文件分隔符[一个是\,一个是/]。因此nodejs提供了path.win32[方法名称">
+<meta property="og:updated_time" content="2016-07-30T15:02:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vmware注册码">
-<meta name="twitter:description" content="123FY75A-06W1M-H85PZ-0XP7T-MZ8E8ZY7TK-A3D4N-08EUZ-TQN5E-XG2TFFG1MA-25Y1J-H857P-6MZZE-YZAZ6">
+<meta name="twitter:title" content="node核心模块之path">
+<meta name="twitter:description" content="引言
+path模块在nodejs中属于核心模块，目前状态是stable。path模块提供了文件、目录等的使用机制。
+
+Windows vs POSIX
+在Windows和posix[例如*nix等的可移植操作系统接口实现平台]中可以轻松使用同一套API来操作文件和目录。由于windows和POSIX使用不同的系统文件分隔符[一个是\,一个是/]。因此nodejs提供了path.win32[方法名称">
 
     
     <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
@@ -67,7 +79,7 @@
 				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -87,7 +99,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:slashhuang.github.io">
 					</form>
 					
@@ -103,27 +115,46 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2013/05/31/资料/vmware8/" title="vmware注册码" itemprop="url">vmware注册码</a>
+      <a href="/2016/07/20/nodejs/path/" title="node核心模块之path" itemprop="url">node核心模块之path</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2013-05-30T16:00:14.000Z" itemprop="datePublished"> Published 2013-05-31</time>
+    <time datetime="2016-07-20T05:49:08.000Z" itemprop="datePublished"> 发表于 2016-07-20</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows-vs-POSIX"><span class="toc-number">1.0.1.</span> <span class="toc-text">Windows vs POSIX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法名列举"><span class="toc-number">1.0.2.</span> <span class="toc-text">方法名列举</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FY75A-06W1M-H85PZ-0XP7T-MZ8E8</span><br><span class="line">ZY7TK-A3D4N-08EUZ-TQN5E-XG2TF</span><br><span class="line">FG1MA-25Y1J-H857P-6MZZE-YZAZ6</span><br></pre></td></tr></table></figure>
+		<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><blockquote>
+<p>path模块在nodejs中属于核心模块，目前状态是stable。<br>path模块提供了文件、目录等的使用机制。</p>
+</blockquote>
+<h3 id="Windows-vs-POSIX"><a href="#Windows-vs-POSIX" class="headerlink" title="Windows vs POSIX"></a>Windows vs POSIX</h3><blockquote>
+<p>在Windows和posix[例如*nix等的可移植操作系统接口实现平台]中可以轻松使用同一套API来操作文件和目录。<br>由于windows和POSIX使用不同的系统文件分隔符[一个是<code>\</code>,一个是<code>/</code>]。<br>因此nodejs提供了path.win32[方法名称]和path.posix[方法名称]来处理不同开发环境对任何操作系统的路径兼容  </p>
+</blockquote>
+<h3 id="方法名列举"><a href="#方法名列举" class="headerlink" title="方法名列举"></a>方法名列举</h3><ul>
+<li>basename[path[,ext]]  ===&gt; 返回路径中的最后一块【和*nix系统中的basename命令基本保持一致】</li>
+<li>delimiter====&gt; 返回不同操作系统中对于环境变量<code>process.env.PATH</code>的分隔符</li>
+<li>dirname(path) ===&gt;  返回目录名称【和*nix系统的dirname命令基本一致】</li>
+<li>extname(path) ===&gt; 返回参数的basename从末尾到最后一个<code>.</code>出现的值</li>
+<li>format(pathObject) ===&gt; 参数是一个对象，就是将路径拆解了而已</li>
+<li>isAbsolute(path) ===&gt; 返回一个boolean值，来表示是否参数为绝对路径形式</li>
+<li>join([path[,…]]) ===&gt; 用系统路径分隔符来连接所有的参数，然后normalize返回的结果</li>
+<li>normalize(path) ===&gt; 处理路径中存在的<code>\</code>、<code>/</code>、<code>..</code>、<code>.</code>等，和<code>cd</code>命令基本一致</li>
+<li>parse(path) ===&gt; 处理路径为format的形式</li>
+<li>relative(from,to) ===&gt; 返回从from到to需要resolve的相对路径</li>
+<li>resolve([path[,…]]) ===&gt; 处理路径命令【类似cd】</li>
+<li>sep ==&gt; 返回系统路径分隔符</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -132,7 +163,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/vmware/">vmware</a>
+  <span></span> <a href="/tags/nodejs/">nodejs</a>
   </div>
 
 </div>
@@ -141,7 +172,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://slashhuang.github.io/2013/05/31/资料/vmware8/" data-title="vmware注册码 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://slashhuang.github.io/2016/07/20/nodejs/path/" data-title="node核心模块之path | slashhuang的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -154,19 +185,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2013/07/10/essay/cooking/cooking/" title="to be a 好厨师">
-  <strong>上一篇：</strong><br/>
-  <span>
-  to be a 好厨师</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2012/04/28/essay/to-be-better/"  title="更加的自律">
+<a href="/2016/06/25/react/react-update/"  title="react-update">
  <strong>下一篇：</strong><br/> 
- <span>更加的自律
+ <span>react-update
 </span>
 </a>
 </div>
@@ -176,22 +199,22 @@
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows-vs-POSIX"><span class="toc-number">1.0.1.</span> <span class="toc-text">Windows vs POSIX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法名列举"><span class="toc-number">1.0.2.</span> <span class="toc-text">方法名列举</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -201,7 +224,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -238,7 +261,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -262,6 +285,10 @@
 			
 		
 			
+				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
@@ -270,15 +297,11 @@
 			
 		
 			
-				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
+				<li><a href="/tags/webstorm-11/" title="webstorm 11">webstorm 11<sup>1</sup></a></li>
 			
 		
 			
@@ -310,11 +333,11 @@
 			
 		
 			
-				<li><a href="/tags/vmware/" title="vmware">vmware<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/ellipsis/" title="ellipsis">ellipsis<sup>1</sup></a></li>
+				<li><a href="/tags/nodejs/" title="nodejs">nodejs<sup>1</sup></a></li>
 			
 		
 			
@@ -326,7 +349,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -579,7 +602,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
