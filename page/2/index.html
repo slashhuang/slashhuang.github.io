@@ -66,7 +66,7 @@
 				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -86,7 +86,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:slashhuang.github.io">
 					</form>
 					
@@ -104,6 +104,71 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/20/移动端开发/移动端事件/" title="移动端事件处理" itemprop="url">移动端事件处理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-20T08:00:14.000Z" itemprop="datePublished"> Published 2016-05-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="1、测试移动端事件代码"><a href="#1、测试移动端事件代码" class="headerlink" title="1、测试移动端事件代码"></a>1、测试移动端事件代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"d"</span> <span class="attr">style</span>=<span class="string">"width: 100px; height: 100px; border: 1px solid black;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"reset"</span>&gt;</span>reset<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="string">'#reset'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">'#container'</span>).empty();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> startTime;</span><br><span class="line">    <span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> (<span class="params">msg,e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> clientX=<span class="string">"clientX "</span>;</span><br><span class="line">        <span class="keyword">if</span>(msg.match(<span class="string">'touchmove'</span>))&#123;</span><br><span class="line">            clientX+=(e[<span class="string">'targetTouches'</span>][<span class="number">0</span>].clientX+<span class="string">''</span>).substr(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> div = $(<span class="string">'&lt;div&gt;&lt;/div&gt;'</span>);</span><br><span class="line">        div.html((<span class="keyword">new</span> <span class="built_in">Date</span>().getTime()+<span class="string">''</span>).substring(<span class="number">6</span>) + <span class="string">': '</span> + (<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - startTime) + <span class="string">': '</span> + clientX+msg)</span><br><span class="line">        $(<span class="string">'#container'</span>).append(div);</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> addListener= <span class="function"><span class="keyword">function</span> (<span class="params">type,func</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> d = <span class="built_in">document</span>.getElementById(<span class="string">'d'</span>);</span><br><span class="line">        d.addEventListener(type,func)</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> touchStart = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        startTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">        log(<span class="string">'touchStart'</span>,e);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> touchMove = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        log(<span class="string">'touchmove'</span>,e);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> touchEnd = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        log(<span class="string">'touchEnd'</span>,e);</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> mouseDown = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        log(<span class="string">'mouseDown'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> click = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        log(<span class="string">'clickend'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> mouseClick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        log(<span class="string">'mouseClick'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> mouseUp = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        log(<span class="string">'mouseUp'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> mouseOver = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        log(<span class="string">'mouseOver'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    addListener(<span class="string">'mousedown'</span>, mouseDown);</span><br><span class="line">    addListener(<span class="string">'mouseover'</span>, mouseOver);</span><br><span class="line">    addListener(<span class="string">'click'</span>, mouseClick);</span><br><span class="line">    addListener(<span class="string">'mouseup'</span>, mouseUp);</span><br><span class="line">    addListener(<span class="string">'touchstart'</span>, touchStart);</span><br><span class="line">    addListener(<span class="string">'touchend'</span>, touchEnd);</span><br><span class="line">    addListener(<span class="string">'click'</span>, click);</span><br><span class="line">    addListener(<span class="string">'touchmove'</span>, touchMove);</span></span><br></pre></td></tr></table></figure>
+<h3 id="快速点击下的测试结果"><a href="#快速点击下的测试结果" class="headerlink" title="快速点击下的测试结果"></a>快速点击下的测试结果</h3><blockquote>
+<p>华为荣耀手机(网页性能超乎预期，点击会在touchEnd后立即执行)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//<span class="built_in">test</span>1</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  74</span><br><span class="line">mouseOver 82</span><br><span class="line">mouseDown 86</span><br><span class="line">mouseUp   93</span><br><span class="line">mouseClick 94</span><br><span class="line">clickEnd 95</span><br><span class="line">//<span class="built_in">test</span>2</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  107</span><br><span class="line">mouseOver 117</span><br><span class="line">mouseDown 121</span><br><span class="line">mouseUp   129</span><br><span class="line">mouseClick 131</span><br><span class="line">clickEnd 133</span><br></pre></td></tr></table></figure></p>
+<p>三星手机(点击事件相比touch大致会有200ms的延迟)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//<span class="built_in">test</span>1</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  63</span><br><span class="line">mouseOver 258</span><br><span class="line">mouseDown 260</span><br><span class="line">mouseUp   265</span><br><span class="line">mouseClick 271</span><br><span class="line">clickEnd 275</span><br></pre></td></tr></table></figure></p>
+<p>iphone 4s(点击事件相比touch大致会有300ms的延迟,同时mouseover将会劫持后续的click事件)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//测试1</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  36</span><br><span class="line">mouseDown 394</span><br><span class="line">mouseUp   404</span><br><span class="line">mouseClick 405</span><br><span class="line">clickEnd 406</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  63</span><br><span class="line">mouseDown 251</span><br><span class="line">mouseUp   255</span><br><span class="line">mouseClick 257</span><br><span class="line">clickEnd 259</span><br><span class="line">//测试2</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  59</span><br><span class="line">mouseOver 418</span><br></pre></td></tr></table></figure></p>
+<p>iphone 6<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//测试1</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  48</span><br><span class="line">mouseOver 412</span><br><span class="line">//测试2</span><br><span class="line">touchStart 1</span><br><span class="line">touchEnd  50</span><br><span class="line">mouseDown 420</span><br><span class="line">mouseUp   428</span><br><span class="line">mouseClick 429</span><br><span class="line">clickEnd 430</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="点击小结-手机点按触发顺序touch会在mouseEvents之前"><a href="#点击小结-手机点按触发顺序touch会在mouseEvents之前" class="headerlink" title="点击小结 手机点按触发顺序touch会在mouseEvents之前"></a>点击小结 手机点按触发顺序touch会在mouseEvents之前</h3><hr>
+<h3 id="2、手指移动测试结果"><a href="#2、手指移动测试结果" class="headerlink" title="2、手指移动测试结果"></a>2、手指移动测试结果</h3><blockquote>
+<p>测试数据暂时不给出，大致的情况是touchmove事件的触发往往和触发click事件互斥</p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/移动端/">移动端</a><a href="/tags/事件/">事件</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/05/20/移动端开发/移动端开发/" title="移动端开发及兼容要点" itemprop="url">移动端开发及兼容要点</a>
   </h1>
   <p class="article-author">By
@@ -111,7 +176,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-20T02:00:14.000Z" itemprop="datePublished"> 发表于 2016-05-20</time>
+    <time datetime="2016-05-20T02:00:14.000Z" itemprop="datePublished"> Published 2016-05-20</time>
     
   </p>
 </header>
@@ -188,7 +253,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-20T02:00:14.000Z" itemprop="datePublished"> 发表于 2016-05-20</time>
+    <time datetime="2016-05-20T02:00:14.000Z" itemprop="datePublished"> Published 2016-05-20</time>
     
   </p>
 </header>
@@ -286,7 +351,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-12T08:42:32.000Z" itemprop="datePublished"> 发表于 2016-04-12</time>
+    <time datetime="2016-04-12T08:42:32.000Z" itemprop="datePublished"> Published 2016-04-12</time>
     
   </p>
 </header>
@@ -344,7 +409,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-08T03:36:51.000Z" itemprop="datePublished"> 发表于 2016-04-08</time>
+    <time datetime="2016-04-08T03:36:51.000Z" itemprop="datePublished"> Published 2016-04-08</time>
     
   </p>
 </header>
@@ -435,7 +500,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-08T03:36:51.000Z" itemprop="datePublished"> 发表于 2016-04-08</time>
+    <time datetime="2016-04-08T03:36:51.000Z" itemprop="datePublished"> Published 2016-04-08</time>
     
   </p>
 </header>
@@ -496,7 +561,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-07T09:08:41.000Z" itemprop="datePublished"> 发表于 2016-04-07</time>
+    <time datetime="2016-04-07T09:08:41.000Z" itemprop="datePublished"> Published 2016-04-07</time>
     
   </p>
 </header>
@@ -570,7 +635,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-07T08:34:33.000Z" itemprop="datePublished"> 发表于 2016-04-07</time>
+    <time datetime="2016-04-07T08:34:33.000Z" itemprop="datePublished"> Published 2016-04-07</time>
     
   </p>
 </header>
@@ -647,7 +712,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-06T16:00:14.000Z" itemprop="datePublished"> 发表于 2016-04-07</time>
+    <time datetime="2016-04-06T16:00:14.000Z" itemprop="datePublished"> Published 2016-04-07</time>
     
   </p>
 </header>
@@ -707,7 +772,7 @@
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-04T01:50:14.000Z" itemprop="datePublished"> 发表于 2016-04-04</time>
+    <time datetime="2016-04-04T01:50:14.000Z" itemprop="datePublished"> Published 2016-04-04</time>
     
   </p>
 </header>
@@ -776,85 +841,21 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/29/react/animation/" title="react-native动画" itemprop="url">react-native动画</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-29T09:27:39.000Z" itemprop="datePublished"> 发表于 2016-03-29</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="主要观点"><a href="#主要观点" class="headerlink" title="主要观点"></a>主要观点</h3><blockquote>
-<p>RN提供了Animated组件来提供易于构建和维护的动画效果<br>学习曲线完全可以参照css3的transform和@keyframes方式</p>
-</blockquote>
-<h3 id="代码流程"><a href="#代码流程" class="headerlink" title="代码流程"></a>代码流程</h3><ul>
-<li>只有声明可动画化的组件Animated.Image,Animated.Image,Animated.View等关联动画</li>
-<li>初始化实例变量,最常见的就是 var s= Animated.Value(0);</li>
-<li>将实例变量绑定组件的style属性,例如:{opacity:s}</li>
-<li>在Animated.sequence里面定义动画队列数组,每个动画序列可以采用Animated.timing或者Animated.decay等定义时长或者延迟效果</li>
-<li>在style属性中定义transform数组，每个数组都是个key(属性),value(利用interpolate更新的值)</li>
-</ul>
-<h3 id="talk-is-cheap-show-me-the-code-具体实现请看demo"><a href="#talk-is-cheap-show-me-the-code-具体实现请看demo" class="headerlink" title="talk is cheap ,show me the code,具体实现请看demo"></a>talk is cheap ,show me the code,具体实现请看<a href="https://github.com/slashhuang/react-native-demo" target="_blank" rel="external">demo</a></h3><h3 id="RN动画中文文档"><a href="#RN动画中文文档" class="headerlink" title="RN动画中文文档"></a><a href="http://reactnative.cn/docs/0.21/animations.html" target="_blank" rel="external">RN动画中文文档</a></h3>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/react-native/">react-native</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -864,7 +865,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -901,7 +902,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -925,10 +926,6 @@
 			
 		
 			
-				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
@@ -937,11 +934,15 @@
 			
 		
 			
+				<li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/webstorm-11/" title="webstorm 11">webstorm 11<sup>1</sup></a></li>
+				<li><a href="/tags/生活习惯/" title="生活习惯">生活习惯<sup>1</sup></a></li>
 			
 		
 			
@@ -977,11 +978,11 @@
 			
 		
 			
-				<li><a href="/tags/nodejs/" title="nodejs">nodejs<sup>1</sup></a></li>
+				<li><a href="/tags/ellipsis/" title="ellipsis">ellipsis<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/生活习惯/" title="生活习惯">生活习惯<sup>1</sup></a></li>
+				<li><a href="/tags/webstorm-11/" title="webstorm 11">webstorm 11<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -989,7 +990,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -1165,7 +1166,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
