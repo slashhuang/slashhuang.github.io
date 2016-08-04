@@ -104,6 +104,79 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/07/20/css/css3-selector/" title="CSS选择器排序（specificity）" itemprop="url">CSS选择器排序（specificity）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-19T19:29:58.000Z" itemprop="datePublished"> Published 2015-07-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="Selector-Types"><a href="#Selector-Types" class="headerlink" title="Selector Types"></a>Selector Types</h3><p>The following list of selector types is by increasing specificity:</p>
+<ul>
+<li>Universal selectors (e.g., <code>*</code>)</li>
+<li>Type selectors (e.g., <code>h1</code>)</li>
+<li>Class selectors (e.g., <code>.example</code>)</li>
+<li>Attributes selectors (e.g., <code>[type=&quot;radio&quot;]</code>)</li>
+<li>Pseudo-classes (e.g., <code>:hover</code>)</li>
+<li>ID selectors (e.g., <code>#example</code>)</li>
+<li>Inline style (e.g., <code>style=&quot;font-weight:bold&quot;</code>)<br>以上选择器优先级从弱到强</li>
+</ul>
+<h3 id="important"><a href="#important" class="headerlink" title="!important"></a>!important</h3><p>When an <em><strong><span style="text-decoration: underline;">!important</span></strong></em> rule is used on a style declaration, this declaration overrides any other declaration made in the CSS, wherever it is in the declaration list. Although, !important has nothing to do with specificity.</p>
+<p><span style="text-decoration: underline;"><em><strong>!important</strong></em></span>并不提供精确匹配，但此声明覆盖之前所有selector</p>
+<h1 id="font-face-Rule"><a href="#font-face-Rule" class="headerlink" title="@font-face Rule"></a><span class="color_h1">@font-face</span> Rule</h1><p>usage:</p>
+<p>In the new @font-face rule you must first define a name for the font , and then point to the font file. The URL must be in lowercase</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css3/">css3</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/16/wordpress/e5-8f-91-e7-8e-b0-e8-bf-98-e6-98-af-e6-9c-89-e5-be-88-e5-a4-9a-e4-b8-8d-e8-b6-b3/" title="发现还是有很多不足" itemprop="url">发现还是有很多不足</a>
   </h1>
   <p class="article-author">By
@@ -676,97 +749,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2010/07/10/week-notes/16-07-10/" title="16-07-10【爱屋吉屋第二周】" itemprop="url">16-07-10【爱屋吉屋第二周】</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2010-07-10T12:18:52.000Z" itemprop="datePublished"> Published 2010-07-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="工作上的收获"><a href="#工作上的收获" class="headerlink" title="工作上的收获"></a>工作上的收获</h2><h3 id="1-爱屋吉屋流程管理"><a href="#1-爱屋吉屋流程管理" class="headerlink" title="1. 爱屋吉屋流程管理"></a>1. 爱屋吉屋流程管理</h3><ul>
-<li>QA: 走checklist，确认项目需要把关的点</li>
-<li>版本管理: 项目大版本【新功能】和小版本【功能修复】的协同开发</li>
-<li>文档安排: UED、PRD部门的文档发放</li>
-</ul>
-<h3 id="2-爱屋吉屋FE项目技术框架"><a href="#2-爱屋吉屋FE项目技术框架" class="headerlink" title="2. 爱屋吉屋FE项目技术框架"></a>2. 爱屋吉屋FE项目技术框架</h3><ul>
-<li>PC: webpack + jquery + 后端静态资源 + react</li>
-<li>移动端:  VUe + webpack</li>
-</ul>
-<h3 id="3-技术细节完善"><a href="#3-技术细节完善" class="headerlink" title="3. 技术细节完善"></a>3. 技术细节完善</h3><ul>
-<li><p>3.1.javaWeb: </p>
-<blockquote>
-<p>1.了解了pom.xml的基本配置<br>2.了解了url-rewrite==自定义url===&gt; action ===&gt; res.send(file,data)的流程<br>3.了解了maven的基本jar包管理</p>
-</blockquote>
-</li>
-<li><p>3.2.前端:</p>
-<blockquote>
-<p>1.规范: 帮助规范了整个团队的react代码规范及技术架构<br>2.设计: 了解设计工具sketch的基本使用</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="4-业余技术"><a href="#4-业余技术" class="headerlink" title="4.业余技术"></a>4.业余技术</h3><ul>
-<li><p>4.1.源码</p>
-<blockquote>
-<p>nodeJS: 阅读了异步并发优化模块bagpipe的源码，并完成实现<br>jQuery: 完成事件代理实现的源码实现阅读</p>
-</blockquote>
-</li>
-<li><p>4.2.nodeJS:</p>
-<blockquote>
-<p>1.理解了eventEmitter在node中成为多数文件模块和核心模块的父类的原因<br>2.阅读了node文档中，eventLoop对timer、I/O回调、idle观察者、tick处理等的底层机制<br>3.了解了V8关于内存管理的限制</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="生活上的收获"><a href="#生活上的收获" class="headerlink" title="生活上的收获"></a>生活上的收获</h2><ul>
-<li>打上了球，进球数全场第二，身心得到了愉悦</li>
-<li>吃了一个礼拜的自己烧的早饭，更加健康了</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/week-note/">week-note</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/8/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next<span></span></a>
@@ -852,6 +834,10 @@
 			
 		
 			
+				<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
@@ -865,10 +851,6 @@
 		
 			
 				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
@@ -904,11 +886,11 @@
 			
 		
 			
-				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -104,6 +104,88 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/04/javascript/js-engine/" title="v8 engine与javascript" itemprop="url">v8 engine与javascript</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-04T01:50:14.000Z" itemprop="datePublished"> Published 2016-04-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h4 id="v8如何执行处理JavaScript"><a href="#v8如何执行处理JavaScript" class="headerlink" title="v8如何执行处理JavaScript"></a>v8如何执行处理JavaScript</h4><blockquote>
+<p>V8是一个由美国Google开发的开源JavaScript引擎，用于Google Chrome中<br>V8在运行之前将JavaScript编译成了机器码，<br>而非字节码或是解释执行它，以此提升性能。<br>更进一步，使用了如内联缓存（inline caching）等方法来提高性能。<br>有了这些功能，JavaScript程序与V8引擎的速度媲美二进制编译</p>
+</blockquote>
+<ul>
+<li>V8 引擎 是用 C++ 编写的，它能够编译并执行 JavaScript 源代码、</li>
+<li>处理内存分配和垃圾回收。</li>
+<li>它被设计成由两个编译器组成，可以把源码直接编译成机器码</li>
+</ul>
+<h4 id="javaScriptCore"><a href="#javaScriptCore" class="headerlink" title="javaScriptCore"></a>javaScriptCore</h4><blockquote>
+<p>JavaScriptCore是一个在WebKit中提供JavaScript引擎的框架，<br>而且在OS X作为其他内容的脚本引擎<br>它会将Javascript编译为原生的机器语言，<br>不再需要字节码直译器，同时加速了JavaScript的执行效率</p>
+</blockquote>
+<ul>
+<li>它进行词法分析，就是将源代码分解成一系列具有明确含义的符号或字符串。</li>
+<li>然后用语法分析器分析这些符号，将其构建成语法树。</li>
+<li>接着四个 JIT（Just-In-Time）进程开始参与进来，分析和执行解析器所生成的字节码。<br><a href="http://web.jobbole.com/84351/" target="_blank" rel="external">参考资料</a></li>
+</ul>
+<blockquote>
+<p>一旦编译过程中产生了机器代码，引擎就会向浏览器暴露所有的数据类型、操作符、对象、<br>在 ECMA 标准中指定的函数、或任何运行时需要使用的东西</p>
+</blockquote>
+<h3 id="补充下JIT的概念"><a href="#补充下JIT的概念" class="headerlink" title="补充下JIT的概念"></a>补充下JIT的概念</h3><blockquote>
+<p>即时编译（英语：Just-in-time compilation又译及时编译/实时编译,<br>动态编译的一种形式，是一种提高程序运行效率的方法。通<br>常，程序有两种运行方式：静态编译与动态直译。静态编译的程序在执行前全部被翻译为机器码，而直译执行的则是一句一句边运行边翻译。<br>JIT编译则是这两种方式的混合，在运行时将源代码翻译成机器码（这一点与解释执行类似），<br>但是会保存已翻译的机器代码，下次执行同一代码段时无需再翻译（这又与静态编译类似）。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>js引擎一般有2种实现方式:</p>
+<ul>
+<li>源代码===跳过字节码的步骤==&gt; 机器码(chrome)</li>
+<li>源代码===JIT(边运行边翻译)==&gt;机器码(javascriptCore safari)</li>
+</ul>
+</blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%99%82%E7%B7%A8%E8%AD%AF" target="_blank" rel="external">参考资料1</a><br><a href="http://javascript.ruanyifeng.com/bom/engine.html" target="_blank" rel="external">参考资料2</a><br><a href="https://segmentfault.com/q/1010000000491499" target="_blank" rel="external">js引擎内部</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/javascript/">javascript</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/29/react/animation/" title="react-native动画" itemprop="url">react-native动画</a>
   </h1>
   <p class="article-author">By
@@ -701,61 +783,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/16/wordpress/swift-e4-b8-ad-e6-96-87-e7-89-88api-e5-8f-8a-e6-95-99-e7-a8-8b-e8-af-b4-e6-98-8e/" title="swift中文版API及教程说明" itemprop="url">swift中文版API及教程说明</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-15T18:11:14.000Z" itemprop="datePublished"> Published 2016-02-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="https://numbbbbb.gitbooks.io/-the-swift-programming-language-/content/" target="_blank" rel="external">https://numbbbbb.gitbooks.io/-the-swift-programming-language-/content/</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
@@ -841,6 +868,10 @@
 			
 		
 			
+				<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
@@ -854,10 +885,6 @@
 		
 			
 				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
@@ -893,11 +920,11 @@
 			
 		
 			
-				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
 			
 		
 		</ul>

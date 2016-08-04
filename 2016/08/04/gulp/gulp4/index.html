@@ -4,56 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>前端工程师转全栈工程师系列-------nodejs模块引入机制（module&amp;&amp;exports） | slashhuang的技术博客</title>
+    <title>使用gulp4 | slashhuang的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="slashhuang">
     
 
     
-    <meta name="description" content="/**
- * Created by slashhuang on 15/11/19.
- */
+    <meta name="description" content="gulp4研究
+今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 
 
-//测试module和exports变量
-
-//均为对象类型
-var type_module_exports = typeof module.exports ;
-var type_exports = typeof exports;
-
-/**  本地变量
- * exports module __dirnam">
+gulp4 vs gulp 3.X
+gulp本身的定位就是stream building system,典型的code-style就是12345678910111213&amp;gt; gulp4相比于gulp3.X系列在流式规范上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端工程师转全栈工程师系列-------nodejs模块引入机制（module&&exports）">
-<meta property="og:url" content="http://slashhuang.github.io/2015/11/20/wordpress/e5-89-8d-e7-ab-af-e5-b7-a5-e7-a8-8b-e5-b8-88-e8-bd-ac-e5-85-a8-e6-a0-88-e5-b7-a5-e7-a8-8b-e5-b8-88-e7-b3-bb-e5-88-97-nodejs-e6-a8-a1-e5-9d-97-e5-bc-95-e5-85-a5-e6-9c-ba-e5-88-b6-ef-bc-88module/index.html">
+<meta property="og:title" content="使用gulp4">
+<meta property="og:url" content="http://slashhuang.github.io/2016/08/04/gulp/gulp4/index.html">
 <meta property="og:site_name" content="slashhuang的技术博客">
-<meta property="og:description" content="/**
- * Created by slashhuang on 15/11/19.
- */
+<meta property="og:description" content="gulp4研究
+今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 
 
-//测试module和exports变量
-
-//均为对象类型
-var type_module_exports = typeof module.exports ;
-var type_exports = typeof exports;
-
-/**  本地变量
- * exports module __dirnam">
-<meta property="og:updated_time" content="2016-03-07T15:31:42.000Z">
+gulp4 vs gulp 3.X
+gulp本身的定位就是stream building system,典型的code-style就是12345678910111213&amp;gt; gulp4相比于gulp3.X系列在流式规范上">
+<meta property="og:updated_time" content="2016-08-04T14:22:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端工程师转全栈工程师系列-------nodejs模块引入机制（module&&exports）">
-<meta name="twitter:description" content="/**
- * Created by slashhuang on 15/11/19.
- */
+<meta name="twitter:title" content="使用gulp4">
+<meta name="twitter:description" content="gulp4研究
+今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 
 
-//测试module和exports变量
-
-//均为对象类型
-var type_module_exports = typeof module.exports ;
-var type_exports = typeof exports;
-
-/**  本地变量
- * exports module __dirnam">
+gulp4 vs gulp 3.X
+gulp本身的定位就是stream building system,典型的code-style就是12345678910111213&amp;gt; gulp4相比于gulp3.X系列在流式规范上">
 
     
     <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
@@ -136,14 +115,14 @@ var type_exports = typeof exports;
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/20/wordpress/e5-89-8d-e7-ab-af-e5-b7-a5-e7-a8-8b-e5-b8-88-e8-bd-ac-e5-85-a8-e6-a0-88-e5-b7-a5-e7-a8-8b-e5-b8-88-e7-b3-bb-e5-88-97-nodejs-e6-a8-a1-e5-9d-97-e5-bc-95-e5-85-a5-e6-9c-ba-e5-88-b6-ef-bc-88module/" title="前端工程师转全栈工程师系列-------nodejs模块引入机制（module&amp;&amp;exports）" itemprop="url">前端工程师转全栈工程师系列-------nodejs模块引入机制（module&amp;&amp;exports）</a>
+      <a href="/2016/08/04/gulp/gulp4/" title="使用gulp4" itemprop="url">使用gulp4</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-19T20:56:52.000Z" itemprop="datePublished"> Published 2015-11-20</time>
+    <time datetime="2016-08-04T15:08:41.000Z" itemprop="datePublished"> Published 2016-08-04</time>
     
   </p>
 </header>
@@ -152,140 +131,37 @@ var type_exports = typeof exports;
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4研究"><span class="toc-number">1.</span> <span class="toc-text">gulp4研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X"><span class="toc-number">2.</span> <span class="toc-text">gulp4 vs gulp 3.X</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X区别细节"><span class="toc-number">3.</span> <span class="toc-text">gulp4 vs gulp 3.X区别细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料"><span class="toc-number">5.</span> <span class="toc-text">资料</span></a></li></ol>
 		
 		</div>
 		
-		<pre>/**
- * Created by slashhuang on 15/11/19.
- */
-
-//测试module和exports变量
-
-//均为对象类型
-var type_module_exports = typeof module.exports ;
-var type_exports = typeof exports;
-
-/**  本地变量
- * exports module __dirname __filename 和所有用var声明并在作用域顶端的数据等
- *
- *  在内存中 exports和module分别占据两块地址。
- *
- *      exports单纯的存储所有对外的接口变量组成对象
- *
- *      module存储 exports     (指向exports(如果exports是对象的话) )
- *                filename    (当前文件)
- *                paths 存储  (node_modules加载路径)
- *                等变量
- *     它们是两个变量。
- *
- *     可以采用exports.[name] = variable;
- *            module.exports = variable;
- *            module.exports[name]= variable;
- *            的形式定义对外接口。
- *
- *            module.exports定义总的对外接口
- *
- *     但是不能采用exports={}定义接口，因为exports指向新的内存地址,变量被覆盖。
- *
- *     !!!!! [导出的所有的内容都体现在process.mainModule.module.exports里面]
- *
- *     在node加载文件的时候，会传入exports,module,__filename,__dirname，在作用域的顶端接收存储变量
- *
- *
- */
-/** 全局变量 process global root 和所有直接声明的变量(如这里的变量test)等
- *
- *  process属性列表 config存储所有node的配置信息
- *                 version存储node各类解析器的版本，包括最重要的openssl,v8引擎等
- *                 mainModule真正存储信息的地方
- *                 cwd()函数
- *                 abort()
- *                 assert()
- *                 binding()
- *                 chdir()
- *                 exit()
- *                 kill(pid,sig)
- *                 memoryUsage()
- *                 moduleLoadList 加载所有的二进制模块
- *                 pid
- *                 platform
- *                 stdin
- *                 stdout
- *                 events (毕竟基于事件驱动)
- *
- *  global属性列表  JSON解析器(!!!轻量级数据格式，它只有parse和stringify两个方法)
- *                 Math对象
- *                 NaN
- *                 undefined
- *                 console对象
- *                 Error等
- *                 其他变量原型
- *
- *                 setTimeout
- *                 setInterval
- *                      这里不是挂载在window对象下了，而是global
- *
- *
- */
-//在node解析文件的时候
-
-test = {hello:"hello"};//global variable
-
-var test1={hello:"hello"};//local variable
-
-console.log(exports == module.exports); // true:exports和module.exports指向相同的地址
-
-global.setTimeout(function(){
-    process.exit();
-},1000);
-
-try{
-    throw global.TypeError('must be an object')
-}
-catch(e){
-    console.error(e)
-}
-module.exports={test:'test'};
-//console.log(process.mainModule);
-
-</pre>
-<pre>//以下为打印的内容，可以看到node通过children,parent的形式【类似dom树的形式】加载模块依赖
-/**
- * Module {
-  id: '.',
-  exports: { index: 'index' },
-  parent: null,
-  filename: '/Users/slashhuang/个人项目库/personal/node-demo/modules/module-exports/index.js',
-  loaded: false,
-  children:
-   [ Module {
-       id: '/Users/slashhuang/个人项目库/personal/node-demo/modules/module-exports/test.js',
-       exports: [Object],
-       parent: [Circular],
-       filename: '/Users/slashhuang/个人项目库/personal/node-demo/modules/module-exports/test.js',
-       loaded: true,
-       children: [],
-       paths: [Object] } ],
-  paths:
-   [ '/Users/slashhuang/个人项目库/personal/node-demo/modules/module-exports/node_modules',
-     '/Users/slashhuang/个人项目库/personal/node-demo/modules/node_modules',
-     '/Users/slashhuang/个人项目库/personal/node-demo/node_modules',
-     '/Users/slashhuang/个人项目库/personal/node_modules',
-     '/Users/slashhuang/个人项目库/node_modules',
-     '/Users/slashhuang/node_modules',
-     '/Users/node_modules',
-     '/node_modules' ] }
- */</pre>  
+		<h3 id="gulp4研究"><a href="#gulp4研究" class="headerlink" title="gulp4研究"></a>gulp4研究</h3><blockquote>
+<p>今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。<br>借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 </p>
+</blockquote>
+<h3 id="gulp4-vs-gulp-3-X"><a href="#gulp4-vs-gulp-3-X" class="headerlink" title="gulp4 vs gulp 3.X"></a>gulp4 vs gulp 3.X</h3><blockquote>
+<p>gulp本身的定位就是stream building system,典型的code-style就是<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; gulp4相比于gulp3.X系列在流式规范上更加的严格。  </span><br><span class="line"></span><br><span class="line">### gulp4的api点</span><br><span class="line">```javascript</span><br><span class="line">    gulp.src   - Emit files matching one or more globs</span><br><span class="line">    gulp.dest  - Write files to directories</span><br><span class="line">    gulp.symlink - Write files to symlinks</span><br><span class="line">    gulp.task   - Define tasks</span><br><span class="line">    gulp.parallel   - Run tasks in parallel</span><br><span class="line">    gulp.series   - Run tasks in series</span><br><span class="line">    gulp.watch   - Run tasks in series</span><br><span class="line">    gulp.tree   - Get the tree of tasks</span><br><span class="line">    gulp.registry    - Get or set the task registry</span><br></pre></td></tr></table></figure></p>
+<p>光看api名字,可以看到多了<code>symlink,lastRun,parallel,series,tree,registry</code><br>这几个API一看,就知道用了nodeJS的child_process,eventEmitter来处理并发、订阅等  </p>
+</blockquote>
+<h3 id="gulp4-vs-gulp-3-X区别细节"><a href="#gulp4-vs-gulp-3-X区别细节" class="headerlink" title="gulp4 vs gulp 3.X区别细节"></a>gulp4 vs gulp 3.X区别细节</h3><blockquote>
+<p>gulp3.x系列,<code>gulp.task(&#39;name&#39;,[,taskArr],fn)</code>fn回调函数处理链式调用<br>这里有个比较纠结的点,<code>fn/taskArr</code>等处理并发任务、序列化任务,在gulp3系列,必须包一层task,<br>才能保证按照你想设定的顺序来执行,最后即使把项目写完了,后期看代码也会非常痛苦。</p>
+<p>gulp4系列,心得API点<code>parallel,series</code>允许你以树状结构安排并发、同步、异步任务,<br>它们的实现原理也很简单,就是通常意义上的高阶函数,把任务作为参数,在函数体内重新组织即可。</p>
+<p>gulp4中<code>gulp.src</code>的严格要求,必须<code>return promise,return stream,callback()等</code><br>才能通知下个流执行</p>
+<p>gulp4中<code>gulp.tree</code>可以打印整个gulp4工作流中由内部算法生成的树状图,也比gulp3系列好很多。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>从<code>redux</code>引入高阶函数API开始,这种API设计在各个主流库中的应用真是无处不在<br><code>gulp4</code>尤甚</p>
+</blockquote>
+<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><p><a href="https://github.com/cssmagic/blog/issues/62" target="_blank" rel="external">gulp插件集合</a><br><a href="https://github.com/gulpjs/undertaker#custom-registries" target="_blank" rel="external">gulp任务管理父类</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/webpack/">webpack</a><a href="/tags/gulp4/">gulp4</a>
+  </div>
 
 </div>
 
@@ -293,7 +169,7 @@ module.exports={test:'test'};
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://slashhuang.github.io/2015/11/20/wordpress/e5-89-8d-e7-ab-af-e5-b7-a5-e7-a8-8b-e5-b8-88-e8-bd-ac-e5-85-a8-e6-a0-88-e5-b7-a5-e7-a8-8b-e5-b8-88-e7-b3-bb-e5-88-97-nodejs-e6-a8-a1-e5-9d-97-e5-bc-95-e5-85-a5-e6-9c-ba-e5-88-b6-ef-bc-88module/" data-title="前端工程师转全栈工程师系列-------nodejs模块引入机制（module&amp;&amp;exports） | slashhuang的技术博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://slashhuang.github.io/2016/08/04/gulp/gulp4/" data-title="使用gulp4 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -306,19 +182,11 @@ module.exports={test:'test'};
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/11/25/wordpress/react-dom-diff-e7-ae-97-e6-b3-95-e7-a0-94-e7-a9-b6/" title="react-dom-diff算法研究">
-  <strong>上一篇：</strong><br/>
-  <span>
-  react-dom-diff算法研究</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/10/14/wordpress/e5-b7-a5-e4-bd-9c-e8-b5-84-e6-96-99-e7-bd-91-e5-9d-80/"  title="工作资料网址">
+<a href="/2016/08/03/webpack/plugin/"  title="webpack少用的插件">
  <strong>下一篇：</strong><br/> 
- <span>工作资料网址
+ <span>webpack少用的插件
 </span>
 </a>
 </div>
@@ -333,7 +201,7 @@ module.exports={test:'test'};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4研究"><span class="toc-number">1.</span> <span class="toc-text">gulp4研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X"><span class="toc-number">2.</span> <span class="toc-text">gulp4 vs gulp 3.X</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X区别细节"><span class="toc-number">3.</span> <span class="toc-text">gulp4 vs gulp 3.X区别细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料"><span class="toc-number">5.</span> <span class="toc-text">资料</span></a></li></ol>
  
   </div>
 

@@ -104,6 +104,61 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/01/10/wordpress/mongodb-e5-85-b3-e4-ba-8enodejs-e7-9a-84api/" title="mongodb关于nodejs的api" itemprop="url">mongodb关于nodejs的api</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-10T08:40:55.000Z" itemprop="datePublished"> Published 2016-01-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="https://mongodb.github.io/node-mongodb-native/api-generated/collection.html" target="_blank" rel="external">https://mongodb.github.io/node-mongodb-native/api-generated/collection.html</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/01/10/wordpress/node-e8-b0-83-e8-af-95-e5-b7-a5-e5-85-b7/" title="node调试工具" itemprop="url">node调试工具</a>
   </h1>
   <p class="article-author">By
@@ -632,83 +687,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/12/01/wordpress/e9-97-ad-e5-8c-85-e3-80-90closure-e3-80-91-e5-86-8d-e8-a7-a3-e8-af-bb/" title="闭包【closure】,再解读" itemprop="url">闭包【closure】,再解读</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-30T18:46:50.000Z" itemprop="datePublished"> Published 2015-12-01</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>前端时间在项目里用到了闭包和匿名函数，以便使得代码能够模块化，同时避免对全局变量的污染，今天早晨突然有点困惑，遂在看了下MDN的官方介绍。</p>
-<p>闭包：就是函数和上下文环境的一个绑定。</p>
-<ol>
-<li>定义： 函数在创建时候，保持了对上下文环境(变量)的访问。在函数嵌套使用过程中，例如function father(){/<em>local variables</em>/;return function child(){/<em>context</em>/}};context 将始终保持对father声明变量的访问，除了child函数,没有别的办法获取father执行后产生的本地变量。</li>
-<li><p>应用： 例如构造函数</p>
-<p><span class="token keyword">function</span> <span class="token function">MyObject</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> message<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>getName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></p>
-<pre><code>&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-</code></pre><p>  <span class="token punctuation">}</span><span class="token punctuation">;</span></p>
-<p>  <span class="token keyword">this</span><span class="token punctuation">.</span>getMessage <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></p>
-<pre><code>&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-</code></pre><p>  <span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span>`<br>getMessage将始终可以访问MyObject生成实例的其他属性变量，形成一个闭包。Dom事件挂载的时候，通过闭包可以采用For循环。</p>
-</li>
-<li>性能：使用不必要的闭包并不会增加脚本运行的性能，例如在构造函数中，给函数的prototype增加属性，性能优于直接在构造函数中使用闭包保持变量访问。因此下面的一种定义方式是更加prefered:</li>
-<li><pre class="brush: js line-numbers  language-js">`<span class="token keyword">function</span> <span class="token function">MyObject</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span><pre><code>&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; message&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-</code></pre><span class="token punctuation">}</span><br><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><pre><code>&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;getName &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;getMessage &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-</code></pre><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>MyObject<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
@@ -794,6 +772,10 @@
 			
 		
 			
+				<li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
 			
 		
@@ -807,10 +789,6 @@
 		
 			
 				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
@@ -846,11 +824,11 @@
 			
 		
 			
-				<li><a href="/tags/手势/" title="手势">手势<sup>1</sup></a></li>
+				<li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
 			
 		
 		</ul>
