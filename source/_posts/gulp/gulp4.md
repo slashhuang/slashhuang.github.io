@@ -12,7 +12,9 @@ tags:
 > 借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 
 
 ### gulp4 vs gulp 3.X
+
 > gulp本身的定位就是stream building system,典型的code-style就是```pipe``` 
+
 > gulp4相比于gulp3.X系列在流式规范上更加的严格。  
 
 ### gulp4的api点
@@ -29,13 +31,15 @@ tags:
     gulp.registry    - Get or set the task registry
 ```
 
-> 光看api名字,可以看到多了```symlink,lastRun,parallel,series,tree,registry```  
+> 光看api名字,可以看到多了```symlink,lastRun,parallel,series,tree,registry``` 
+ 
 > 这几个API一看,就知道用了nodeJS的child_process,eventEmitter来处理并发、订阅等  
 
 ### gulp4 vs gulp 3.X区别细节
 -  gulp3.x系列.
 
-```gulp.task('name',[,taskArr],fn)```fn回调函数处理链式调用  
+> ```gulp.task('name',[,taskArr],fn)```fn回调函数处理链式调用  
+
 > 这里有个比较纠结的点,```fn/taskArr```等处理并发任务、序列化任务,在gulp3系列,必须包一层task,  
 > 才能保证按照你想设定的顺序来执行,最后即使把项目写完了,后期看代码也会非常痛苦。
 
