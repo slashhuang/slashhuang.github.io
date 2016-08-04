@@ -13,7 +13,7 @@ tags:
 
 ### gulp4 vs gulp 3.X
 
-> gulp本身的定位就是stream building system,典型的code-style就是```pipe``` 
+> gulp本身的定位就是stream building system,典型的code-style是```pipe```。   
 
 > gulp4相比于gulp3.X系列在流式规范上更加的严格。  
 
