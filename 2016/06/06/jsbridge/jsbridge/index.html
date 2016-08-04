@@ -70,7 +70,7 @@ jsbride在hybrid中是应用非常广泛的，它的实现机理也很简单===&
 				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -90,7 +90,7 @@ jsbride在hybrid中是应用非常广泛的，它的实现机理也很简单===&
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:slashhuang.github.io">
 					</form>
 					
@@ -113,14 +113,14 @@ jsbride在hybrid中是应用非常广泛的，它的实现机理也很简单===&
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-06T12:20:33.000Z" itemprop="datePublished"> Published 2016-06-06</time>
+    <time datetime="2016-06-06T12:20:33.000Z" itemprop="datePublished"> 发表于 2016-06-06</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安卓java中的实现"><span class="toc-number">1.1.</span> <span class="toc-text">1、安卓java中的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#看码分析"><span class="toc-number">1.2.</span> <span class="toc-text">看码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、h5代码"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、h5代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、js代码"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、js代码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3、native部分将js传来的uri获取到-编写一个WebChromeClient子类"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">3、native部分将js传来的uri获取到[编写一个WebChromeClient子类]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、native部分将该对象设置给WebView"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">4、native部分将该对象设置给WebView</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、native部分创建事件映射池"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">5、native部分创建事件映射池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6、webview和前端参数整合起来，传入要唤醒的native组件"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">6、webview和前端参数整合起来，传入要唤醒的native组件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOS部分其实也差不多"><span class="toc-number">2.</span> <span class="toc-text">IOS部分其实也差不多</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、native调用js：-stringByEvaluatingJavaScriptFromString"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">1、native调用js： stringByEvaluatingJavaScriptFromString</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、js调用native代码-在UIWebView内发起的所有网络请求，通过delegate函数在Native层得到通知。"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">2、js调用native代码:   在UIWebView内发起的所有网络请求，通过delegate函数在Native层得到通知。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结尾"><span class="toc-number">3.</span> <span class="toc-text">结尾</span></a></li></ol>
 		
@@ -196,22 +196,22 @@ jsbride在hybrid中是应用非常广泛的，它的实现机理也很简单===&
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安卓java中的实现"><span class="toc-number">1.1.</span> <span class="toc-text">1、安卓java中的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#看码分析"><span class="toc-number">1.2.</span> <span class="toc-text">看码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、h5代码"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、h5代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、js代码"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、js代码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3、native部分将js传来的uri获取到-编写一个WebChromeClient子类"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">3、native部分将js传来的uri获取到[编写一个WebChromeClient子类]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、native部分将该对象设置给WebView"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">4、native部分将该对象设置给WebView</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、native部分创建事件映射池"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">5、native部分创建事件映射池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6、webview和前端参数整合起来，传入要唤醒的native组件"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">6、webview和前端参数整合起来，传入要唤醒的native组件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOS部分其实也差不多"><span class="toc-number">2.</span> <span class="toc-text">IOS部分其实也差不多</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、native调用js：-stringByEvaluatingJavaScriptFromString"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">1、native调用js： stringByEvaluatingJavaScriptFromString</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、js调用native代码-在UIWebView内发起的所有网络请求，通过delegate函数在Native层得到通知。"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">2、js调用native代码:   在UIWebView内发起的所有网络请求，通过delegate函数在Native层得到通知。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结尾"><span class="toc-number">3.</span> <span class="toc-text">结尾</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -221,7 +221,7 @@ jsbride在hybrid中是应用非常广泛的，它的实现机理也很简单===&
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -258,7 +258,7 @@ jsbride在hybrid中是应用非常广泛的，它的实现机理也很简单===&
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -346,7 +346,7 @@ jsbride在hybrid中是应用非常广泛的，它的实现机理也很简单===&
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -599,7 +599,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
