@@ -15,7 +15,10 @@
 今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 
 
 gulp4 vs gulp 3.X
-gulp本身的定位就是stream building system,典型的code-style是123456789101112131415&amp;gt; gulp4相比于gulp3.X系列在流式">
+gulp本身的定位就是stream building system,典型的pipe代码风格。   
+gulp4相比于gulp3.X系列在流式规范上更加的严格。  
+
+gulp4的api点1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用gulp4">
 <meta property="og:url" content="http://slashhuang.github.io/2016/08/04/gulp/gulp4/index.html">
@@ -24,15 +27,21 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 
 
 gulp4 vs gulp 3.X
-gulp本身的定位就是stream building system,典型的code-style是123456789101112131415&amp;gt; gulp4相比于gulp3.X系列在流式">
-<meta property="og:updated_time" content="2016-08-04T14:45:37.000Z">
+gulp本身的定位就是stream building system,典型的pipe代码风格。   
+gulp4相比于gulp3.X系列在流式规范上更加的严格。  
+
+gulp4的api点1">
+<meta property="og:updated_time" content="2016-08-04T16:06:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用gulp4">
 <meta name="twitter:description" content="gulp4研究
 今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 
 
 gulp4 vs gulp 3.X
-gulp本身的定位就是stream building system,典型的code-style是123456789101112131415&amp;gt; gulp4相比于gulp3.X系列在流式">
+gulp本身的定位就是stream building system,典型的pipe代码风格。   
+gulp4相比于gulp3.X系列在流式规范上更加的严格。  
+
+gulp4的api点1">
 
     
     <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
@@ -79,7 +88,7 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 				<h1 class="site-name"><a href="/" title="slashhuang的技术博客">slashhuang的技术博客</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -122,16 +131,16 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2016-08-04T15:08:41.000Z" itemprop="datePublished"> 發表於 2016-08-04</time>
+    <time datetime="2016-08-04T15:08:41.000Z" itemprop="datePublished"> 发表于 2016-08-04</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4研究"><span class="toc-number">1.</span> <span class="toc-text">gulp4研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X"><span class="toc-number">2.</span> <span class="toc-text">gulp4 vs gulp 3.X</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X区别细节"><span class="toc-number">3.</span> <span class="toc-text">gulp4 vs gulp 3.X区别细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料"><span class="toc-number">5.</span> <span class="toc-text">资料</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4研究"><span class="toc-number">1.</span> <span class="toc-text">gulp4研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X"><span class="toc-number">2.</span> <span class="toc-text">gulp4 vs gulp 3.X</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4的api点"><span class="toc-number">3.</span> <span class="toc-text">gulp4的api点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X区别细节"><span class="toc-number">4.</span> <span class="toc-text">gulp4 vs gulp 3.X区别细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料"><span class="toc-number">6.</span> <span class="toc-text">资料</span></a></li></ol>
 		
 		</div>
 		
@@ -139,7 +148,11 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 <p>今天正好写了个自动化打包、编译、上传的gulp脚本,采用的是最新的gulp4。<br>借写完代码有点成就感的劲,稍微总结下gulp4和gulp3.X系列的使用区别 </p>
 </blockquote>
 <h3 id="gulp4-vs-gulp-3-X"><a href="#gulp4-vs-gulp-3-X" class="headerlink" title="gulp4 vs gulp 3.X"></a>gulp4 vs gulp 3.X</h3><blockquote>
-<p>gulp本身的定位就是stream building system,典型的code-style是<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; gulp4相比于gulp3.X系列在流式规范上更加的严格。  </span><br><span class="line"></span><br><span class="line">### gulp4的api点</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">    gulp.src   - Emit files matching one or more globs</span><br><span class="line">    gulp.dest  - Write files to directories</span><br><span class="line">    gulp.symlink - Write files to symlinks</span><br><span class="line">    gulp.task   - Define tasks</span><br><span class="line">    gulp.parallel   - Run tasks in parallel</span><br><span class="line">    gulp.series   - Run tasks in series</span><br><span class="line">    gulp.watch   - Run tasks in series</span><br><span class="line">    gulp.tree   - Get the tree of tasks</span><br><span class="line">    gulp.registry    - Get or set the task registry</span><br></pre></td></tr></table></figure></p>
+<p>gulp本身的定位就是stream building system,典型的pipe代码风格。   </p>
+<p>gulp4相比于gulp3.X系列在流式规范上更加的严格。  </p>
+</blockquote>
+<h3 id="gulp4的api点"><a href="#gulp4的api点" class="headerlink" title="gulp4的api点"></a>gulp4的api点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gulp.src   - Emit files matching one or more globs</span><br><span class="line">gulp.dest  - Write files to directories</span><br><span class="line">gulp.symlink - Write files to symlinks</span><br><span class="line">gulp.task   - Define tasks</span><br><span class="line">gulp.parallel   - Run tasks <span class="keyword">in</span> parallel</span><br><span class="line">gulp.series   - Run tasks <span class="keyword">in</span> series</span><br><span class="line">gulp.watch   - Run tasks <span class="keyword">in</span> series</span><br><span class="line">gulp.tree   - Get the tree <span class="keyword">of</span> tasks</span><br><span class="line">gulp.registry    - Get or set the task registry</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>光看api名字,可以看到多了<code>symlink,lastRun,parallel,series,tree,registry</code> </p>
 <p>这几个API一看,就知道用了nodeJS的child_process,eventEmitter来处理并发、订阅等  </p>
 </blockquote>
@@ -206,17 +219,17 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4研究"><span class="toc-number">1.</span> <span class="toc-text">gulp4研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X"><span class="toc-number">2.</span> <span class="toc-text">gulp4 vs gulp 3.X</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X区别细节"><span class="toc-number">3.</span> <span class="toc-text">gulp4 vs gulp 3.X区别细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料"><span class="toc-number">5.</span> <span class="toc-text">资料</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4研究"><span class="toc-number">1.</span> <span class="toc-text">gulp4研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X"><span class="toc-number">2.</span> <span class="toc-text">gulp4 vs gulp 3.X</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4的api点"><span class="toc-number">3.</span> <span class="toc-text">gulp4的api点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp4-vs-gulp-3-X区别细节"><span class="toc-number">4.</span> <span class="toc-text">gulp4 vs gulp 3.X区别细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料"><span class="toc-number">6.</span> <span class="toc-text">资料</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -231,7 +244,7 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -268,7 +281,7 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -356,7 +369,7 @@ gulp本身的定位就是stream building system,典型的code-style是1234567891
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -609,7 +622,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
