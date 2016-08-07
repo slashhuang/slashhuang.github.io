@@ -104,6 +104,64 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/08/07/git/branch/" title="使用git修改fetch的默认行为" itemprop="url">使用git修改fetch的默认行为</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-07T15:08:41.000Z" itemprop="datePublished"> 发表于 2016-08-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>去年这个时候,大概的把git的官方英文文档看过一遍,但也只是理解了整个命令体系的原理。<br>对于具体的命令使用形式,却还是存在一些不全面的地方。</p>
+</blockquote>
+<h3 id="git修改fetch默认行为"><a href="#git修改fetch默认行为" class="headerlink" title="git修改fetch默认行为"></a>git修改fetch默认行为</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --get remote.origin.fetch</span><br><span class="line">git config remote.origin.fetch &quot;+refs/heads/*:refs/remotes/origin/*&quot;</span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/08/04/gulp/gulp4/" title="使用gulp4" itemprop="url">使用gulp4</a>
   </h1>
   <p class="article-author">By
@@ -722,89 +780,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/05/31/移动端开发/各个浏览器对domloaded触发时机/" title="移动端很容易忽略的东西" itemprop="url">移动端很容易忽略的东西</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2016-05-30T16:00:14.000Z" itemprop="datePublished"> 发表于 2016-05-31</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<ol>
-<li>熟悉jquery的同学一定对ready函数非常熟悉，然而又有多少人对这个ready有个很好的认识呢。<br>什么才算DOMContentLoaded？</li>
-<li>现在webpack流行，打包css为一个bundle有什么缺点？<br>为什么css文件必须要放在html头上，放在尾部会有什么后果</li>
-</ol>
-</blockquote>
-<h3 id="举几个例子"><a href="#举几个例子" class="headerlink" title="举几个例子"></a>举几个例子</h3><ol>
-<li><blockquote>
-<p>setTimeout(()=&gt;{},0)<br>上面的这个函数肯定会在DOMContentLoaded之后触发<br>重新摘录MDN对DOMContentLoaded事件的解释:<br>The DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed,<br>without waiting for stylesheets, images, and subframes to finish loading.<br>重新摘录MDN对lLoad事件的解释:<br>A very different event - load - should be used only to detect a fully-loaded page.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>第二个问题着实让我很头大。因为最近写了slide-swipe移动端手势库，<br>发现如果采用webpack方案会让offsetWidth在ios模拟器里面取值出错，chrome和火狐浏览器是不会报错的。<br>这个很小的bug最后的解决方案是把css提取出来放在html头部。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="再思考"><a href="#再思考" class="headerlink" title="再思考"></a>再思考</h3><ol>
-<li><p>毕竟前端代码很多时候脱离不了浏览器，所以理解浏览器运行机制必不可少。</p>
-<blockquote>
-<p>之前我翻译过浏览器的运行机制文章。正如文章所说: 渲染首屏页面依赖于cssOM和DOM两块，<br>如果没有css信息，最典型的一点就是没有layout布局。<br>有的浏览器是可以在加载外部css文件的时候触发重绘重排的，但是有的则要在下个循环做这件事。<br>虽然在js执行的过程中，如果对DOM执行setter和getter会触发重绘重排，但是这样得到的数据往往只是中间值。<br>比如element.offsetWidth等等，它的值是不精确的。</p>
-</blockquote>
-</li>
-<li><p>针对上述问题，最好的方式莫过于把css放在头部，保证dom的layout信息比较完备，已经适合js来获取相关信息了。</p>
-<blockquote>
-<p>这个问题实在是比较纠结，最好的方式还是看浏览器的渲染执行线。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="学习过程中顺便发现的资料"><a href="#学习过程中顺便发现的资料" class="headerlink" title="学习过程中顺便发现的资料"></a>学习过程中顺便发现的资料</h3><p><a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery" target="_blank" rel="external">css优化策略</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/移动端/">移动端</a><a href="/tags/浏览器/">浏览器</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -946,7 +921,7 @@
 			
 		
 			
-				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
+				<li><a href="/tags/gulp4/" title="gulp4">gulp4<sup>1</sup></a></li>
 			
 		
 		</ul>

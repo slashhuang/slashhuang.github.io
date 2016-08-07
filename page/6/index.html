@@ -104,6 +104,64 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/12/04/wordpress/e5-bc-82-e6-ad-a5-e5-8a-a0-e8-bd-bdscript-e8-84-9a-e6-9c-ac-e8-af-b4-e6-98-8e/" title="异步加载script脚本说明" itemprop="url">异步加载script脚本说明</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-03T19:13:56.000Z" itemprop="datePublished"> 发表于 2015-12-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="http://www.cnblogs.com/tiwlin/archive/2011/12/26/2302554.html" target="_blank" rel="external">http://www.cnblogs.com/tiwlin/archive/2011/12/26/2302554.html</a></p>
+<p>任何以appendChild(scriptNode) 的方式引入的js文件都是异步执行的 (scriptNode 需要插入document中，只创建节点和设置 src 是不会加载 js 文件的，这跟 img 的与加载不同 )</p>
+<p>摘录一段MDN的官方说明：</p>
+<p>[2] Starting in Gecko 2.0 (Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1), inserting script elements that have been created by calling <code>document.createElement(&quot;script&quot;)</code> into the DOM no longer enforces execution in insertion order.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/12/01/wordpress/e9-97-ad-e5-8c-85-e3-80-90closure-e3-80-91-e5-86-8d-e8-a7-a3-e8-af-bb/" title="闭包【closure】,再解读" itemprop="url">闭包【closure】,再解读</a>
   </h1>
   <p class="article-author">By
@@ -794,62 +852,6 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/10/03/wordpress/javascript-e6-97-b6-e9-97-b4-e6-a0-bc-e5-bc-8f-e3-80-90-e6-af-94-e8-be-83-e5-a5-bd-e7-9a-84-e5-86-99-e6-b3-95-e3-80-91/" title="javascript时间格式【比较好的写法】" itemprop="url">javascript时间格式【比较好的写法】</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2015-10-03T05:26:57.000Z" itemprop="datePublished"> 发表于 2015-10-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>var <em>getTime = function(){<br>var </em>=[‘00’,’01’,’02’,’03’,’04’,’05’,’06’,’07’,’08’,’09’], //补零<br>d = new Date(),<br>h = d.getHours(),<br>m = d.getMinutes(),<br>s = d.getSeconds();</p>
-<p>return [<em>[h]||h,</em>[m]||m,_[s]||s].join(“:”);<br>};</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/5/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next<span></span></a>
@@ -991,7 +993,7 @@ When you emit an action, `todoApp` returned by `combineReducers` will call both 
 			
 		
 			
-				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
+				<li><a href="/tags/gulp4/" title="gulp4">gulp4<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -4,35 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>运营微信群的体会 | slashhuang的技术博客</title>
+    <title>使用git修改fetch的默认行为 | slashhuang的技术博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="slashhuang">
     
 
     
-    <meta name="description" content="几点行事原则
-活跃用户带动非活跃用户
-提供有趣的话题
-把控微信群尺度及互动节奏
-组建运营团队，凡事预则立">
+    <meta name="description" content="引言
+去年这个时候,大概的把git的官方英文文档看过一遍,但也只是理解了整个命令体系的原理。对于具体的命令使用形式,却还是存在一些不全面的地方。
+
+git修改fetch默认行为12git config --get remote.origin.fetchgit config remote.origin.fetch &amp;quot;+refs/heads/*:refs/remotes/origin/*&amp;q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="运营微信群的体会">
-<meta property="og:url" content="http://slashhuang.github.io/2012/04/20/essay/as-a-pm/index.html">
+<meta property="og:title" content="使用git修改fetch的默认行为">
+<meta property="og:url" content="http://slashhuang.github.io/2016/08/07/git/branch/index.html">
 <meta property="og:site_name" content="slashhuang的技术博客">
-<meta property="og:description" content="几点行事原则
-活跃用户带动非活跃用户
-提供有趣的话题
-把控微信群尺度及互动节奏
-组建运营团队，凡事预则立">
-<meta property="og:updated_time" content="2016-04-21T03:42:19.000Z">
+<meta property="og:description" content="引言
+去年这个时候,大概的把git的官方英文文档看过一遍,但也只是理解了整个命令体系的原理。对于具体的命令使用形式,却还是存在一些不全面的地方。
+
+git修改fetch默认行为12git config --get remote.origin.fetchgit config remote.origin.fetch &amp;quot;+refs/heads/*:refs/remotes/origin/*&amp;q">
+<meta property="og:updated_time" content="2016-08-07T14:36:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="运营微信群的体会">
-<meta name="twitter:description" content="几点行事原则
-活跃用户带动非活跃用户
-提供有趣的话题
-把控微信群尺度及互动节奏
-组建运营团队，凡事预则立">
+<meta name="twitter:title" content="使用git修改fetch的默认行为">
+<meta name="twitter:description" content="引言
+去年这个时候,大概的把git的官方英文文档看过一遍,但也只是理解了整个命令体系的原理。对于具体的命令使用形式,却还是存在一些不全面的地方。
+
+git修改fetch默认行为12git config --get remote.origin.fetchgit config remote.origin.fetch &amp;quot;+refs/heads/*:refs/remotes/origin/*&amp;q">
 
     
     <link rel="alternative" href="/atom.xml" title="slashhuang的技术博客" type="application/atom+xml">
@@ -115,14 +112,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2012/04/20/essay/as-a-pm/" title="运营微信群的体会" itemprop="url">运营微信群的体会</a>
+      <a href="/2016/08/07/git/branch/" title="使用git修改fetch的默认行为" itemprop="url">使用git修改fetch的默认行为</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
 		
   <p class="article-time">
-    <time datetime="2012-04-20T09:19:01.000Z" itemprop="datePublished"> 发表于 2012-04-20</time>
+    <time datetime="2016-08-07T15:08:41.000Z" itemprop="datePublished"> 发表于 2016-08-07</time>
     
   </p>
 </header>
@@ -131,21 +128,24 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几点行事原则"><span class="toc-number">1.</span> <span class="toc-text">几点行事原则</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git修改fetch默认行为"><span class="toc-number">2.</span> <span class="toc-text">git修改fetch默认行为</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="几点行事原则"><a href="#几点行事原则" class="headerlink" title="几点行事原则"></a>几点行事原则</h2><ul>
-<li>活跃用户带动非活跃用户</li>
-<li>提供有趣的话题</li>
-<li>把控微信群尺度及互动节奏</li>
-<li>组建运营团队，凡事预则立</li>
-</ul>
+		<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>去年这个时候,大概的把git的官方英文文档看过一遍,但也只是理解了整个命令体系的原理。<br>对于具体的命令使用形式,却还是存在一些不全面的地方。</p>
+</blockquote>
+<h3 id="git修改fetch默认行为"><a href="#git修改fetch默认行为" class="headerlink" title="git修改fetch默认行为"></a>git修改fetch默认行为</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --get remote.origin.fetch</span><br><span class="line">git config remote.origin.fetch &quot;+refs/heads/*:refs/remotes/origin/*&quot;</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a>
+  </div>
 
 </div>
 
@@ -153,7 +153,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://slashhuang.github.io/2012/04/20/essay/as-a-pm/" data-title="运营微信群的体会 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://slashhuang.github.io/2016/08/07/git/branch/" data-title="使用git修改fetch的默认行为 | slashhuang的技术博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -166,19 +166,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2012/04/21/essay/nju-event/" title="南京大学上海校友会IT俱乐部首次线下活动安排">
-  <strong>上一篇：</strong><br/>
-  <span>
-  南京大学上海校友会IT俱乐部首次线下活动安排</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2010/07/10/week-notes/16-07-17/"  title="16-07-17【还是技术为主】">
+<a href="/2016/08/04/gulp/gulp4/"  title="使用gulp4">
  <strong>下一篇：</strong><br/> 
- <span>16-07-17【还是技术为主】
+ <span>使用gulp4
 </span>
 </a>
 </div>
@@ -193,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几点行事原则"><span class="toc-number">1.</span> <span class="toc-text">几点行事原则</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git修改fetch默认行为"><span class="toc-number">2.</span> <span class="toc-text">git修改fetch默认行为</span></a></li></ol>
  
   </div>
 

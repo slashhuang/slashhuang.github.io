@@ -104,6 +104,89 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/31/移动端开发/各个浏览器对domloaded触发时机/" title="移动端很容易忽略的东西" itemprop="url">移动端很容易忽略的东西</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-30T16:00:14.000Z" itemprop="datePublished"> 发表于 2016-05-31</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<ol>
+<li>熟悉jquery的同学一定对ready函数非常熟悉，然而又有多少人对这个ready有个很好的认识呢。<br>什么才算DOMContentLoaded？</li>
+<li>现在webpack流行，打包css为一个bundle有什么缺点？<br>为什么css文件必须要放在html头上，放在尾部会有什么后果</li>
+</ol>
+</blockquote>
+<h3 id="举几个例子"><a href="#举几个例子" class="headerlink" title="举几个例子"></a>举几个例子</h3><ol>
+<li><blockquote>
+<p>setTimeout(()=&gt;{},0)<br>上面的这个函数肯定会在DOMContentLoaded之后触发<br>重新摘录MDN对DOMContentLoaded事件的解释:<br>The DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed,<br>without waiting for stylesheets, images, and subframes to finish loading.<br>重新摘录MDN对lLoad事件的解释:<br>A very different event - load - should be used only to detect a fully-loaded page.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>第二个问题着实让我很头大。因为最近写了slide-swipe移动端手势库，<br>发现如果采用webpack方案会让offsetWidth在ios模拟器里面取值出错，chrome和火狐浏览器是不会报错的。<br>这个很小的bug最后的解决方案是把css提取出来放在html头部。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="再思考"><a href="#再思考" class="headerlink" title="再思考"></a>再思考</h3><ol>
+<li><p>毕竟前端代码很多时候脱离不了浏览器，所以理解浏览器运行机制必不可少。</p>
+<blockquote>
+<p>之前我翻译过浏览器的运行机制文章。正如文章所说: 渲染首屏页面依赖于cssOM和DOM两块，<br>如果没有css信息，最典型的一点就是没有layout布局。<br>有的浏览器是可以在加载外部css文件的时候触发重绘重排的，但是有的则要在下个循环做这件事。<br>虽然在js执行的过程中，如果对DOM执行setter和getter会触发重绘重排，但是这样得到的数据往往只是中间值。<br>比如element.offsetWidth等等，它的值是不精确的。</p>
+</blockquote>
+</li>
+<li><p>针对上述问题，最好的方式莫过于把css放在头部，保证dom的layout信息比较完备，已经适合js来获取相关信息了。</p>
+<blockquote>
+<p>这个问题实在是比较纠结，最好的方式还是看浏览器的渲染执行线。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="学习过程中顺便发现的资料"><a href="#学习过程中顺便发现的资料" class="headerlink" title="学习过程中顺便发现的资料"></a>学习过程中顺便发现的资料</h3><p><a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery" target="_blank" rel="external">css优化策略</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/移动端/">移动端</a><a href="/tags/浏览器/">浏览器</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/05/24/移动端开发/移动端事件触发顺序/" title="移动端手势处理" itemprop="url">移动端手势处理</a>
   </h1>
   <p class="article-author">By
@@ -237,6 +320,83 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/20/移动端开发/移动端开发/" title="移动端开发及兼容要点" itemprop="url">移动端开发及兼容要点</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-20T02:00:14.000Z" itemprop="datePublished"> 发表于 2016-05-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="手机内置浏览器环境单一-webkit-webCore-JSCore"><a href="#手机内置浏览器环境单一-webkit-webCore-JSCore" class="headerlink" title="手机内置浏览器环境单一(webkit = webCore + JSCore)"></a>手机内置浏览器环境单一(webkit = webCore + JSCore)</h2><ul>
+<li>iphone </li>
+<li>Android </li>
+<li>Nokia S60</li>
+<li>webOS </li>
+<li>linux </li>
+<li>windows(webkit 发展较晚)</li>
+</ul>
+<h2 id="css支持程度"><a href="#css支持程度" class="headerlink" title="css支持程度"></a>css支持程度</h2><ul>
+<li>flexBox布局【兼容性写法】: <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div class="flex-parent"&gt;</span><br><span class="line">   &lt;div class="flex-son"&gt;&lt;/div&gt;</span><br><span class="line">   &lt;div class="flex-son"&gt;&lt;/div&gt;</span><br><span class="line">   &lt;div class="flex-son"&gt;&lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line">.flex-parent &#123;</span><br><span class="line">      /*设置父元素为伸缩容器*/</span><br><span class="line">      display: -webkit-box; /*老版本：iOS 6-, Safari 3.1-6*/</span><br><span class="line">      display: -webkit-flex; /*新版本：Chrome*/</span><br><span class="line">      display: flex; /*标准规范：Opera 12.1, Firefox 20+*/</span><br><span class="line">      /*设置父元素内部的伸缩子元素项目换行规则：水平排列（row）不换行（nowrap）*/</span><br><span class="line">      -webkit-box-orient: horizontal; /*老版本：iOS 6-, Safari 3.1-6*/</span><br><span class="line">      -webkit-flex-flow: row nowrap; /*新版本：Chrome*/</span><br><span class="line">      flex-flow: row nowrap; /*标准规范：Opera 12.1, Firefox 20+*/</span><br><span class="line">    &#125;</span><br><span class="line">.flex-son &#123;</span><br><span class="line">      /*设置子元素伸缩项目的伸缩比例*/</span><br><span class="line">      -webkit-box-flex: 1; /*老版本：iOS 6-, Safari 3.1-6*/</span><br><span class="line">      -webkit-flex: 1; /*新版本：Chrome*/</span><br><span class="line">      flex: 1; /*标准规范：Opera 12.1, Firefox 20+*/</span><br><span class="line">      /*此处无需设置宽度，因为flexbox会自动伸缩*/</span><br><span class="line">      height: 2rem;</span><br><span class="line">      margin: 0 0.5rem;</span><br><span class="line">      background: #000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="https://www.w3.org/TR/2015/WD-css-flexbox-1-20150514/" target="_blank" rel="external">flex参考w3c官方标准</a></p>
+<ul>
+<li>css3<blockquote>
+<p>我们可以把移动设备分为低端系统(IE9、android2.1~3.0、ios3.2)和高端系统(ios4+、 android4.1~4.2)，<br>针对低端系统，采用普通方案，并使用hack兼容<br>针对高端系统，可以采用更丰富更炫酷的效果</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="浏览器事件机制"><a href="#浏览器事件机制" class="headerlink" title="浏览器事件机制"></a>浏览器事件机制</h2><ul>
+<li>这个得专门开一篇博客来研究</li>
+</ul>
+<p><a href="http://www.cnblogs.com/yexiaochai/p/3462657.html" target="_blank" rel="external">参考cnblog的整理资料</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/移动端/">移动端</a><a href="/tags/浏览器/">浏览器</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/05/20/移动端开发/浏览器/" title="各个客户端浏览器引擎" itemprop="url">各个客户端浏览器引擎</a>
   </h1>
   <p class="article-author">By
@@ -294,83 +454,6 @@
 <h1 id="排版引擎（概览）"><a href="#排版引擎（概览）" class="headerlink" title="排版引擎（概览）"></a>排版引擎（概览）</h1><blockquote>
 <p>目前来看可以专注于webCore排版引擎，之后chrome出品的Blink值得关注<br>对于移动端开发者来说，可以暂时专注于webCore</p>
 </blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/移动端/">移动端</a><a href="/tags/浏览器/">浏览器</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/05/20/移动端开发/移动端开发/" title="移动端开发及兼容要点" itemprop="url">移动端开发及兼容要点</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2016-05-20T02:00:14.000Z" itemprop="datePublished"> 发表于 2016-05-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="手机内置浏览器环境单一-webkit-webCore-JSCore"><a href="#手机内置浏览器环境单一-webkit-webCore-JSCore" class="headerlink" title="手机内置浏览器环境单一(webkit = webCore + JSCore)"></a>手机内置浏览器环境单一(webkit = webCore + JSCore)</h2><ul>
-<li>iphone </li>
-<li>Android </li>
-<li>Nokia S60</li>
-<li>webOS </li>
-<li>linux </li>
-<li>windows(webkit 发展较晚)</li>
-</ul>
-<h2 id="css支持程度"><a href="#css支持程度" class="headerlink" title="css支持程度"></a>css支持程度</h2><ul>
-<li>flexBox布局【兼容性写法】: <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div class="flex-parent"&gt;</span><br><span class="line">   &lt;div class="flex-son"&gt;&lt;/div&gt;</span><br><span class="line">   &lt;div class="flex-son"&gt;&lt;/div&gt;</span><br><span class="line">   &lt;div class="flex-son"&gt;&lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line">.flex-parent &#123;</span><br><span class="line">      /*设置父元素为伸缩容器*/</span><br><span class="line">      display: -webkit-box; /*老版本：iOS 6-, Safari 3.1-6*/</span><br><span class="line">      display: -webkit-flex; /*新版本：Chrome*/</span><br><span class="line">      display: flex; /*标准规范：Opera 12.1, Firefox 20+*/</span><br><span class="line">      /*设置父元素内部的伸缩子元素项目换行规则：水平排列（row）不换行（nowrap）*/</span><br><span class="line">      -webkit-box-orient: horizontal; /*老版本：iOS 6-, Safari 3.1-6*/</span><br><span class="line">      -webkit-flex-flow: row nowrap; /*新版本：Chrome*/</span><br><span class="line">      flex-flow: row nowrap; /*标准规范：Opera 12.1, Firefox 20+*/</span><br><span class="line">    &#125;</span><br><span class="line">.flex-son &#123;</span><br><span class="line">      /*设置子元素伸缩项目的伸缩比例*/</span><br><span class="line">      -webkit-box-flex: 1; /*老版本：iOS 6-, Safari 3.1-6*/</span><br><span class="line">      -webkit-flex: 1; /*新版本：Chrome*/</span><br><span class="line">      flex: 1; /*标准规范：Opera 12.1, Firefox 20+*/</span><br><span class="line">      /*此处无需设置宽度，因为flexbox会自动伸缩*/</span><br><span class="line">      height: 2rem;</span><br><span class="line">      margin: 0 0.5rem;</span><br><span class="line">      background: #000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a href="https://www.w3.org/TR/2015/WD-css-flexbox-1-20150514/" target="_blank" rel="external">flex参考w3c官方标准</a></p>
-<ul>
-<li>css3<blockquote>
-<p>我们可以把移动设备分为低端系统(IE9、android2.1~3.0、ios3.2)和高端系统(ios4+、 android4.1~4.2)，<br>针对低端系统，采用普通方案，并使用hack兼容<br>针对高端系统，可以采用更丰富更炫酷的效果</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="浏览器事件机制"><a href="#浏览器事件机制" class="headerlink" title="浏览器事件机制"></a>浏览器事件机制</h2><ul>
-<li>这个得专门开一篇博客来研究</li>
-</ul>
-<p><a href="http://www.cnblogs.com/yexiaochai/p/3462657.html" target="_blank" rel="external">参考cnblog的整理资料</a></p>
 
         
         
@@ -767,66 +850,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/07/swift/swift-plan/" title="swift-plan" itemprop="url">swift-plan</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-06T16:00:14.000Z" itemprop="datePublished"> 发表于 2016-04-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>今天晚上在逛开发者论坛的时候，偶然间闯入了大疆无人机的官方网站。<br>大疆一直都是无人机领域的领导者，现在又在航拍、智能城市方面有了应用。<br><a href="https://developer.dji.com/cn/" target="_blank" rel="external">大疆开发者官网</a><br>大疆提供了丰富的sdk，可以使用无人机做很多的操作，<br>无人机领域对我一直都是比较神秘的，遂决定开启swift学习计划</p>
-</blockquote>
-<h3 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h3><blockquote>
-<p>swift基本变量和程序流控制(2天)<br>swift面向对象编程(3天)<br>swift多线程(3天)<br>swift设计模式(3天)</p>
-</blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/swift/">swift</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -968,7 +991,7 @@
 			
 		
 			
-				<li><a href="/tags/cooking/" title="cooking">cooking<sup>1</sup></a></li>
+				<li><a href="/tags/gulp4/" title="gulp4">gulp4<sup>1</sup></a></li>
 			
 		
 		</ul>
