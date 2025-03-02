@@ -1,0 +1,234 @@
+@use 'sass:color';
+@use 'icons';
+@use 'svg';
+
+.hint-container {
+  position: relative;
+  background: var(--hint-c-soft);
+  transition:
+    background var(--vp-t-color),
+    color var(--vp-t-color);
+
+  @media print {
+    page-break-inside: avoid;
+  }
+
+  > .hint-container-title {
+    color: var(--hint-c-title);
+  }
+
+  :not(pre) > code {
+    background: var(--hint-c-soft);
+  }
+
+  .hint-container-title {
+    position: relative;
+    margin-block: 0.75em;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  &.important,
+  &.info,
+  &.note,
+  &.tip,
+  &.warning,
+  &.caution {
+    margin-block: 0.75rem;
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+
+    color: inherit;
+
+    font-size: var(--hint-font-size);
+
+    @media print {
+      border-inline-start-width: 0.25em;
+      border-inline-start-style: solid;
+    }
+
+    .hint-container-title {
+      padding-inline-start: 1.75em;
+
+      @media print {
+        padding-inline-start: 0;
+      }
+
+      &::before {
+        content: ' ';
+
+        position: absolute;
+        inset-inline-start: 0;
+        top: calc(50% - 0.6125em);
+
+        width: 1.25em;
+        height: 1.25em;
+
+        font-size: 1.25em;
+
+        @media print {
+          display: none;
+        }
+      }
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--vp-c-accent);
+    }
+  }
+
+  &.important {
+    --hint-c-accent: var(--important-c-accent);
+    --hint-c-title: var(--important-c-text);
+    --hint-c-soft: var(--important-c-soft);
+
+    > .hint-container-title::before {
+      @include svg.mask-svg(icons.$important-icon);
+    }
+  }
+
+  &.info {
+    --hint-c-accent: var(--info-c-accent);
+    --hint-c-title: var(--info-c-text);
+    --hint-c-soft: var(--info-c-soft);
+
+    > .hint-container-title::before {
+      @include svg.mask-svg(icons.$info-icon);
+    }
+  }
+
+  &.note {
+    --hint-c-accent: var(--note-c-accent);
+    --hint-c-title: var(--note-c-text);
+    --hint-c-soft: var(--note-c-soft);
+
+    > .hint-container-title::before {
+      @include svg.mask-svg(icons.$note-icon);
+    }
+  }
+
+  &.tip {
+    --hint-c-accent: var(--tip-c-accent);
+    --hint-c-title: var(--tip-c-text);
+    --hint-c-soft: var(--tip-c-soft);
+
+    > .hint-container-title::before {
+      @include svg.mask-svg(icons.$tip-icon);
+    }
+  }
+
+  &.warning {
+    --hint-c-accent: var(--warning-c-accent);
+    --hint-c-title: var(--warning-c-text);
+    --hint-c-soft: var(--warning-c-soft);
+
+    > .hint-container-title::before {
+      @include svg.mask-svg(icons.$warning-icon);
+    }
+  }
+
+  &.caution {
+    --hint-c-accent: var(--caution-c-accent);
+    --hint-c-title: var(--caution-c-text);
+    --hint-c-soft: var(--caution-c-soft);
+
+    > .hint-container-title::before {
+      @include svg.mask-svg(icons.$caution-icon);
+    }
+  }
+
+  &.details {
+    position: relative;
+
+    display: block;
+
+    margin-block: 0.75rem;
+    padding: 1.25rem 1rem;
+    border-radius: 0.5rem;
+
+    background: var(--detail-c-bg);
+
+    transition:
+      background var(--vp-t-transform),
+      color var(--vp-t-transform);
+
+    h4 {
+      margin-top: 0;
+    }
+
+    figure,
+    p {
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    a {
+      color: var(--vp-c-accent);
+    }
+
+    :not(pre) > code {
+      background: var(--detail-c-soft);
+    }
+
+    summary {
+      position: relative;
+
+      margin: -1rem;
+      padding-block: 1em;
+      padding-inline: 3em 1.5em;
+
+      list-style: none;
+
+      font-size: var(--hint-font-size);
+
+      cursor: pointer;
+
+      // compatible with safari
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::marker {
+        color: transparent;
+        font-size: 0;
+      }
+
+      &::before {
+        @include svg.mask-svg(icons.$detail-icon);
+
+        content: ' ';
+
+        position: absolute;
+        inset-inline-start: 0.8em;
+        top: calc(50% - 0.5em);
+
+        width: 1em;
+        height: 1em;
+
+        font-size: 1.25rem;
+        line-height: normal;
+
+        transition:
+          color,
+          var(--vp-t-color),
+          transform var(--vp-t-transform);
+
+        transform: rotate(90deg);
+      }
+    }
+
+    &[open] > summary {
+      margin-bottom: 0.5em;
+
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+:root {
+  --hint-font-size: 0.92rem;
+
+  /* important */
+  --important-c-accent: var(--vp-c-purple-bg);
+  --important-c-text: var(--vp-c-purple-text);
+  --important-c-soft: var(--vp-c-purple-soft);
+
+  /* info */
+  --info-c-accent: var(--vp-c-blue-bg);
+  --info-c-text: var(--vp-c-blue-text);
+  --info-c-soft: var(--vp-c-blue-soft);
+
+  /* note */
+  --note-c-accent: var(--vp-c-grey-bg);
+  --note-c-text: var(--vp-c-grey-text);
+  --note-c-soft: var(--vp-c-grey-soft);
+
+  /* tip */
+  --tip-c-accent: var(--vp-c-green-bg);
+  --tip-c-text: var(--vp-c-green-text);
+  --tip-c-soft: var(--vp-c-green-soft);
+
+  /* warning */
+  --warning-c-accent: var(--vp-c-yellow-bg);
+  --warning-c-text: var(--vp-c-yellow-text);
+  --warning-c-soft: var(--vp-c-yellow-soft);
+
+  /* caution */
+  --caution-c-accent: var(--vp-c-red-bg);
+  --caution-c-text: var(--vp-c-red-text);
+  --caution-c-soft: var(--vp-c-red-soft);
+
+  /* detail */
+  --detail-c-bg: var(--vp-c-control);
+  --detail-c-icon: var(--vp-c-border);
+  --detail-c-soft: var(--vp-c-grey-soft);
+}

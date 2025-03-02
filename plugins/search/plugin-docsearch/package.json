@@ -1,0 +1,60 @@
+{
+  "name": "@vuepress/plugin-docsearch",
+  "version": "2.0.0-rc.80",
+  "description": "VuePress plugin - docsearch",
+  "keywords": [
+    "vuepress-plugin",
+    "vuepress",
+    "plugin",
+    "docsearch",
+    "search",
+    "algolia"
+  ],
+  "homepage": "https://ecosystem.vuejs.press/plugins/search/docsearch.html",
+  "bugs": {
+    "url": "https://github.com/vuepress/ecosystem/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuepress/ecosystem.git",
+    "directory": "plugins/search/plugin-docsearch"
+  },
+  "license": "MIT",
+  "author": "meteorlxy",
+  "type": "module",
+  "exports": {
+    ".": "./lib/node/index.js",
+    "./client": "./lib/client/index.js",
+    "./styles/*": "./lib/client/styles/*",
+    "./package.json": "./package.json"
+  },
+  "main": "./lib/node/index.js",
+  "types": "./lib/node/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "bundle": "rollup -c rollup.config.ts --configPlugin esbuild",
+    "clean": "rimraf --glob ./lib ./*.tsbuildinfo",
+    "copy": "cpx \"src/**/*.css\" lib"
+  },
+  "dependencies": {
+    "@docsearch/css": "^3.9.0",
+    "@docsearch/js": "^3.9.0",
+    "@docsearch/react": "^3.9.0",
+    "@vuepress/helper": "workspace:*",
+    "@vueuse/core": "^12.7.0",
+    "ts-debounce": "^4.0.0",
+    "vue": "^3.5.13"
+  },
+  "peerDependencies": {
+    "vuepress": "catalog:"
+  },
+  "devDependencies": {
+    "algoliasearch": "5.20.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

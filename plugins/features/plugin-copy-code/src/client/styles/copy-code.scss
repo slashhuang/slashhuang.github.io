@@ -1,0 +1,95 @@
+.vp-copy-code-button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  z-index: 5;
+
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-width: 0;
+  border-radius: 0.5rem;
+
+  background: transparent;
+  outline: none;
+
+  opacity: 0;
+  cursor: pointer;
+
+  transition: opacity 0.4s;
+
+  @media print {
+    display: none;
+  }
+
+  &::before {
+    content: '';
+
+    display: inline-block;
+
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0.625rem;
+
+    background: currentcolor;
+    color: var(--copy-code-c-text);
+
+    font-size: 1.25rem;
+
+    mask-image: var(--code-copy-icon);
+    mask-position: 50%;
+    mask-size: 1em;
+    mask-repeat: no-repeat;
+  }
+
+  &:focus,
+  &.copied {
+    opacity: 1;
+  }
+
+  &:hover,
+  &.copied {
+    background: var(--copy-code-c-hover);
+  }
+
+  &.copied {
+    &::before {
+      mask-image: var(--code-copied-icon);
+    }
+
+    &::after {
+      content: attr(data-copied);
+
+      position: absolute;
+      top: 0;
+      right: calc(100% + 0.25rem);
+
+      display: block;
+
+      height: 1.25rem;
+      padding: 0.625rem;
+      border-radius: 0.5rem;
+
+      background: var(--copy-code-c-hover);
+      color: var(--copy-code-c-text);
+
+      font-weight: 500;
+      line-height: 1.25rem;
+      white-space: nowrap;
+    }
+  }
+
+  .no-copy-code & {
+    display: none;
+  }
+}
+
+body:not(.no-copy-code) div[class*='language-']:hover {
+  &::before {
+    display: none;
+  }
+
+  .vp-copy-code-button {
+    opacity: 1;
+  }
+}

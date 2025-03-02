@@ -1,0 +1,9 @@
+---
+description: 创建markdown的规则
+globs: *.md
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to

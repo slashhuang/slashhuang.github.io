@@ -1,0 +1,61 @@
+{
+  "name": "@vuepress/plugin-pwa",
+  "version": "2.0.0-rc.80",
+  "description": "VuePress plugin - progressive web application",
+  "keywords": [
+    "vuepress-plugin",
+    "vuepress",
+    "plugin",
+    "pwa"
+  ],
+  "homepage": "https://ecosystem.vuejs.press/plugins/pwa/pwa.html",
+  "bugs": {
+    "url": "https://github.com/vuepress/ecosystem/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuepress/ecosystem.git",
+    "directory": "plugins/pwa/plugin-pwa"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Mr.Hope",
+    "email": "mister-hope@outlook.com",
+    "url": "https://mister-hope.com"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./lib/node/index.js",
+    "./client": "./lib/client/index.js",
+    "./styles/*": "./lib/client/styles/*",
+    "./package.json": "./package.json"
+  },
+  "main": "./lib/node/index.js",
+  "types": "./lib/node/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "bundle": "rollup -c rollup.config.ts --configPlugin esbuild",
+    "clean": "rimraf --glob ./lib ./*.tsbuildinfo",
+    "style": "sass src:lib --embed-sources --style=compressed --pkg-importer=node"
+  },
+  "dependencies": {
+    "@vuepress/helper": "workspace:*",
+    "@vueuse/core": "^12.7.0",
+    "mitt": "^3.0.1",
+    "register-service-worker": "^1.7.2",
+    "vue": "^3.5.13",
+    "workbox-build": "^7.3.0"
+  },
+  "peerDependencies": {
+    "vuepress": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "rollup": "^4.34.8"
+  }
+}

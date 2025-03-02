@@ -1,0 +1,66 @@
+{
+  "name": "@vuepress/plugin-shiki",
+  "version": "2.0.0-rc.80",
+  "description": "VuePress plugin - shiki",
+  "keywords": [
+    "vuepress-plugin",
+    "vuepress",
+    "plugin",
+    "shiki",
+    "highlight"
+  ],
+  "homepage": "https://ecosystem.vuejs.press/plugins/markdown/shiki.html",
+  "bugs": {
+    "url": "https://github.com/vuepress/ecosystem/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuepress/ecosystem.git",
+    "directory": "plugins/markdown/plugin-shiki"
+  },
+  "license": "MIT",
+  "author": "meteorlxy",
+  "type": "module",
+  "exports": {
+    ".": "./lib/node/index.js",
+    "./resolveLang": "./lib/node/resolveLang.js",
+    "./styles/*": "./lib/client/styles/*",
+    "./package.json": "./package.json"
+  },
+  "main": "./lib/node/index.js",
+  "types": "./lib/node/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "bundle": "rollup -c rollup.config.ts --configPlugin esbuild",
+    "clean": "rimraf --glob ./lib ./*.tsbuildinfo",
+    "style": "sass src:lib --embed-sources --style=compressed --pkg-importer=node"
+  },
+  "dependencies": {
+    "@shikijs/transformers": "^3.0.0",
+    "@vuepress/helper": "workspace:*",
+    "@vuepress/highlighter-helper": "workspace:*",
+    "nanoid": "^5.1.2",
+    "shiki": "^3.0.0",
+    "synckit": "^0.9.2"
+  },
+  "peerDependencies": {
+    "@vuepress/shiki-twoslash": "workspace:*",
+    "vuepress": "catalog:"
+  },
+  "peerDependenciesMeta": {
+    "@vuepress/shiki-twoslash": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@vuepress/shiki-twoslash": "workspace:*",
+    "markdown-it": "^14.1.0"
+  }
+}

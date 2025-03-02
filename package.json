@@ -2,20 +2,90 @@
   "name": "my-vuepress-site",
   "version": "0.0.1",
   "description": "Ai工具与教程",
-  "license": "MIT",
+  "private": true,
   "type": "module",
   "scripts": {
-    "docs:build": "vuepress build docs",
-    "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs",
-    "docs:update-package": "pnpm dlx vp-update"
+    "build": "pnpm build:tsc && pnpm build:copy && pnpm build:style",
+    "build:bundle": "pnpm -r --stream bundle",
+    "build:copy": "pnpm --parallel --stream copy",
+    "build:style": "pnpm --parallel --stream style",
+    "build:tsc": "tsc -b tsconfig.build.json",
+    "bundle": "pnpm build:bundle && pnpm build:copy && pnpm build:style",
+    "clean": "pnpm --parallel --stream clean",
+    "format": "prettier --write .",
+    "lint": "eslint . && prettier --check . && stylelint **/*.{css,html,scss,vue}",
+    "lint:fix": "eslint . --fix && prettier --check --write . && stylelint **/*.{css,html,scss,vue} --fix",
+    "prepare": "husky",
+    "release": "pnpm release:check && pnpm release:version && pnpm release:publish",
+    "release:check": "pnpm lint && pnpm clean && pnpm build && pnpm test",
+    "release:publish": "lerna publish --dist-tag next from-package --yes && tsx scripts/syncNpmmirror.ts",
+    "release:version": "lerna version",
+    "test": "pnpm test:unit && pnpm test:e2e",
+    "test:cov": "cross-env TZ=Etc/UTC vitest run --coverage ",
+    "test:e2e": "pnpm --filter ecosystem-e2e e2e:dev && pnpm --filter ecosystem-e2e e2e:build",
+    "test:unit": "cross-env TZ=Etc/UTC vitest run"
   },
+  "nano-staged": {
+    "**/*": "prettier --write --ignore-unknown",
+    "*.(cjs|js|ts|vue)": "eslint --fix",
+    "*.(s?css|html|vue)": "stylelint --fix",
+    "package.json": "sort-package-json"
+  },
+  "prettier": "prettier-config-vuepress",
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.7",
-    "@vuepress/plugin-blog": "^2.0.0-rc.11",
-    "@vuepress/theme-default": "^2.0.0-rc.11",
-    "sass": "^1.85.0",
-    "vue": "^3.4.0",
-    "vuepress": "^2.0.0-rc.7"
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@lerna-lite/cli": "^3.12.1",
+    "@lerna-lite/publish": "^3.12.1",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@types/node": "^22.13.5",
+    "@types/webpack-env": "^1.18.8",
+    "@vitest/coverage-istanbul": "3.0.6",
+    "conventional-changelog-cli": "^5.0.0",
+    "cpx2": "^8.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.21.0",
+    "eslint-config-vuepress": "^5.2.4",
+    "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "nano-staged": "^0.8.0",
+    "postcss-html": "^1.8.0",
+    "prettier": "^3.5.2",
+    "prettier-config-vuepress": "^5.0.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.34.8",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "^6.2.0",
+    "rollup-plugin-resolve-shebang": "^1.0.1",
+    "sass-embedded": "^1.85.0",
+    "sort-package-json": "^2.14.0",
+    "stylelint": "^16.14.1",
+    "stylelint-config-hope": "^8.0.0",
+    "stylelint-config-html": "^1.1.0",
+    "tsconfig-vuepress": "^5.2.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vite": "~6.1.1",
+    "vitest": "3.0.6",
+    "vuepress": "catalog:"
+  },
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": "^18.19.0 || >= 20.6.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "artalk>marked": "^15.0.0"
+      }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild"
+    ],
+    "overrides": {
+      "esbuild": "^0.25.0"
+    }
   }
 }

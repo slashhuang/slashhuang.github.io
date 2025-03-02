@@ -1,3 +1,34 @@
-docs/.vuepress/.temp
+# Temp files
+.cache/
+.temp/
 
-docs/.vuepress/dist/
+# Dist files
+dist/
+lib/
+
+# Test coverage files
+coverage/
+
+# E2E temp files
+e2e/playwright-report/
+e2e/test-results/
+# Node modules
+node_modules/
+
+# MacOS Desktop Services Store
+.DS_Store
+
+# Log files
+*.log
+
+# Typescript build info
+*.tsbuildinfo
+
+# npm config file
+.npmrc
+
+# Vitest
+tsconfig.vitest-temp.json
+
+# Webstorm
+.idea
