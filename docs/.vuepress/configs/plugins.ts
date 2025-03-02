@@ -80,9 +80,9 @@ export const plugins = [
       },
     ],
   }),
-  redirectPlugin({
-    switchLocale: 'modal',
-  }),
+  // redirectPlugin({
+  //   switchLocale: 'modal',
+  // }),
   registerComponentsPlugin({
     components: {
       NpmBadge: path.resolve(__dirname, '../components/NpmBadge.vue'),

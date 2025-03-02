@@ -43,17 +43,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install -r
 
+      - name: Build Project
+        run: pnpm build
+
       # run build script
       - name: Build VuePress site
-        run: pnpm docs:build
+        run: pnpm --filter @vuepress/ecosystem-docs docs:build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload only samples folder
           path: './docs/.vuepress/dist'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

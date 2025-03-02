@@ -2,6 +2,6 @@
 icon: octicon:markdown-16
 ---
 
-# Markdown 插件
+# Markdown Plugins
 
 <Catalog :level="1" />

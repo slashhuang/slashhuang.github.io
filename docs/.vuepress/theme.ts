@@ -22,19 +22,19 @@ export default defaultTheme({
      * As the default locale of @vuepress/theme-default is English,
      * we don't need to set all of the locale fields
      */
-    '/': {
-      // navbar
-      navbar: navbarEn,
-      // sidebar
-      sidebar: sidebarEn,
-      // page meta
-      editLinkText: 'Edit this page on GitHub',
-    },
+    // '/': {
+    //   // navbar
+    //   navbar: navbarEn,
+    //   // sidebar
+    //   sidebar: sidebarEn,
+    //   // page meta
+    //   editLinkText: 'Edit this page on GitHub',
+    // },
 
     /**
      * Chinese locale config
      */
-    '/zh/': {
+    '/': {
       // navbar
       navbar: navbarZh,
       selectLanguageName: '简体中文',
