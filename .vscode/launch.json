@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "docs:build",
+            "runtimeExecutable": "pnpm",
+            "runtimeArgs": ["docs:build"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "docs:clean-dev",
+            "runtimeExecutable": "pnpm",
+            "runtimeArgs": ["docs:clean-dev"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "docs:dev",
+            "runtimeExecutable": "pnpm",
+            "runtimeArgs": ["docs:dev"],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "docs:update-package",
+            "runtimeExecutable": "pnpm",
+            "runtimeArgs": ["docs:update-package"],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+} 

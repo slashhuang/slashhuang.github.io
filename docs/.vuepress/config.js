@@ -2,34 +2,33 @@ import { blogPlugin } from '@vuepress/plugin-blog'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
 import { viteBundler } from '@vuepress/bundler-vite'
-
 export default defineUserConfig({
-  lang: 'en-US',
+  lang: 'zh-CN',
 
-  title: 'VuePress',
-  description: 'My first VuePress Site',
+  title: ' ',
+  description: '',
 
   theme: defaultTheme({
-    logo: 'https://vuejs.press/images/hero.png',
-
+    repo: 'https://github.com/slashhuang/slashhuang.github.io',
+    logo: '/myself.jpg',
     navbar: [
       '/',
       {
-        text: 'Article',
-        link: '/article/',
+        text: 'Ai副业工具建设',
+        link: '/biz/wechat',
       },
       {
-        text: 'Category',
-        link: '/category/',
+        text: 'Ai写代码',
+        link: '/code/cursor',
       },
-      {
-        text: 'Tag',
-        link: '/tag/',
-      },
-      {
-        text: 'Timeline',
-        link: '/timeline/',
-      },
+      // {
+      //   text: 'Tag',
+      //   link: '/tag/',
+      // },
+      // {
+      //   text: 'Timeline',
+      //   link: '/timeline/',
+      // },
     ],
   }),
 

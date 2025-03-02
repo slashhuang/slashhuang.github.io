@@ -1,23 +1,24 @@
 ---
+# 参考语法: https://ecosystem.vuejs.press/zh/themes/default/frontmatter.html#tagline
 home: true
-title: Home
-heroImage: https://vuejs.press/images/hero.png
+title: slashhuang的Ai
+# heroText: 关注作者的公众号 slashhuang
+heroImage: ./wechat-pp.jpg
+tagline: 关注作者的公众号 slashhuang。
+
 actions:
-  - text: Ai工具
-    link: /deepseek.html
+  - text: Ai副业的工具建设
+    link: /biz/wechat.html
     type: primary
 
-  - text: Introduction
-    link: https://vuejs.press/guide/introduction.html
+  - text: Ai写代码
+    link: /code/cursor.html
     type: secondary
 
 features:
-  - title: Ai应用工具指南与云服务
-    details: 如何利用Ai帮助你的工作与生活.
-  - title: Ai开发学习
-    details: Ai的技术原理，包括大模型(LLM)、微调(Fine-tuning)等
-  - title: Ai工具建设
-    details: 围绕DeepSeek等的配套工具建设.
-footer:  Copyright © 2025-present slashhuang，公众号 slashhuang
+  - title: Ai副业场景工具建设
+    details: 场景包括写微信公众号、股票分析等
+  - title: Ai写代码
+    details: 打造百万行源码的智能code base、以及多人协作的scalable能力等
 
-# [default-theme-home]: https://vuejs.press/reference/default-theme/frontmatter.html#home-page
+footer:  Copyright © 2025-present slashhuang，公众号 slashhuang
