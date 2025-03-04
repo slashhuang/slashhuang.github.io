@@ -5,7 +5,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:doc": "pnpm --filter @vuepress/ecosystem-docs docs:build",
+    "dev": "pnpm --filter @ai/docs docs:dev",
+    "build:doc": "pnpm --filter @ai/docs docs:build",
     "build": "pnpm build:tsc && pnpm build:copy && pnpm build:style",
     "build:bundle": "pnpm -r --stream bundle",
     "build:copy": "pnpm --parallel --stream copy",

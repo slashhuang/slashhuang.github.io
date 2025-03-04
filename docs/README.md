@@ -1,14 +1,14 @@
 ---
 # 参考语法: https://ecosystem.vuejs.press/zh/themes/default/frontmatter.html#tagline
 home: true
-title: slashhuang的Ai
+title: 实用Ai
 # heroText: 关注作者的公众号 slashhuang
 heroImage: ./wechat-pp.jpg
 tagline: 关注作者的公众号 slashhuang。
 
 actions:
   - text: Ai副业的工具建设
-    link: /biz/wechat.html
+    link: /biz/
     type: primary
 
   - text: Ai写代码

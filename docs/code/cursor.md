@@ -2,18 +2,16 @@
 
 [[toc]]
 
-## 基础功能
-基础功能就不赘述了，大家自行查看官网即可。
-我指的基础功能包括: 代码自动补全、cursor chat、cursor composer等。
-
-> [cursor官网](https://www.cursor.com/cn)
+## 基础功能介绍
+基础功能比如代码自动补全、cursor chat、cursor composer就不赘述了，大家自行查看官网即可。
+> [cursor官方文档](https://docs.cursor.com/get-started/welcome)
 
 ## 进阶玩法
 下面介绍一些相对小众的玩法，如何把cursor打造成你团队的架构师。
 
 ---
 
-### 添加Docs，让它成为技术栈专家
+### Docs能力
 
 每个代码仓库都有明确的技术选型，比如我喜欢的技术栈包括pnpm、vue.js、typescript等，我希望cursor以技术栈专家的身份回答我的问题。
 
@@ -23,4 +21,11 @@
 
 
 
-### 添加Docs，让它成为技术栈专家
+### Cursor Rules
+
+让它理解项目规则
+
+### MCP-servers
+
+协同垂直领域的Ai Agent
+

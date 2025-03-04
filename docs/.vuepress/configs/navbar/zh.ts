@@ -2,7 +2,7 @@ import type { NavbarOptions } from '@vuepress/theme-default'
 
 export const navbarZh: NavbarOptions = [
   {
-    text: 'Ai工具',
+    text: 'Ai自研工具',
     // prefix: '/biz/',
     icon: 'palette',
     link: '/biz/',

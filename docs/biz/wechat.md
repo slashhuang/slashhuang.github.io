@@ -2,7 +2,9 @@
 
 [[toc]]
 
-##  [deepseek复制粘贴工具](https://slashhuang.github.io/ai-markdown-format-clipboard/)
+## deepseek内容格式转换
+
+[deepseek复制粘贴工具](https://slashhuang.github.io/ai-markdown-format-clipboard/)
 
 **问题**: 由于deepseek复制出来的是markdown格式，导入到类似微信公众号等地方非常不方便。
 

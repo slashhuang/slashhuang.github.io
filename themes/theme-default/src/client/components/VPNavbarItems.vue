@@ -21,7 +21,7 @@ const navbarLabel = computed(() => {
 
 const navbarLinks = computed(() => [
   ...navbarConfig.value,
-  ...navbarSelectLanguage.value,
+  // ...navbarSelectLanguage.value,
   ...navbarRepo.value,
 ])
 

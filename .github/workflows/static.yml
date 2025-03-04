@@ -48,7 +48,7 @@ jobs:
 
       # run build script
       - name: Build VuePress site
-        run: pnpm --filter @vuepress/ecosystem-docs docs:build
+        run: pnpm --filter @ai/docs docs:build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

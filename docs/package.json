@@ -1,5 +1,5 @@
 {
-  "name": "@vuepress/ecosystem-docs",
+  "name": "@ai/docs",
   "private": true,
   "scripts": {
     "docs:build": "vuepress build . --clean-cache --clean-temp",
