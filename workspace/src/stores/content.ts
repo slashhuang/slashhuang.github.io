@@ -100,6 +100,29 @@ export function useContentStore() {
     return contentStore.entries.find((e) => e.id === id)
   }
 
+  function saveEntry(entry: ContentEntry) {
+    const idx = contentStore.entries.findIndex((e) => e.id === entry.id)
+    if (idx >= 0) {
+      contentStore.entries[idx] = entry
+    } else {
+      contentStore.entries.unshift(entry)
+    }
+  }
+
+  function createEntry(overrides: Partial<ContentEntry> = {}): ContentEntry {
+    const id = String(Date.now())
+    const entry: ContentEntry = {
+      id,
+      title: overrides.title ?? 'Untitled',
+      date: new Date().toISOString().slice(0, 10),
+      targets: overrides.targets ?? ['blog'],
+      tags: overrides.tags ?? [],
+      status: overrides.status ?? 'draft',
+    }
+    contentStore.entries.unshift(entry)
+    return entry
+  }
+
   return {
     platformFilter,
     statusFilter,
@@ -107,5 +130,7 @@ export function useContentStore() {
     platforms,
     statuses,
     findById,
+    saveEntry,
+    createEntry,
   }
 }
