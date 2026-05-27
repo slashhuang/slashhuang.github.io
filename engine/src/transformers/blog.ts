@@ -29,7 +29,7 @@ ${frontmatter}
 ${body}
 `
 
-  const fileName = sourcePath.split('/').pop()?.replace('.md', '') || 'post'
+  const fileName = sourcePath.split('/').pop()?.replace(/\.md$/, '') || 'post'
   return {
     path: `blog/${fileName}.md`,
     content,
