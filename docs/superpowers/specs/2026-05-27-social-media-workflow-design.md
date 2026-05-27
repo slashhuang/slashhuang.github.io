@@ -97,9 +97,246 @@ blog:
 | 微信公众号 | HTML（带内联 CSS 排版） | 去除代码块/TOC，段落间距优化，适配微信编辑器 |
 | 小红书 | HTML 精美卡片 → PNG 截图 | 渐变/引用/极简等多种卡片风格，自动分段，支持亮暗主题，输出图片直接可用 |
 
-## 4. 工作台 UI
+## 4. UI 设计
 
-### 4.1 路由结构
+整体风格参考 Linear / Vercel 的极简主义：大量留白、克制的色彩、精细的排版层次。工作台偏向工具感，博客保持阅读温度。
+
+### 4.1 色彩系统
+
+| 语义 | 变量名 | 亮色模式 | 暗色模式 | 用途 |
+|------|--------|---------|---------|------|
+| 背景主色 | `--bg-primary` | `#ffffff` | `#0a0a0a` | 工作台主背景 |
+| 背景次色 | `--bg-secondary` | `#f8f8f8` | `#111111` | 侧边栏、卡片背景 |
+| 背景再次色 | `--bg-tertiary` | `#f0f0f0` | `#1a1a1a` | 输入框、分隔区域 |
+| 文字主色 | `--text-primary` | `#111111` | `#ededed` | 正文、标题 |
+| 文字次色 | `--text-secondary` | `#666666` | `#888888` | 标注、时间戳、辅助信息 |
+| 文字弱化色 | `--text-tertiary` | `#999999` | `#555555` | placeholder、禁用态 |
+| 边框色 | `--border` | `#e5e5e5` | `#2a2a2a` | 分隔线、输入框边框 |
+| 强调色 | `--accent` | `#2563eb` | `#3b82f6` | 主按钮、激活态、链接 |
+| 强调悬浮 | `--accent-hover` | `#1d4ed8` | `#60a5fa` | 按钮 hover |
+| 成功色 | `--success` | `#16a34a` | `#22c55e` | 发布成功、完成状态 |
+| 警告色 | `--warning` | `#d97706` | `#f59e0b` | 未生成、部分完成 |
+| 错误色 | `--error` | `#dc2626` | `#ef4444` | 生成失败、校验错误 |
+| 品牌渐变色 | `--brand-gradient` | `linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7)` | 同左 | Logo、主行动按钮、工作台 header |
+
+**克制原则**：全站除品牌渐变色外，仅使用黑白灰 + 强调色。其余语义色只在状态反馈时出现。
+
+### 4.2 字体系统
+
+| 层级 | 字号 | 字重 | 行高 | 颜色 | 用途 |
+|------|------|------|------|------|------|
+| H1 | 28px / 1.75rem | 700 | 1.2 | `--text-primary` | 页面大标题 |
+| H2 | 20px / 1.25rem | 600 | 1.3 | `--text-primary` | 区块标题 |
+| H3 | 16px / 1rem | 600 | 1.4 | `--text-primary` | 卡片标题、小标题 |
+| Body | 14px / 0.875rem | 400 | 1.6 | `--text-primary` | 正文、列表项 |
+| Body-Small | 13px / 0.8125rem | 400 | 1.5 | `--text-secondary` | 辅助文字、描述 |
+| Caption | 12px / 0.75rem | 400 | 1.4 | `--text-tertiary` | 时间戳、标签、状态 |
+| Code | 13px / 0.8125rem | 400 | 1.5 | `--text-primary` | 代码、命令 |
+| Mono | 13px / 0.8125rem | 400 | 1.5 | `--text-primary` | 等宽数据（ID、路径） |
+
+**字体族**：
+- 正文：`-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif`
+- 代码：`"JetBrains Mono", "Fira Code", "SF Mono", "Cascadia Code", monospace`
+- 小红书卡片标题：`"Noto Serif SC", "Source Han Serif SC", serif`（可选 serif 增强质感）
+
+### 4.3 间距系统
+
+基于 4px 基准单位：
+
+```
+--space-1:  4px    --space-2:  8px    --space-3:  12px
+--space-4:  16px   --space-5:  20px   --space-6:  24px
+--space-8:  32px   --space-10: 40px   --space-12: 48px
+--space-16: 64px   --space-20: 80px   --space-24: 96px
+```
+
+### 4.4 圆角
+
+```
+--radius-sm:  4px   (标签、小按钮)
+--radius-md:  6px   (输入框、卡片)
+--radius-lg:  8px   (大卡片、对话框)
+--radius-xl:  12px  (模态框、面板)
+--radius-full: 9999px (头像、pill 按钮)
+```
+
+### 4.5 阴影
+
+```
+--shadow-sm:  0 1px 2px rgba(0,0,0,0.04)         (卡片悬浮)
+--shadow-md:  0 4px 12px rgba(0,0,0,0.08)         (下拉菜单、Popover)
+--shadow-lg:  0 8px 30px rgba(0,0,0,0.12)         (模态框、截图预览)
+--shadow-inner: inset 0 1px 2px rgba(0,0,0,0.05)  (输入框聚焦态)
+```
+
+### 4.6 工作台页面线框
+
+#### 4.6.1 内容列表页 `/workspace/`
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ ☐ Logo           工作台                          [主题] [⚙] │  ← bg: white, border-bottom: 1px solid var(--border)
+├────────┬────────────────────────────────────────────────────┤
+│ 侧边栏  │  内容列表                                          │
+│        │                                                    │
+│ ▸ 全部  │  ┌──────────────────────────────────────────────┐ │
+│   博客   │  │  [+ 新建内容]   [筛选: 全部 ▾]   [搜索...]   │ │
+│   微信   │  └──────────────────────────────────────────────┘ │
+│   小红书 │                                                    │
+│   想法   │  ┌──────────────────────────────────────────────┐ │
+│        │  │ 📄 AI 提效指南                    2026-05-27   │ │
+│ 设置    │  │    目标: ● 博客  ● 微信  ● 小红书            │ │
+│        │  │    状态: ✓ ✓ ✓                           [编辑]│ │
+│        │  └──────────────────────────────────────────────┘ │
+│        │                                                    │
+│        │  ┌──────────────────────────────────────────────┐ │
+│        │  │ 📄 TypeScript 泛型笔记            2026-05-26  │ │
+│        │  │    目标: ● 博客  ○ 微信                      │ │
+│        │  │    状态: ✓ ○ —                           [编辑]│ │
+│        │  └──────────────────────────────────────────────┘ │
+│        │                                                    │
+│        │  ┌──────────────────────────────────────────────┐ │
+│        │  │ 📄 为什么选 Vue 3                 2026-05-25  │ │
+│        │  │    目标: ● 小红书                            │ │
+│        │  │    状态: — — ✓ (3张截图)              [编辑] │ │
+│        │  └──────────────────────────────────────────────┘ │
+├────────┴────────────────────────────────────────────────────┤
+│ 共 3 篇文章                                                  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+侧边栏：`width: 200px`, `bg: var(--bg-secondary)`, `border-right: 1px solid var(--border)`
+内容区：`flex: 1`, `bg: var(--bg-primary)`, `padding: var(--space-8)`
+
+#### 4.6.2 编辑器页 `/workspace/edit/:id`
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ ← 返回    AI 提效指南              [保存] [生成全部] [发布]  │
+├────────────────────────┬────────────────────────────────────┤
+│ Meta 面板              │ 预览区                              │
+│                        │                                    │
+│ 标题: [___________]   │  [● 博客]  [○ 微信]  [○ 小红书]    │
+│ 日期: [2026-05-27]    │  ┌────────────────────────────────┐ │
+│ 标签: [#AI] [#工具]   │  │                                │ │
+│                        │  │  预览内容渲染区                 │ │
+│ 目标平台:              │  │                                │ │
+│   ☑ 博客               │  │  (Markdown 渲染 /              │ │
+│   ☑ 微信               │  │   HTML 排版 /                  │ │
+│   ☐ 小红书             │  │   小红书卡片)                  │ │
+│                        │  │                                │ │
+│ 小红书配置(展开):      │  │                                │ │
+│   卡片风格: [gradient] │  │                                │ │
+│   主题: [● light ○dark]│  │                                │ │
+│                        │  └────────────────────────────────┘ │
+├────────────────────────┤                                    │
+│ Markdown 编辑器         │  操作栏                            │
+│                        │  [复制] [下载] [查看截图] [导出全部]│
+│ # AI 提效指南          │                                    │
+│                        │                                    │
+│ 这里介绍了几款实用的    │                                    │
+│ AI 工具...            │                                    │
+│                        │                                    │
+│ ```ts                 │                                    │
+│ const x = 1           │                                    │
+│ ```                    │                                    │
+│                        │                                    │
+└────────────────────────┴────────────────────────────────────┘
+```
+
+编辑器区：`flex: 1`, `font-family: var(--font-mono)`, `bg: var(--bg-primary)`
+预览区：`flex: 1`, `bg: var(--bg-secondary)`, `border-left: 1px solid var(--border)`
+
+#### 4.6.3 小红书截图预览 `/workspace/preview/:id?tab=xhs`
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ ← 返回    AI 提效指南 — 小红书截图                          │
+├─────────────────────────────────────────────────────────────┤
+│ 卡片风格: [● Gradient] [○ Quote] [○ Code] [○ Minimal] [○ List] │
+│ 主题: [● 亮色] [○ 暗色]    分段: 1/3  [< 1  2  3 >]          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│    ┌───────────────────────────────────────────┐            │
+│    │                                           │            │
+│    │  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  │ ← 渐变背景
+│    │  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  │
+│    │  ░░  AI 提效指南                    @slashhuang  ░░  │
+│    │  ░░                                        ░░  │
+│    │  ░░  这里介绍了几款实用的 AI 工具，        ░░  │
+│    │  ░░  帮助你提升 10 倍工作效率...          ░░  │
+│    │  ░░                                        ░░  │
+│    │  ░░  #AI工具  #效率提升  #打工人必备      ░░  │
+│    │  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  │
+│    │                                           │            │
+│    └───────────────────────────────────────────┘            │
+│                                                             │
+├─────────────────────────────────────────────────────────────┤
+│                  [ 下载此卡 ]  [ 生成全部截图 ↓ ]           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+截图展示区：`max-width: 540px`（1080px 的一半），居中，带阴影。
+
+### 4.7 核心组件规范
+
+#### 按钮
+
+```
+Primary:    bg(--accent), color(white), hover(--accent-hover), radius(--radius-md)
+Secondary:  bg(transparent), border(--border, 1px), hover(bg(--bg-tertiary))
+Ghost:      bg(transparent), hover(bg(--bg-tertiary)), no-border
+Brand:      bg(--brand-gradient), color(white), border-radius(--radius-md), shadow(--shadow-sm)
+Danger:     bg(--error), color(white), hover(darken(--error))
+
+Size SM: padding(4px 10px), font(12px)
+Size MD: padding(6px 14px), font(13px)
+Size LG: padding(10px 20px), font(14px)
+```
+
+#### 卡片
+
+```
+bg(--bg-primary), border(--border, 1px), radius(--radius-md), shadow(--shadow-sm)
+hover: shadow(--shadow-md), border-color(--accent) [仅当卡片可点击时]
+padding: var(--space-4)
+```
+
+#### Tab 切换
+
+```
+bg(--bg-tertiary), radius(--radius-md), padding(2px)
+active item: bg(--bg-primary), shadow(--shadow-sm), radius(--radius-sm)
+inactive item: color(--text-secondary), hover: color(--text-primary)
+```
+
+#### 输入框
+
+```
+bg(--bg-primary), border(--border, 1px), radius(--radius-md), padding(--space-3)
+focus: border(--accent, 2px), box-shadow(--shadow-inner)
+placeholder: color(--text-tertiary)
+```
+
+#### 状态徽章
+
+```
+radius(--radius-full), padding(2px 10px), font(12px)
+成功: bg(#dcfce7), color(#166534)   [✓ 已生成]
+警告: bg(#fef3c7), color(#92400e)   [○ 未生成]
+错误: bg(#fee2e2), color(#991b1b)   [✗ 失败]
+```
+
+#### 博客 UI 特色
+
+- 阅读区最大宽度 `65ch`（中文适配约 720px），居中
+- 段落间距 `--space-4`，行高 `1.75`
+- 代码块：暗色主题背景 `#1e1e2e`，圆角 `--radius-lg`，带语言标签
+- 图片：圆角 `--radius-lg`，最大宽度 100%，带 caption 样式
+
+## 5. 工作台功能
+
+### 5.1 路由结构
 
 ```
 /workspace/              - 内容列表页
@@ -108,7 +345,7 @@ blog:
 /workspace/ideas/        - 想法/笔记管理页
 ```
 
-### 4.2 核心组件
+### 5.2 核心组件
 
 - **ContentList**: 内容列表，支持筛选、搜索、状态展示
 - **MarkdownEditor**: 基于 Monaco Editor 的 Markdown 编辑器
@@ -117,14 +354,47 @@ blog:
 - **XiaohongshuPreview**: 小红书 HTML 卡片预览（模拟小红书样式，支持卡片风格切换、分段预览、一键截图下载）
 - **ExportPanel**: 导出面板（复制、下载、生成全部、批量截图）
 
-### 4.3 技术选型
+### 5.3 技术选型
 
-- 编辑器: Monaco Editor 或 CodeMirror 6
-- 预览渲染: Markdown-it + 平台特定模板
-- 状态管理: Vue 3 `ref/reactive`
-- 路由: Vue Router（与 VuePress 集成）
+#### 工作台前端
 
-## 5. 数据流
+| 领域 | 技术 | 理由 |
+|------|------|------|
+| 框架 | Vue 3 (Composition API) | 与 VuePress 一致，轻量 |
+| 构建 | Vite | 快速 HMR，独立构建 workspace |
+| 路由 | Vue Router | 与 VuePress 路由集成 |
+| 编辑器 | Monaco Editor (`@guolao/vue-monaco-editor`) | VS Code 同引擎，Markdown 语法高亮开箱即用 |
+| Markdown 渲染 | Markdown-it + `markdown-it-container` | 轻量，可自定义容器/规则 |
+| 代码高亮 | Shiki | 与 VuePress shikiPlugin 一致 |
+| 状态管理 | Vue 3 `ref/reactive` + `provide/inject` | 轻量，不需要 Pinia 的额外复杂度 |
+| HTTP 客户端 | 无（前端直接读本地生成文件，dev server 代理） | 本地开发，不需要 API |
+| CSS | CSS 变量 + SCSS | CSS 变量实现主题切换，SCSS 提供嵌套/函数 |
+| 图标 | Lucide Icons (`lucide-vue-next`) | 线性风格，与 `iconPlugin` 一致 |
+| 截图预览 | Lightbox 自定义实现 | 轻量，不需要完整图片库 |
+
+#### 转换引擎（后端）
+
+| 领域 | 技术 | 理由 |
+|------|------|------|
+| 运行时 | Node.js 20+ / TypeScript | 项目已有 TS 基础 |
+| Markdown 解析 | Markdown-it + 自定义插件 | 支持 frontmatter 提取 |
+| HTML 模板 | EJS | 简单直观，TypeScript 友好 |
+| 截图 | Puppeteer (Chromium) | 成熟方案，精确控制渲染 |
+| 文件监听 | chokidar | Node.js 生态最稳定的文件监听库 |
+| 图片处理 | sharp | 快速，支持 PNG 压缩、尺寸调整 |
+
+#### VuePress 集成
+
+| 领域 | 技术 | 理由 |
+|------|------|------|
+| 博客构建 | VuePress 2 (Vite bundler) | 现有项目 |
+| 主题 | @vuepress/theme-default (定制) | 基于现有主题扩展 UI |
+| 博客内容源 | `content/generated/blog/` 软链接到 `docs/` | 构建时自动关联 |
+| RSS/Feed | @vuepress/plugin-feed | 已有，保留 |
+| SEO | @vuepress/plugin-seo | 已有，保留 |
+| 评论 | Giscus | 已有，保留 |
+
+## 6. 数据流
 
 ```
 创作 (Workspace 编辑) → content/posts/*.md
@@ -153,20 +423,6 @@ Workspace UI 读取 generated/ → 实时预览 → 复制/导出
 
 - `content/posts/` 文件变更 → chokidar 监听 → 触发引擎重新转换 → 刷新 workspace 预览
 - VuePress HMR 自动更新博客页面
-
-## 7. 技术栈
-
-| 部分 | 技术 |
-|------|------|
-| 转换引擎 | Node.js + TypeScript |
-| Markdown 解析 | Markdown-it |
-| 微信公众号 HTML | 自定义模板引擎（ejs/handlebars） |
-| 小红书 HTML 卡片 | 自定义 Vue 组件模板 + CSS 渐变/排版 |
-| 截图渲染 | Puppeteer（headless Chrome 截图） |
-| 工作台 UI | Vue 3 + Vue Router |
-| 编辑器 | Monaco Editor / CodeMirror 6 |
-| 文件监听 | chokidar |
-| 构建 | Vite (workspace) + VuePress (博客) |
 
 ## 8. 小红书卡片渲染
 
