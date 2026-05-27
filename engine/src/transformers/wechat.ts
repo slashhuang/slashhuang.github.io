@@ -6,6 +6,7 @@ import { dirname, join } from 'node:path'
 import type { ParsedContent, GeneratedFile } from '../types.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+const wechatTemplate = readFileSync(join(__dirname, '../templates/wechat-article.ejs'), 'utf-8')
 
 const md = new MarkdownIt({
   html: true,
@@ -25,6 +26,7 @@ function addInlineStyles(html: string): string {
     .replace(/<blockquote>/g, '<section style="margin: 16px 0; padding: 12px 16px; border-left: 3px solid #ddd; background: #f9f9f9; font-style: italic; color: #666;">')
     .replace(/<strong>/g, '<strong style="color: #111; font-weight: 700;">')
     .replace(/<em>/g, '<em style="color: #555;">')
+    .replace(/<code>/g, '<code style="background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 14px; color: #e83e8c;">')
     .replace(/<img /g, '<img style="max-width: 100%; border-radius: 8px; margin: 12px 0; display: block; " ')
     .replace(/<a /g, '<a style="color: #2563eb; text-decoration: none; border-bottom: 1px solid rgba(37, 99, 235, 0.3); " ')
     .replace(/<\/h[123]>/g, '</section>')
@@ -34,17 +36,16 @@ function addInlineStyles(html: string): string {
     .replace(/<\/blockquote>/g, '</section>')
 }
 
-function stripCodeBlocks(text: string): string {
-  return text.replace(/```[\s\S]*?```/g, '').replace(/`[^`]+`/g, '')
+function stripFencedCodeBlocks(text: string): string {
+  return text.replace(/```[\s\S]*?```/g, '[代码块已移除]')
 }
 
 export function transformWechat(parsed: ParsedContent): GeneratedFile {
   const { meta, body } = parsed
 
-  const cleanedBody = stripCodeBlocks(body)
+  const cleanedBody = stripFencedCodeBlocks(body)
   const bodyHtml = addInlineStyles(md.render(cleanedBody))
-  const template = readFileSync(join(__dirname, '../templates/wechat-article.ejs'), 'utf-8')
-  const html = ejs.render(template, {
+  const html = ejs.render(wechatTemplate, {
     title: meta.title,
     body: bodyHtml,
     author: meta.wechat?.author,

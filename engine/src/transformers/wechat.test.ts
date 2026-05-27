@@ -54,5 +54,24 @@ More text.
     const output = transformWechat(parsed)
 
     expect(output.content).not.toContain('const x = 1')
+    expect(output.content).toContain('代码块已移除')
+  })
+
+  it('styles inline code instead of removing it', () => {
+    const md = `---
+title: "Inline Code"
+date: 2026-05-27
+targets:
+  - wechat
+tags: []
+---
+
+Use \`console.log\` for debugging.
+`
+    const parsed = parseContent(md, '/test.md')
+    const output = transformWechat(parsed)
+
+    expect(output.content).toContain('console.log')
+    expect(output.content).toContain('font-family: monospace')
   })
 })
