@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body style="margin: 0; padding: 0;">
+<div class="xhs-card" style="width: 1080px; min-height: 1440px; padding: 80px; box-sizing: border-box; background: #f8f4ff; font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans SC', sans-serif; color: #4c1d95; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div class="title" style="font-size: 56px; font-weight: 700; line-height: 1.4; margin-bottom: 48px; letter-spacing: 2px;"><%= title %></div>
+  <div class="card-body" style="font-size: 36px; line-height: 1.8; margin-bottom: 64px; color: #6d28d9;">
+    <%- body %>
+  </div>
+  <div class="author" style="font-size: 28px; color: #8b5cf6; margin-bottom: 32px;">@<%= author %></div>
+  <div class="card-footer" style="padding-top: 32px; border-top: 1px solid #ddd6fe;">
+    <% tags.forEach(function(tag) { %>
+    <span class="tag" style="margin-right: 16px; font-size: 28px; color: #8b5cf6;"><%= tag %></span>
+    <% }) %>
+  </div>
+</div>
+</body>
+</html>
