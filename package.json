@@ -25,7 +25,11 @@
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:cov": "cross-env TZ=Etc/UTC vitest run --coverage ",
     "test:e2e": "pnpm --filter ecosystem-e2e e2e:dev && pnpm --filter ecosystem-e2e e2e:build",
-    "test:unit": "cross-env TZ=Etc/UTC vitest run"
+    "test:unit": "cross-env TZ=Etc/UTC vitest run",
+    "engine:build": "pnpm --filter @ai/content-engine build && pnpm --filter @ai/content-engine cli build",
+    "engine:dev": "pnpm --filter @ai/content-engine dev",
+    "engine:test": "pnpm --filter @ai/content-engine test",
+    "engine:clean": "rimraf engine/dist engine/dist"
   },
   "nano-staged": {
     "**/*": "prettier --write --ignore-unknown",

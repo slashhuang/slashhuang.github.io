@@ -8,7 +8,7 @@
     "transform": "dist/cli.js"
   },
   "scripts": {
-    "build": "tsc -b tsconfig.json",
+    "build": "tsc -b tsconfig.json && mkdir -p dist && cp -r src/templates dist/templates",
     "dev": "tsc -b tsconfig.json --watch",
     "test": "vitest run",
     "cli": "node dist/cli.js",

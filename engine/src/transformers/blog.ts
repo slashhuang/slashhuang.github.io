@@ -14,7 +14,7 @@ export function transformBlog(parsed: ParsedContent): GeneratedFile {
   }
 
   const frontmatter = Object.entries(blogFm)
-    .filter(([_, v]) => v !== undefined && v !== false)
+    .filter(([_, v]) => v !== undefined)
     .map(([k, v]) => {
       if (Array.isArray(v)) return `${k}: [${v.join(', ')}]`
       if (typeof v === 'string') return `${k}: "${v}"`
