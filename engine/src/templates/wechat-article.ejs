@@ -1,0 +1,14 @@
+<section style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif; line-height: 1.8; color: #333;">
+  <section style="text-align: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eee;">
+    <span style="font-size: 22px; font-weight: bold; color: #111; letter-spacing: 0.5px;"><%= title %></span>
+    <% if (author) { %>
+    <section style="margin-top: 8px; font-size: 13px; color: #888;"><%= author %></section>
+    <% } %>
+  </section>
+
+  <%- body %>
+
+  <section style="margin-top: 40px; padding-top: 16px; border-top: 1px dashed #ddd; text-align: center; font-size: 12px; color: #bbb;">
+    — END —
+  </section>
+</section>
