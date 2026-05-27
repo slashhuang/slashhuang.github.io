@@ -62,4 +62,63 @@ ${longBody}
 
     expect(cards.length).toBeGreaterThan(1)
   })
+
+  it('uses titleOverride when specified', () => {
+    const md = `---
+title: "Original Title"
+date: 2026-05-27
+targets:
+  - xiaohongshu
+tags: []
+xiaohongshu:
+  titleOverride: "Custom Title"
+---
+
+Content
+`
+    const parsed = parseContent(md, '/test.md')
+    const cards = transformXiaohongshu(parsed)
+
+    expect(cards[0].content).toContain('Custom Title')
+    expect(cards[0].content).not.toContain('Original Title')
+  })
+
+  it('uses hashtags when specified, falls back to tags', () => {
+    const mdWithHashtags = `---
+title: "Test"
+date: 2026-05-27
+targets:
+  - xiaohongshu
+tags: [default, tags]
+xiaohongshu:
+  hashtags: ["#custom", "#hashtags"]
+---
+
+Content
+`
+    const parsed = parseContent(mdWithHashtags, '/test.md')
+    const cards = transformXiaohongshu(parsed)
+
+    expect(cards[0].content).toContain('#custom')
+    expect(cards[0].content).toContain('#hashtags')
+    expect(cards[0].content).not.toContain('#default')
+  })
+
+  it('auto-prefixes tags with # when hashtags not specified', () => {
+    const md = `---
+title: "Test"
+date: 2026-05-27
+targets:
+  - xiaohongshu
+tags: [AI, Tools]
+---
+
+Content
+`
+    const parsed = parseContent(md, '/test.md')
+    const cards = transformXiaohongshu(parsed)
+
+    expect(cards[0].content).toContain('#AI')
+    expect(cards[0].content).toContain('#Tools')
+  })
 })
