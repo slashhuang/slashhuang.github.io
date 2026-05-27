@@ -110,7 +110,10 @@
     { "path": "./tools/helper/tsconfig.build.json" },
     { "path": "./tools/highlighter-helper/tsconfig.build.json" },
     { "path": "./tools/shiki-twoslash/tsconfig.build.json" },
-    { "path": "./tools/vp-update/tsconfig.build.json" }
+    { "path": "./tools/vp-update/tsconfig.build.json" },
+
+    // content engine
+    { "path": "./engine" }
   ],
   "files": []
 }
