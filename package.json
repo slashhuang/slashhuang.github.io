@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter @ai/docs docs:dev",
-    "build:doc": "pnpm --filter @ai/docs docs:build",
+    "build:doc": "pnpm --filter @ai/workspace build && tsx scripts/copyWorkspaceAssets.ts && pnpm --filter @ai/docs docs:build",
+    "workspace:build": "pnpm --filter @ai/workspace build",
     "build": "pnpm build:tsc && pnpm build:copy && pnpm build:style",
     "build:bundle": "pnpm -r --stream bundle",
     "build:copy": "pnpm --parallel --stream copy",
@@ -29,7 +30,11 @@
     "engine:build": "pnpm --filter @ai/content-engine build && pnpm --filter @ai/content-engine cli build",
     "engine:dev": "pnpm --filter @ai/content-engine dev",
     "engine:test": "pnpm --filter @ai/content-engine test",
-    "engine:clean": "rimraf engine/dist engine/dist"
+    "engine:clean": "rimraf engine/dist",
+    "workspace:dev": "pnpm --filter @ai/workspace dev",
+    "workspace:clean": "rimraf workspace/dist",
+    "clean:all": "pnpm clean && pnpm engine:clean && pnpm workspace:clean && rimraf docs/.vuepress/.temp docs/.vuepress/.cache",
+    "release:check": "pnpm lint && pnpm clean && pnpm build && pnpm engine:test && pnpm workspace:test"
   },
   "nano-staged": {
     "**/*": "prettier --write --ignore-unknown",
