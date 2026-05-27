@@ -1,0 +1,93 @@
+:root {
+  // Colors
+  --primary: #6366f1;
+  --primary-light: #8b5cf6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+
+  // Fonts
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Noto Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  // Font sizes
+  --text-h1: 1.75rem;
+  --text-h2: 1.25rem;
+  --text-h3: 1rem;
+  --text-body: 0.875rem;
+  --text-sm: 0.8125rem;
+  --text-caption: 0.75rem;
+  --text-code: 0.8125rem;
+
+  // Spacing scale
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  // Border radius
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-inner: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+
+  // Brand
+  --brand-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+h1 { font-size: var(--text-h1); font-weight: 700; line-height: 1.2; }
+h2 { font-size: var(--text-h2); font-weight: 600; line-height: 1.3; }
+h3 { font-size: var(--text-h3); font-weight: 600; line-height: 1.4; }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
