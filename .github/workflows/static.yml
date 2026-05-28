@@ -30,7 +30,7 @@ jobs:
         run: npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm install -r
+        run: pnpm install --frozen-lockfile
 
       - name: Run engine tests
         run: cd engine && npx --yes puppeteer browsers install chrome && cd .. && pnpm engine:test
@@ -53,19 +53,13 @@ jobs:
         run: npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm install -r
+        run: pnpm install --frozen-lockfile
 
       - name: Build engine
         run: pnpm --filter @ai/content-engine build
 
-      - name: Build workspace SPA
-        run: pnpm --filter @ai/workspace build
-
-      - name: Copy workspace assets to VuePress public
-        run: npx tsx scripts/copyWorkspaceAssets.ts
-
-      - name: Build VuePress site
-        run: pnpm --filter @ai/docs docs:build
+      - name: Build VuePress site with workspace
+        run: pnpm build:doc
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
