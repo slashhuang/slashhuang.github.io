@@ -1,39 +1,28 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: CI/CD
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ['master']
-
-  # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+    branches: ['master']
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # ── Test ──────────────────────────────────────────────
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
 
@@ -43,10 +32,38 @@ jobs:
       - name: Install dependencies
         run: pnpm install -r
 
-      - name: Build Project
-        run: pnpm build
+      - name: Run engine tests
+        run: pnpm engine:test
 
-      # run build script
+      - name: Run workspace tests
+        run: pnpm workspace:test
+
+  # ── Build & Deploy ────────────────────────────────────
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install -r
+
+      - name: Build engine
+        run: pnpm --filter @ai/content-engine build
+
+      - name: Build workspace SPA
+        run: pnpm --filter @ai/workspace build
+
+      - name: Copy workspace assets to VuePress public
+        run: npx tsx scripts/copyWorkspaceAssets.ts
+
       - name: Build VuePress site
         run: pnpm --filter @ai/docs docs:build
 
@@ -57,7 +74,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './docs/.vuepress/dist'
-      
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
