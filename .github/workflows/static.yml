@@ -33,7 +33,7 @@ jobs:
         run: pnpm install -r
 
       - name: Run engine tests
-        run: pnpm engine:test
+        run: cd engine && npx --yes puppeteer browsers install chrome && cd .. && pnpm engine:test
 
       - name: Run workspace tests
         run: pnpm workspace:test
