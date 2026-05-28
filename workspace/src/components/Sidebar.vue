@@ -10,18 +10,18 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', to: '/workspace/', icon: Home },
-  { label: 'Content List', to: '/workspace/list', icon: List },
-  { label: 'New Post', to: '/workspace/editor/new', icon: FilePlus },
+  { label: 'Home', to: '/', icon: Home },
+  { label: 'Content List', to: '/list', icon: List },
+  { label: 'New Post', to: '/editor/new', icon: FilePlus },
 ]
 
 const route = useRoute()
 
 function isActive(to: string): boolean {
-  if (to === '/workspace/' && (route.path === '/workspace/' || route.path === '/workspace')) {
+  if (to === '/' && (route.path === '/' || route.path === '')) {
     return true
   }
-  return route.path.startsWith(to) && to !== '/workspace/'
+  return route.path.startsWith(to) && to !== '/'
 }
 </script>
 

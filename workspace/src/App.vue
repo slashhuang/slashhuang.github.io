@@ -7,8 +7,8 @@ import { RouterView } from 'vue-router'
     <aside class="sidebar">
       <div class="sidebar-logo">工作台</div>
       <nav class="sidebar-nav">
-        <router-link to="/workspace/" class="nav-link" active-class="nav-link--active">首页</router-link>
-        <router-link to="/workspace/list" class="nav-link" active-class="nav-link--active">内容列表</router-link>
+        <router-link to="/" class="nav-link" active-class="nav-link--active">首页</router-link>
+        <router-link to="/list" class="nav-link" active-class="nav-link--active">内容列表</router-link>
       </nav>
     </aside>
     <main class="workspace-main">
