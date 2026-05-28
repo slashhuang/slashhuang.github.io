@@ -32,3 +32,10 @@ tsconfig.vitest-temp.json
 
 # Webstorm
 .idea
+
+# Build artifacts (generated at build time)
+content/generated/blog/
+content/generated/wechat/
+content/generated/xiaohongshu/
+docs/.vuepress/public/workspace/assets/
+docs/.vuepress/public/workspace/index.html
