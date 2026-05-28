@@ -151,7 +151,7 @@ describe('EditorView', () => {
     expect(entry!.title).toBe('Updated Title')
   })
 
-  it('frontmatter fields are editable', async () => {
+  it('frontmatter fields are editable and platforms configurable via toolbar', async () => {
     const router = createRouterWithInitialPath('/editor/new')
     await router.isReady()
 
@@ -174,8 +174,8 @@ describe('EditorView', () => {
     await tagsInput.setValue('AI, ML, Python')
     expect((tagsInput.element as HTMLInputElement).value).toBe('AI, ML, Python')
 
-    // Toggle platform checkboxes
-    const checkboxes = wrapper.findAll('.platform-check input[type="checkbox"]')
+    // Platform checkboxes are in the toolbar
+    const checkboxes = wrapper.findAll('.platform-checkbox input[type="checkbox"]')
     expect(checkboxes.length).toBe(3)
 
     // Blog should be checked by default
@@ -211,7 +211,7 @@ describe('EditorView', () => {
     expect(monacoEditor.props('language')).toBe('markdown')
   })
 
-  it('preview toggle shows preview panel', async () => {
+  it('preview panel is always visible with platform tabs', async () => {
     const router = createRouterWithInitialPath('/editor/new')
     await router.isReady()
 
@@ -224,21 +224,19 @@ describe('EditorView', () => {
 
     await flushPromises()
 
-    // Preview panel should not be visible initially
-    let previewPanel = wrapper.find('.editor-panel--preview')
-    expect(previewPanel.exists()).toBe(false)
-
-    // Click preview button
-    const toolbar = wrapper.findComponent(EditorToolbar)
-    toolbar.vm.$emit('preview')
-    await wrapper.vm.$nextTick()
-
-    // Preview panel should now be visible
-    previewPanel = wrapper.find('.editor-panel--preview')
+    // Preview panel should be visible from the start
+    const previewPanel = wrapper.find('.editor-panel--preview')
     expect(previewPanel.exists()).toBe(true)
 
     // Editor panels should have the preview class
     const panels = wrapper.find('.editor-panels')
     expect(panels.classes()).toContain('editor-panels--preview')
+
+    // Platform tabs should be visible in the preview
+    const tabs = wrapper.findAll('.preview-platform-tab')
+    expect(tabs.length).toBe(1) // Only blog is selected by default
+
+    // Clicking a tab changes the active platform
+    expect(wrapper.vm.activePlatform).toBe('blog')
   })
 })
