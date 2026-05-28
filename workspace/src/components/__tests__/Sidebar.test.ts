@@ -8,9 +8,8 @@ function createRouterForTest(initialRoute: string) {
     history: createWebHistory(),
     routes: [
       { path: '/', component: { template: '<div>Home</div>' } },
-      { path: '/workspace/', component: { template: '<div>Home</div>' } },
-      { path: '/workspace/list', component: { template: '<div>List</div>' } },
-      { path: '/workspace/editor/new', component: { template: '<div>Editor</div>' } },
+      { path: '/list', component: { template: '<div>List</div>' } },
+      { path: '/editor/new', component: { template: '<div>Editor</div>' } },
     ],
   })
   router.push(initialRoute)
@@ -37,13 +36,13 @@ describe('Sidebar', () => {
 
     const links = wrapper.findAll('.sidebar-link')
     const hrefs = links.map(l => l.attributes('href'))
-    expect(hrefs).toContain('/workspace/')
-    expect(hrefs).toContain('/workspace/list')
-    expect(hrefs).toContain('/workspace/editor/new')
+    expect(hrefs).toContain('/')
+    expect(hrefs).toContain('/list')
+    expect(hrefs).toContain('/editor/new')
   })
 
   it('highlights the active nav link based on route', async () => {
-    const router = createRouterForTest('/workspace/list')
+    const router = createRouterForTest('/list')
     const wrapper = mount(Sidebar, {
       global: { plugins: [router] },
     })
