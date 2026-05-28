@@ -58,6 +58,9 @@ jobs:
       - name: Build engine
         run: pnpm --filter @ai/content-engine build
 
+      - name: Build VuePress monorepo
+        run: pnpm build:tsc
+
       - name: Build VuePress site with workspace
         run: pnpm build:doc
 
