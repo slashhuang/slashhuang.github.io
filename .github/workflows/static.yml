@@ -61,6 +61,9 @@ jobs:
       - name: Build VuePress monorepo
         run: pnpm build:tsc
 
+      - name: Copy theme assets (Vue/SCSS)
+        run: pnpm build:copy
+
       - name: Build styles (SCSS → CSS)
         run: pnpm build:style
 
