@@ -9,6 +9,10 @@ interface Props {
   status?: 'draft' | 'published'
 }
 
+const emit = defineEmits<{
+  click: []
+}>()
+
 withDefaults(defineProps<Props>(), {
   tags: () => [],
   platforms: () => [],
@@ -17,7 +21,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <article class="content-card">
+  <article class="content-card" @click="emit('click')">
     <div class="content-card-header">
       <h3 class="content-card-title">{{ title }}</h3>
       <span
@@ -49,6 +53,7 @@ withDefaults(defineProps<Props>(), {
   border-radius: var(--radius-md);
   padding: var(--space-4);
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
   transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 
   &:hover {

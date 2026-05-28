@@ -76,6 +76,7 @@ function navigateToEditor() {
         :platforms="entry.targets"
         :tags="entry.tags"
         :status="entry.status"
+        @click="router.push(`/editor/${entry.id}`)"
       />
     </div>
 
